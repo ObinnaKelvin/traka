@@ -1,0 +1,269 @@
+.container {
+    padding: 10px;
+}
+.stats {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 20px;
+    /* border: 1px solid red; */
+}
+
+.facilityStats {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 200px;
+    /* border: 1px solid grey; */
+    border-radius: 10px;
+    box-shadow: 0px 10px 23px rgb(0 0 0 / 12%);
+    background-color: white;
+}
+
+.facility {
+    /* background-color: #7B2869; */
+    /* color: white; */
+    /* max-width: fit-content; */
+    width: 90%;
+    margin-top: 10px;
+    font-size: 12px;
+    padding: 10px;
+}
+
+.facility.ikejaAwolowo {
+    /* background-color: white; */
+    /* background-color: #7B2869; */
+    background-color: #00337C;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.facility.ikejaJones{
+    /* background-color: white; */
+    background-color: #01579b;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.facility.victoriaIsland {
+    /* background-color: white; */
+    background-color: #7B2869;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.facility.fabac {
+    color: white;
+    background-color: #ff1744;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.facility.ikoyi {
+    color: white;
+    background-color: #579BB1;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.facility.total {
+    /* background-color: #CB1C8D; */
+    /* background-color: white; */
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.facilityStats.ikejaJones {
+    background-color: #01579b;
+    color: white;
+} 
+
+.facilityStats.ikejaAwolowo {
+    background-color: #00337C;
+    color: white;
+}
+.facilityStats.victoriaIsland {
+    background-color: #7B2869;
+    color: white;
+}
+
+.facilityStats.fabac {
+    color: white;
+    background-color: #ff1744
+} 
+
+.facilityStats.ikoyi {
+    color: white;
+    background-color: #579BB1;
+}
+
+.facilityStats.total {
+    background-color: #CB1C8D;
+    color: white;
+}
+
+
+
+.cases {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.icon {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    /* background-color: #ECECEC; */
+    /* background-color: #7B2869; */
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color: white;
+    font-size: 30px;
+}
+
+.icon.ikejaJones, .icon.ikejaAwolowo,.icon.victoriaIsland,.icon.fabac, .icon.ikoyi {
+    /* background-color: #7B2869; */
+    /* color: #7B2869; */
+    color: white;
+    /* background-color: #EEEEEE */
+}
+
+/* .icon.ikejaJones{
+    background-color: #00337C;
+    color: #00337C;
+    background-color: #EEEEEE
+} */
+
+/* .icon.victoriaIsland {
+    background-color: #0081B4;
+    color: #0081B4;
+    background-color: #EEEEEE;
+} */
+
+/* .icon.fabac {
+    background-color: #FF6E31;
+    color: #FF6E31;
+    background-color: #EEEEEE;
+} */
+
+/* .icon.ikoyi {
+    background-color: #579BB1;
+    color: #579BB1;
+    background-color: #EEEEEE;
+} */
+
+.icon.total {
+    background-color: #CB1C8D;
+}
+
+.figures {
+    font-size: 50px;
+}
+
+.status {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Open {
+    height: 15px;
+    width: 70px;
+    background-color: #FFB100;
+    color: white;
+    /* border: 1px solid salmon; */
+    border-radius: 20px;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px;
+    margin: 20px 0px 0px 10px;
+}
+
+.Closed {
+    height: 15px;
+    width: 70px;
+    background-color: #61876E; /* #61876E; */
+    color: white;
+    /* border: 1px solid salmon; */
+    border-radius: 20px;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px;
+    margin: 20px 10px 0px 0px;
+}
+
+@media screen and (max-width: 480px) {
+
+    .container {
+        padding: 5px;
+    }
+
+    .stats {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .facilityStats {
+        /* display: flex;
+        flex-direction: column; */
+        width: 150px;
+        height: 200px;
+        margin-bottom: 10px;
+    }
+
+    .facility {
+        padding: 7px;
+    }
+
+    .facility.ikejaAwolowo, .facility.ikejaJones, .facility.victoriaIsland, .facility.fabac, .facility.ikoyi, .facility.total {
+        font-size: 12px;
+    }
+
+    .cases {
+        /* margin-top: 10px;
+        display: flex;
+        justify-content: space-between; */
+        padding: 7px;
+    }
+
+    .icon {
+        font-size: 25px;
+    }
+
+    .figures {
+        font-size: 45px;
+    }
+
+    .Open {
+        height: 15px;
+        width: 60px;
+        font-size: 12px;
+        justify-content: space-between;
+        align-items: center;
+        padding: 3px;
+        margin: 20px 0px 0px 5px;
+    }
+
+    .Closed {
+        height: 15px;
+        width: 60px;
+        font-size: 12px;
+        justify-content: space-between;
+        align-items: center;
+        padding: 3px;
+        margin: 20px 5px 0px 0px;
+    }
+
+}

@@ -1,0 +1,10 @@
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+.container {
+    /* background-color: #f0f1f3; */
+    background-color: #F9F9F9;
+    height: 100vh;
+}
