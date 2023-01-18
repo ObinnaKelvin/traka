@@ -1,0 +1,25 @@
+
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    width: 30px;
+    cursor: pointer;
+}
+
+.hamOne {
+    background-color: #01579b;
+    height: 1px;
+    margin-bottom: 10px;
+}
+
+.hamTwo {
+    background-color: #01579b;
+    height: 1px;
+    margin-bottom: 10px;
+}
+
+.hamThree {
+    background-color: #01579b;
+    height: 1px;
+}
