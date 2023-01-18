@@ -3,10 +3,12 @@ import './dashboard.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChartSimple, faHospital } from '@fortawesome/free-solid-svg-icons'
 import CountUp from 'react-countup';
+import AddButton from '../../components/addButton/AddButton';
 
 const Dashboard = () => {
   return (
     <div className='container'>
+        <AddButton />
         Dashboard
         <div className="stats">
             <div className="facilityStats ikejaJones">
@@ -151,6 +153,8 @@ const Dashboard = () => {
                 </div>
             </div>
         </div>
+
+        {/* <AddButton /> */}
     </div>
   )
 }
