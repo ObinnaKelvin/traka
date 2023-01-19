@@ -1,6 +1,87 @@
+.navBar {
+    /* border: 1px solid red; */
+    padding-top: 10px;
+    /* position: fixed */
+}
+
 
 .navBar-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    width: 30px;
+    cursor: pointer;
+}
+
+.hamOne {
+    background-color: #01579b;
+    height: 2px;
+    margin-bottom: 10px;
+    border-radius: 50px;
+}
+
+.hamTwo {
+    background-color: #01579b;
+    height: 2px;
+    margin-bottom: 10px;
+    border-radius: 50px;
+}
+
+.hamThree {
+    background-color: #01579b;
+    height: 2px;
+    border-radius: 50px;
+}
+
+.navBar-sideBar {
+    color: white;
+    height: 100vh;
+    width: 300px;
+    background-color: #01579b;
+    position: fixed;
+    top: 10%;
+    /* left: 85%; */
+    left: 95%;
+    padding: 10px ;
+    z-index: 2;
+    transition: 800ms;
+    border-radius: 10px 0px 0px 0px;
+    /* inset: 0 0 0 90%; */
+}
+
+.navBar-sideBar li {
+    list-style: none;
+    text-decoration: none;
+    display: flex;
+    padding: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.navBar-sideBar span {
+    margin-right: 30px;
+}
+
+.navBar-sideBar.open {
+    left: 85%;
+    transition: 800ms;
+}
+
+
+@media screen and (max-width: 480px) {
+
+    .navBar-sideBar {
+        left: 120%;
+        transition: 700ms;
+    }
+
+    .navBar-sideBar.open {
+        left: 25%;
+        transition: 700ms;
+    }
 }
