@@ -21,6 +21,10 @@
     box-shadow: rgb(0 0 0 / 60%) 0px 6px 30px 0px;
 }
 
+.add-link {
+    text-decoration: none;
+}
+
 @media screen and (max-width: 480px) {
     .add-container {
         z-index: 1;

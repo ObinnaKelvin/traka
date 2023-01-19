@@ -1,0 +1,68 @@
+.create-container {
+    padding: 10px;
+}
+
+.create-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 50px 0px 50px 0px;
+}
+
+.create-form-header {
+    font-weight:200;
+    font-size: 30px;
+    margin-bottom: 40px;
+}
+
+.create-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.create-form .formInput{
+    height: 30px;
+    width: 300px;
+    padding: 5px;
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    outline: none;
+}
+
+.create-form .formTextArea{
+    height: 100px;
+    width: 300px;
+    padding: 25px 5px 5px 5px;
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    outline: none;
+}
+
+.create-form .formSelect{
+    height: 50px;
+    width: 300px;
+    padding: 25px 5px 5px 5px;
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    outline: none;
+}
+
+.create-form form label {
+    color: #01579b;
+    position: absolute;
+    font-size: 10px;
+    font-weight: 600;
+    margin: -6px 0px 0px -2px;
+}
+
+.create-form form button {
+    background-color: #01579b;
+    color: white;
+    height: 50px;
+    border: none;
+    border-radius: 30px;
+    font-size: 20px;
+    margin-top: 20px 0px 0px 0px;
+}
