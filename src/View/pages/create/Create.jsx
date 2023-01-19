@@ -6,6 +6,7 @@ import './create.css'
 const Create = () => {
 
   const [issue, setIssue] = useState('');
+  const [description, setDescription] = useState('');
 
   
 
@@ -22,7 +23,7 @@ const Create = () => {
             </p>
             <p>
               <label>Description</label>
-              <textarea className = 'formTextArea' type="text" name='' value={issue} onChange={(e)=> setIssue(e.target.value)} placeholder="Can you describe as detailed as possible?"/>
+              <textarea className = 'formTextArea' type="text" name='' value={description} onChange={(e)=> setDescription(e.target.value)} placeholder="Can you describe as detailed as possible?"/>
             </p>
             <p>
               <label>Facility</label>
@@ -62,7 +63,7 @@ const Create = () => {
             </p>
             <p>
               <label>Reported by</label>
-              <input className = 'formInput' type="text" name='' value={issue} onChange={(e)=> setIssue(e.target.value)}></input>
+              <input className = 'formInput' type="text" name=''></input>
             </p>
             {/* <p>
               <label>Responsibility</label>
@@ -79,11 +80,11 @@ const Create = () => {
             </p>
             <p>
               <label>Date Opened</label>
-              <input className = 'formInput' type="text" name='' value={issue} onChange={(e)=> setIssue(e.target.value)}></input>
+              <input className = 'formInput' type="text" name=''></input>
             </p>
             <p>
               <label>Date Closed</label>
-              <input className = 'formInput' type="text" name='' value={issue} onChange={(e)=> setIssue(e.target.value)}></input>
+              <input className = 'formInput' type="text" name='' ></input>
             </p>
 
             <button>Create</button>
