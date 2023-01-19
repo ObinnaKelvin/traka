@@ -5,7 +5,7 @@ import './team.css'
 
 const Team = () => {
   return (
-    <div className='container'>
+    <div className='team-container'>
         <AddButton />
         <NavBar />
         Team

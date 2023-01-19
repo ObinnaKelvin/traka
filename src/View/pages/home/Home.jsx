@@ -4,7 +4,6 @@ import NavBar from "../../components/navigation/NavBar";
 const Home = () => {
   return (
     <div className="container">
-      <NavBar />
       <Dashboard />
     </div>
   )
