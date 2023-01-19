@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Chatbox from "./View/pages/chatbox/Chatbox.jsx";
 import Home from "./View/pages/home/Home.jsx";
 import Incidence from "./View/pages/incidence/Incidence.jsx";
+import Team from "./View/pages/team/Team.jsx";
 
 function App() {
   return (
@@ -9,6 +11,8 @@ function App() {
           <Route path='/' element={<Home />}/>
           <Route path='/dashboard' element={<Home />}/>
           <Route path='/incidence' element={<Incidence />}/>
+          <Route path='/team' element={<Team />}/>
+          <Route path='/chatbox' element={<Chatbox />}/>
         </Routes>
       </Router>
   );

@@ -1,15 +1,16 @@
 import React from 'react'
 import AddButton from '../../components/addButton/AddButton'
 import NavBar from '../../components/navigation/NavBar'
+import './team.css'
 
-const Incidence = () => {
+const Team = () => {
   return (
     <div className='container'>
-      <AddButton />
-      <NavBar />
-      Incidence
+        <AddButton />
+        <NavBar />
+        Team
     </div>
   )
 }
 
-export default Incidence
+export default Team

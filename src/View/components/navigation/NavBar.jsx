@@ -29,22 +29,28 @@ const NavBar = () => {
         <div className={open ? 'navBar-sideBar open' : 'navBar-sideBar'}>
             <ul>
               <li>
-                <Link to ="/dashboard">
+                <Link className='link' to ="/dashboard">
                   <span><FontAwesomeIcon icon={faChartLine}/></span>
                   <span>Dashboard</span>
                 </Link>
               </li>
               <li>
-                <span><FontAwesomeIcon icon={faBug}/></span>
-                <span>Incidences</span>
+                <Link className='link' to ="/incidence">
+                  <span><FontAwesomeIcon icon={faBug}/></span>
+                  <span>Incidences</span>
+                </Link>
               </li>
               <li>
-                <span><FontAwesomeIcon icon={faPeopleGroup}/></span>
-                <span>Team</span>
+                <Link className='link' to ="/team">
+                  <span><FontAwesomeIcon icon={faPeopleGroup}/></span>
+                  <span>Team</span>
+                </Link>
               </li>
               <li>
-                <span><FontAwesomeIcon icon={faComments}/></span>
-                <span>Chatbox</span>
+                <Link className='link' to ="/chatbox">
+                  <span><FontAwesomeIcon icon={faComments}/></span>
+                  <span>Chatbox</span>
+                </Link>
               </li>
             </ul>
         </div>
