@@ -26,6 +26,30 @@ const Create = () => {
               <textarea className = 'formTextArea' type="text" name='' value={description} onChange={(e)=> setDescription(e.target.value)} placeholder="Can you describe as detailed as possible?"/>
             </p>
             <p>
+              <label>Category</label>
+              <select className = 'formSelect'>
+                <option>--Select One--</option>
+                <option>User creation</option>
+                <option>User priviledges</option>
+                <option>Password reset</option>
+                <option>Service price update</option>
+                <option>Item price update</option>
+                <option>Service price configuration update</option>
+                <option>EMR user enquiry</option>
+                <option>Service creation</option>
+                <option>Company creation</option>
+                <option>Tariff upload/Tariff update</option>
+                <option>Payor Configuration Update (Approvals/Exclusions)</option>
+                <option>Bill resolutions</option>
+                <option>Bed Occupancy</option>
+                <option>Report requests</option>
+                <option>EMR bugs /Incidences</option>
+                <option>CRM incidences</option>
+                <option>Sage incidences</option>
+              </select>
+              {/* <input type="text" name='' value={issue} onChange={(e)=> setIssue(e.target.value)}></input> */}
+            </p>
+            <p>
               <label>Facility</label>
               <select className = 'formSelect'>
                 <option>--Select One--</option>
@@ -72,7 +96,7 @@ const Create = () => {
             <p>
               <label>Status</label>
                 <select className = 'formSelect'>
-                  <option>--Select One--</option>
+                  {/* <option>--Select One--</option> */}
                   <option>Open</option>
                   <option>Closed</option>
                   <option>Delayed</option>
