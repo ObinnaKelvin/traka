@@ -26,7 +26,7 @@ const Login = () => {
                     </p>
                     <p>
                         <label>Password</label>
-                        <input type="text" className='formInput' placeholder="Enter your password"></input>
+                        <input type="password" className='formInput' placeholder="Enter your password"></input>
                     </p>
 
                     <Link className='login-link' to="/dashboard">
