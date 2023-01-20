@@ -114,6 +114,12 @@
         background-size: cover;
         background-position: center;
     }
+
+    .login-form-wrapper {
+        width: 75%;
+        height: 420px;
+    }
+    
     .login-wrapper-left {
         display: none;
     }
@@ -125,7 +131,7 @@
     .login-wrapper-right form {
         display: flex;
         flex-direction: column;
-        gap: 30px;
+        gap: 50px;
     }
 
     .login-wrapper-right .formInput{
