@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBug, faChartLine, faComments, faPeopleGroup } from '@fortawesome/free-solid-svg-icons'
+import { faArrowRightFromBracket, faBug, faChartLine, faComments, faPeopleGroup } from '@fortawesome/free-solid-svg-icons'
 import './navbar.css'; 
 import { Link } from 'react-router-dom';
 
@@ -50,6 +50,12 @@ const NavBar = () => {
                 <Link className='link' to ="/chatbox">
                   <span><FontAwesomeIcon icon={faComments}/></span>
                   <span>Chatbox</span>
+                </Link>
+              </li>
+              <li className='logout'>
+                <Link className='link logout' to ="/">
+                  <span><FontAwesomeIcon icon={faArrowRightFromBracket}/></span>
+                  <span>Log Out</span>
                 </Link>
               </li>
             </ul>

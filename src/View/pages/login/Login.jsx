@@ -10,7 +10,7 @@ const Login = () => {
         <div className="login-form-wrapper">
             <div className="login-wrapper-left">
                 <div className="login-caption">
-                    "...Keep track, stay on track"
+                    "...Keep track, stay on traka"
                 </div>
                 <div className="login-overlay-wrapper">
                     <div className="login-overlay"></div>

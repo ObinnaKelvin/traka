@@ -5,13 +5,39 @@ import { faChartSimple, faHospital } from '@fortawesome/free-solid-svg-icons'
 import CountUp from 'react-countup';
 import AddButton from '../../components/addButton/AddButton';
 import NavBar from '../../components/navigation/NavBar';
+import { useState, useEffect } from 'react';
 
 const Dashboard = () => {
+
+    const [greet, setGreet] = useState('')
+
+    const handleGreet = () => {
+        let today = new Date()
+        let getCurrentHour = today.getHours() 
+
+        if (getCurrentHour < 12) {
+            setGreet("Good Morning");
+        }
+        else if (getCurrentHour < 18) {
+            setGreet("Good Afternoon");
+        }
+        else {
+            setGreet("Good Evening");
+        }
+    }
+
+    useEffect(() => {
+        handleGreet();
+    }, [])
+    
   return (
     <div className='dashboard-container'>
         <NavBar />
         <AddButton />
-        Dashboard
+        {/* Dashboard */}
+        <div className="greetings">
+            Hi, {greet}
+        </div>
         <div className="stats">
             <div className="facilityStats ikejaJones">
                 <div className="facility ikejaJones">

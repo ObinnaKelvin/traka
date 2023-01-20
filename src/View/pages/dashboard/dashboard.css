@@ -4,6 +4,10 @@
     /* width: 95%; */
     /* margin-bottom: 100px; */
 }
+
+.greetings {
+    margin: 20px 0px 20px 0px;
+}
 .stats {
     display: flex;
     flex-direction: row;
