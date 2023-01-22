@@ -36,7 +36,7 @@ const Dashboard = () => {
         <AddButton />
         {/* Dashboard */}
         <div className="greetings">
-            Hi, {greet}
+            Hi! <span className="wave">👋</span> {greet}
         </div>
         <div className="stats">
             <div className="facilityStats ikejaJones">
