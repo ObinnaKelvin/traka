@@ -4,3 +4,73 @@
     /* width: 95%; */
     /* margin-bottom: 100px; */
 }
+
+.incidence-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.incidence-cases {
+    border: 1px solid #EEEEEE;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 300px;
+}
+
+.incidence-category {
+    font-size: 12px;
+    color: #01579b;
+    border: 1px solid #01579b;
+    max-width: max-content;
+    padding: 1px 5px;
+    border-radius: 50px;
+}
+
+.incidence-detail {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.incidence-reporter {
+    display: flex;
+    font-size: 14px;
+    justify-content: space-between;
+    font-size: 11px;
+    /* opacity: 0.5; */
+}
+
+.incidence-priority.high {
+    color: #fff;
+    background-color: #FD841F;
+    border-radius: 10px;
+    padding: 0px 5px;
+}
+
+.incidence-priority.medium {
+    color: #fff;
+    background-color: #FFC93C;
+    border-radius: 10px;
+    padding: 0px 5px;
+}
+
+.incidence-priority.immediate {
+    color: #fff;
+    background-color: #FF0032;
+    border-radius: 10px;
+    padding: 0px 5px;
+}
+
+.incidence-priority.low {
+    color: #fff;
+    background-color: #5F6F94;
+    border-radius: 10px;
+    padding: 0px 5px;
+}
+
+.incidence-user,.incidence-date  {
+    opacity: 0.6;
+}

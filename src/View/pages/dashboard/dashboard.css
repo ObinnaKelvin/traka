@@ -68,14 +68,14 @@
 
 .facility.fabac {
     color: white;
-    background-color: #ff1744;
+    background-color: #9C254D;
     font-size: 15px;
     font-weight: bold;
 }
 
 .facility.ikoyi {
     color: white;
-    background-color: #579BB1;
+    background-color: #645CAA;
     font-size: 15px;
     font-weight: bold;
 }
@@ -104,12 +104,12 @@
 
 .facilityStats.fabac {
     color: white;
-    background-color: #ff1744
+    background-color: #9C254D
 } 
 
 .facilityStats.ikoyi {
     color: white;
-    background-color: #579BB1;
+    background-color: #645CAA;
 }
 
 .facilityStats.total {
@@ -176,6 +176,18 @@
 
 .figures {
     font-size: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.figures span:nth-child(1) {
+    max-width: max-content;
+}
+
+.figures span:nth-child(2) {
+    font-size: 10px;
+    position: absolute;
+    font-style: italic;
 }
 
 .status {

@@ -48,7 +48,10 @@ const Dashboard = () => {
                         <FontAwesomeIcon icon={faHospital}/>
                     </div>
                     <div className="figures">
-                        <CountUp end={42} duration={2}/>
+                        <span>
+                            <CountUp end={42} duration={2}/>
+                        </span>
+                        <span>Cases</span>
                     </div>
                 </div>
                 <div className="status">
@@ -72,7 +75,10 @@ const Dashboard = () => {
                         <FontAwesomeIcon icon={faHospital}/>
                     </div>
                     <div className="figures">
-                        <CountUp end={51} duration={2}/>
+                        <span>
+                            <CountUp end={51} duration={2}/>
+                        </span>
+                        <span>Cases</span>
                     </div>
                 </div>
                 <div className="status">
@@ -96,7 +102,12 @@ const Dashboard = () => {
                         <FontAwesomeIcon icon={faHospital}/>
                     </div>
                     <div className="figures">
-                        <CountUp end={30} duration={2}/>
+                        <span>
+                            <CountUp end={30} duration={2}/>
+                        </span>
+                        <span>
+                            Cases
+                        </span>
                     </div>
                 </div>
                 <div className="status">
@@ -120,7 +131,10 @@ const Dashboard = () => {
                         <FontAwesomeIcon icon={faHospital}/>
                     </div>
                     <div className="figures">
-                        <CountUp end={55} duration={2}/>
+                        <span>
+                            <CountUp end={55} duration={2}/>
+                        </span>
+                        <span>Cases</span>
                     </div>
                 </div>
                 <div className="status">
@@ -143,7 +157,10 @@ const Dashboard = () => {
                         <FontAwesomeIcon icon={faHospital}/>
                     </div>
                     <div className="figures">
-                        <CountUp end={69} duration={2}/>
+                        <span>
+                            <CountUp end={69} duration={2}/>
+                        </span>
+                        <span>Cases</span>
                     </div>
                 </div>
                 <div className="status">
@@ -166,7 +183,10 @@ const Dashboard = () => {
                         <FontAwesomeIcon icon={faChartSimple}/>
                     </div>
                     <div className="figures">
-                        <CountUp end={247} duration={2}/>
+                        <span>
+                            <CountUp end={247} duration={2}/>
+                        </span>
+                        <span>Cases</span>
                     </div>
                 </div>
                 <div className="status">

@@ -104,7 +104,7 @@ const Create = () => {
             </p>
             <p>
               <label>Reported by</label>
-              <input className = 'formInput' type="text" name=''></input>
+              <input className = 'formInput' type="text" name='' disabled></input>
             </p>
             {/* <p>
               <label>Responsibility</label>
