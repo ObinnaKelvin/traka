@@ -1,0 +1,75 @@
+.update-container {
+    padding: 10px;
+}
+
+.update-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 50px 0px 50px 0px;
+}
+
+.update-form-header {
+    font-weight:200;
+    font-size: 30px;
+    margin-bottom: 40px;
+}
+
+.update-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.update-form .formInput{
+    height: 30px;
+    width: 300px;
+    padding: 5px;
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    outline: none;
+}
+
+.update-form .formTextArea{
+    height: 100px;
+    width: 300px;
+    padding: 25px 5px 5px 5px;
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    outline: none;
+}
+
+.update-form .formSelect{
+    height: 50px;
+    width: 300px;
+    padding: 25px 5px 5px 5px;
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    outline: none;
+}
+
+.update-form form label {
+    color: #01579b;
+    position: absolute;
+    font-size: 10px;
+    font-weight: 600;
+    margin: -6px 0px 0px -2px;
+}
+
+.update-form form button {
+    background-color: #01579b;
+    color: white;
+    height: 50px;
+    border: none;
+    border-radius: 30px;
+    font-size: 20px;
+    margin-top: 20px 0px 0px 0px;
+}
+
+.update-activeStatus {
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}

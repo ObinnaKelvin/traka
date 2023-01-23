@@ -74,6 +74,7 @@
     flex-direction: column;
     gap: 10px;
     width: 270px;
+    position: relative;
 }
 
 .incidence-category {
@@ -163,12 +164,13 @@
 
     .incidence-cases {
         width: 100%;
+        position: relative;
     }
 
     .done {
         color: #54B435;
         position: absolute;
-        margin-left: 300px;
+        margin-left: 340px;
         margin-top: -6px;
     }
 }

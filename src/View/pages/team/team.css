@@ -81,7 +81,7 @@
 }
 
 .team-member-phone, .team-member-facility, .team-member-email {
-    font-size: 9px;
+    font-size: 10px;
     opacity: 0.6;
     display: flex;
     /* flex-wrap: wrap; */
@@ -93,5 +93,9 @@
 @media screen and (max-width: 480px) {
     .team-member{
         width: 100%;
+    }
+
+    .team-member-phone, .team-member-facility, .team-member-email {
+        font-size: 11px;
     }
 }
