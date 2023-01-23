@@ -163,4 +163,11 @@
     .incidence-cases {
         width: 100%;
     }
+
+    .done {
+        color: #54B435;
+        position: absolute;
+        margin-left: 300px;
+        margin-top: -6px;
+    }
 }
