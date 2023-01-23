@@ -5,10 +5,64 @@
     /* margin-bottom: 100px; */
 }
 
+.incidence-header {
+    margin-top: 30px;
+    font-size: 30px;
+    font-weight: 300;
+}
+
+.incidence-location {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: right;
+    margin: 0px 120px 30px 0px;
+}
+
+.incidence-location span:nth-child(1) {
+    color: #B2B2B2;
+    padding-top: 5px;
+}
+
+.incidence-select {
+    height: 50px;
+    width: 200px;
+    padding: 10px 5px 5px 5px;
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    outline: none;    
+}
+
 .incidence-wrapper {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    align-items: center;
+}
+
+.incidence-tabs-wrapper {
+    display: flex;
+    border: 1px solid #eeeeee;
+    gap: 40px;
+    border-radius: 20px;
+    max-width: max-content;
+    padding: 5px 15px 5px 15px;
+    box-shadow: 0 10px 30px -8px rgb(0 0 0 / 10%);
+    align-items: center;
+    justify-content: center;
+    margin: 0px auto 20px auto;
+    height: 20px;
+}
+
+.incidence-tabs-wrapper div:nth-child() {
+
+}
+
+.incidence-tab {
+    cursor: pointer;
+    opacity: 0.6;
+    font-size: 12px;
 }
 
 .incidence-cases {
@@ -18,7 +72,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 300px;
+    width: 270px;
 }
 
 .incidence-category {
@@ -28,6 +82,13 @@
     max-width: max-content;
     padding: 1px 5px;
     border-radius: 50px;
+}
+
+.done {
+    color: #54B435;
+    position: absolute;
+    margin-left: 260px;
+    margin-top: -6px;
 }
 
 .incidence-detail {
@@ -73,4 +134,33 @@
 
 .incidence-user,.incidence-date  {
     opacity: 0.6;
+}
+
+
+@media screen and (max-width: 480px) {
+    .incidence-header {
+        margin-top: 20px;
+        font-size: 25px;
+        font-weight: 300;
+        /* text-align: center; */
+    }
+    .incidence-location {
+        align-items: center;
+        justify-content: center;
+        margin: 0px 0px 30px 0px;        
+    }
+
+    .incidence-select {
+        height: 40px;
+        width: 200px;
+        padding: 10px 5px 5px 5px;
+        border: none;
+        border-bottom: 1px solid #e0e0e0;
+        outline: none; 
+        font-size: 12px;   
+    }
+
+    .incidence-cases {
+        width: 100%;
+    }
 }
