@@ -44,7 +44,7 @@
 .incidence-tabs-wrapper {
     display: flex;
     border: 1px solid #eeeeee;
-    gap: 40px;
+    /* gap: 40px; */
     border-radius: 20px;
     max-width: max-content;
     padding: 5px 15px 5px 15px;
@@ -55,14 +55,15 @@
     height: 20px;
 }
 
-.incidence-tabs-wrapper div:nth-child() {
-
+.incidence-tabs-wrapper div:not(:last-child) {
+    border-right: 1px solid #bdbdbd;
 }
 
 .incidence-tab {
     cursor: pointer;
     opacity: 0.6;
     font-size: 12px;
+    padding: 2px 20px 2px 20px ;
 }
 
 .incidence-cases {

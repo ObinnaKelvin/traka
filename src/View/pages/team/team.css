@@ -4,3 +4,94 @@
     /* width: 95%; */
     /* margin-bottom: 100px; */
 }
+
+.team-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.team-wrapper p {
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.team-group {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.team-member {
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+    border: 1px solid #EEEEEE;
+    padding: 15px 7px;
+    border-radius: 5px;
+    gap: 10px;
+    width: 280px;
+    max-height: max-content;
+}
+
+.team-member-avatar {
+    width: 30%;
+}
+
+.team-member-avatar span {
+    border-radius: 50%;
+    background-color: #f5f5f5;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #01579b;
+    width: 80px;
+    height: 80px;
+    /* border: 1px solid red; */
+}
+
+.team-member-rank {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    margin-top: 50px;
+    margin-left: 60px;
+    background-color: #54B435;
+    border-radius: 50%;
+}
+
+.team-member-rank-levelTwo {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    margin-top: 50px;
+    margin-left: 60px;
+    background-color: #FFD700;
+    border-radius: 50%;
+}
+
+.team-member-details {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.team-member-phone, .team-member-facility, .team-member-email {
+    font-size: 9px;
+    opacity: 0.6;
+    display: flex;
+    /* flex-wrap: wrap; */
+    gap: 4px;
+    align-items: center;
+}
+
+
+@media screen and (max-width: 480px) {
+    .team-member{
+        width: 100%;
+    }
+}
