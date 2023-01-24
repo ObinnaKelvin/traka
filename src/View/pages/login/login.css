@@ -67,6 +67,10 @@
     gap: 20px;
 }
 
+.logo {
+    width: 200px;
+}
+
 .login-wrapper-right form {
     display: flex;
     flex-direction: column;

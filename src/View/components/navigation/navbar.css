@@ -1,6 +1,6 @@
 .navBar {
     /* border: 1px solid red; */
-    padding-top: 10px;
+    padding-top: 0px;
     /* position: fixed */
 }
 
@@ -20,6 +20,14 @@
     align-items: center;
 }
 
+.nav-logo {
+    width: 90px;
+    /* border: 1px solid red; */
+    margin: -26px 0px 0px -12px;
+    position: absolute;
+    cursor: pointer;
+}
+
 .hamburger {
     display: flex;
     flex-direction: column;
@@ -30,14 +38,14 @@
 .hamOne {
     background-color: #01579b;
     height: 2px;
-    margin-bottom: 10px;
+    margin-bottom: 7px;
     border-radius: 50px;
 }
 
 .hamTwo {
     background-color: #01579b;
     height: 2px;
-    margin-bottom: 10px;
+    margin-bottom: 7px;
     border-radius: 50px;
 }
 

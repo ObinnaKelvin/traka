@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRightFromBracket, faBug, faChartLine, faComments, faPeopleGroup } from '@fortawesome/free-solid-svg-icons'
 import './navbar.css'; 
 import { Link } from 'react-router-dom';
+import logo from '../../assets/images/traka_logo.gif'
 
 const NavBar = () => {
 
@@ -17,7 +18,9 @@ const NavBar = () => {
     <div className='navBar'>
         <div className="navBar-header">
             <div className="navBar-header-logo">
-                traka
+              <Link to={'/dashboard'}>
+                <img src={logo} alt="traka logo" className='nav-logo'/>
+              </Link>
             </div>
             {/* <Hamburger /> */}
             <div className="hamburger" onClick={toggle}>

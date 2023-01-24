@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { signIn } from '../../../Controller/Redux/authSlice'
 import './login.css';
 import trakabg from '../../assets/images/traka1.jpg'
+import logo from '../../assets/images/traka_logo.gif'
 
 const Login = () => {
     const dispatch = useDispatch();
@@ -41,7 +42,7 @@ const Login = () => {
                 </div>
             </div>
             <div className="login-wrapper-right">
-                <div className="login-logo-wrapper">traka</div>
+                <div className="login-logo-wrapper"><img src={logo} alt="traka logo" className='logo'/></div>
                 <form>
                     <p>
                         <label>First Name</label>
