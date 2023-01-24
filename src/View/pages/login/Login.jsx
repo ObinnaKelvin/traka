@@ -13,13 +13,13 @@ const Login = () => {
         password:""
     })
 
-    const inputChanged = (e) => {
-        setFormInput({
-            ...formInput,
-            [e.target.name]: e.target.value
-            // [e.target.name]: e.target.value
-        })
-    }
+    // const inputChanged = (e) => {
+    //     setFormInput({
+    //         ...formInput,
+    //         [e.target.name]: e.target.value
+    //         // [e.target.name]: e.target.value
+    //     })
+    // }
 
     const submit =(e) => {
         dispatch(signIn(formInput))

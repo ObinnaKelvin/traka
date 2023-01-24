@@ -14,9 +14,9 @@ function App() {
       <Router>
         <Routes>
           {/* <>
-          {
-          auth.loggedIn ? <Route path='/' element={<Login />}/>
-          }
+            {
+              auth.loggedIn ? <Route path='/' element={<Login />}/>
+            }
           </> */}
           <Route path='/' element={<Login />}/>
           <Route path='/dashboard' element={<Home />}/>

@@ -4,8 +4,13 @@ import React from 'react'
 import AddButton from '../../components/addButton/AddButton'
 import NavBar from '../../components/navigation/NavBar'
 import './incidence.css'
+// import { useDispatch, useSelector } from 'react-redux';
+// import { getIncidences } from '../../../Controller/Redux/incidenceSlice'
 
 const Incidence = () => {
+  // const dispatch = useDispatch();
+  // const { incidence } = useSelector(state => state);
+
   return (
     <div className='incidence-container'>
       <AddButton />

@@ -35,8 +35,8 @@ const Create = () => {
           <p className='create-form-header'>Create an incidence</p>
           <form>
             <p>
-              <label>Issue</label>
-              <input className = 'formInput' type="text" name='' value={issue} onChange={(e)=> setIssue(e.target.value)} placeholder="What's the issue?"></input>
+              <label>Incidence</label>
+              <input className = 'formInput' type="text" name='' value={issue} onChange={(e)=> setIssue(e.target.value)} placeholder="What's the incidence?"></input>
             </p>
             <p>
               <label>Description</label>
