@@ -53,6 +53,7 @@
     border-radius: 10px;
     box-shadow: 0px 10px 23px rgb(0 0 0 / 12%);
     background-color: white;
+    margin-bottom: 20px;
 }
 
 .facility {
@@ -84,6 +85,22 @@
 }
 
 .facility.victoriaIsland {
+    /* background-color: white; */
+    background-color: #7B2869;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.facility.idejo {
+    /* background-color: white; */
+    background-color: #256D85;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.facility.lss {
     /* background-color: white; */
     background-color: #7B2869;
     color: white;
@@ -123,6 +140,16 @@
     color: white;
 }
 .facilityStats.victoriaIsland {
+    background-color: #7B2869;
+    color: white;
+}
+
+.facilityStats.idejo {
+    background-color: #256D85;
+    color: white;
+}
+
+.facilityStats.lss {
     background-color: #7B2869;
     color: white;
 }
@@ -222,7 +249,7 @@
 
 .Open {
     height: 15px;
-    width: 70px;
+    width: 75px;
     background-color: #FFB100;
     color: white;
     /* border: 1px solid salmon; */
@@ -231,13 +258,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 3px;
+    padding: 3px 5px;
     margin: 20px 0px 0px 10px;
 }
 
 .Closed {
     height: 15px;
-    width: 70px;
+    width: 75px;
     background-color: #61876E; /* #61876E; */
     color: white;
     /* border: 1px solid salmon; */
@@ -246,7 +273,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 3px;
+    padding: 3px 5px;
     margin: 20px 10px 0px 0px;
 }
 
@@ -298,21 +325,21 @@
 
     .Open {
         height: 15px;
-        width: 60px;
+        width: 70px;
         font-size: 12px;
         justify-content: space-between;
         align-items: center;
-        padding: 3px;
+        padding: 3px 5px;
         margin: 20px 0px 0px 5px;
     }
 
     .Closed {
         height: 15px;
-        width: 60px;
+        width: 70px;
         font-size: 12px;
         justify-content: space-between;
         align-items: center;
-        padding: 3px;
+        padding: 3px 5px;
         margin: 20px 5px 0px 0px;
     }
 

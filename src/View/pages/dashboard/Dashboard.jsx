@@ -93,12 +93,41 @@ const Dashboard = () => {
                 </div>
             </div>
 
-            <div className="facilityStats victoriaIsland">
-                <div className="facility victoriaIsland">
-                    Victoria Island
+            <div className="facilityStats idejo">
+                <div className="facility idejo">
+                    Idejo
                 </div>
                 <div className="cases">                    
-                    <div className="icon victoriaIsland">
+                    <div className="icon idejo">
+                        <FontAwesomeIcon icon={faHospital}/>
+                    </div>
+                    <div className="figures">
+                        <span>
+                            <CountUp end={30} duration={2}/>
+                        </span>
+                        <span>
+                            Cases
+                        </span>
+                    </div>
+                </div>
+                <div className="status">
+                    <div className="Open">
+                        <div>Open</div>
+                        <div>2</div>
+                    </div>
+                    <div className="Closed">
+                        <div>Closed</div>
+                        <div>28</div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="facilityStats lss">
+                <div className="facility lss">
+                    LSS
+                </div>
+                <div className="cases">                    
+                    <div className="icon lss">
                         <FontAwesomeIcon icon={faHospital}/>
                     </div>
                     <div className="figures">

@@ -5,7 +5,7 @@ import './update.css'
 
 const Update = () => {
 
-    const [issue, setIssue] = useState('');
+    const [incidence, setIncidence] = useState('');
     const [description, setDescription] = useState('');
     const [category, setCategory] = useState('');
     const [status, setStatus] = useState('Open');
@@ -25,7 +25,7 @@ const Update = () => {
           <form>
             <p>
               <label>Incidence</label>
-              <input className = 'formInput' type="text" name='' value={issue} onChange={(e)=> setIssue(e.target.value)} placeholder="What's the incidence?"></input>
+              <input className = 'formInput' type="text" name='' value={incidence} onChange={(e)=> setIncidence(e.target.value)} placeholder="What's the incidence?"></input>
             </p>
             <p>
               <label>Description</label>
@@ -59,9 +59,10 @@ const Update = () => {
               <label>Facility</label>
               <select className = 'formSelect' onChange={(e) => setFacility(e.target.value)} value={facility}>
                 <option>--Select One--</option>
-                <option value="Ikeja - Awolowo">Ikeja - Awolowo</option>
-                <option value="Ikeja - Adeniyi Jones">Ikeja - Adeniyi Jones</option>
-                <option value="Victoria Island">Victoria Island</option>
+                <option value="Ikeja">Ikeja - Awolowo</option>
+                <option value="Ikeja Clinic">Ikeja Clinic</option>
+                <option value="Idejo">Idejo</option>
+                <option value="LSS">LSS</option>
                 <option value="FABAC">FABAC</option>
                 <option value="Ikoyi">Ikoyi</option>
               </select>
