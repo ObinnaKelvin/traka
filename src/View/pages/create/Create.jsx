@@ -1,18 +1,24 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import NavBar from '../../components/navigation/NavBar'
 import { format } from 'date-fns'//transform the dates to readable formats
-import './create.css'
+import './create.css';
+import axios from 'axios';
 
 const Create = () => {
 
   const [incidence, setIncidence] = useState('');
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
+  const [categoryData, setCategoryData] = useState([]);
   const [status, setStatus] = useState('Open');
+  const [statusData, setStatusData] = useState([]);
   const [facility, setFacility] = useState('');
+  const [facilityData, setFacilityData] = useState([]);
   const [department, setDepartment] = useState('');
+  const [departmentData, setDepartmentData] = useState([]);
   const [priority, setPriority] = useState('');
+  const [priorityData, setPriorityData] = useState([]);
   const [openDate, setOpenDate] = useState(new Date());
   const [closedDate, setClosedDate] = useState(null);
   // const [date, setDate] = useState([
@@ -26,6 +32,46 @@ const Create = () => {
 //       openDate: new Date(),
 //       closedDate: null
 // }]
+
+  useEffect(()=> {
+    loadCategoryData();
+    loadStatusData();
+    loadFacilityData();
+    loadDepartmentData()
+    loadPriorityData();
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  const loadCategoryData = async() => {
+    await axios.get('http://localhost:3005/api/category/')
+    .then(response => setCategoryData(response.data))
+    .then(console.log("Category Data >>>>",categoryData))
+  }
+
+  const loadStatusData = async() => {
+    await axios.get('http://localhost:3005/api/status/')
+    .then(response => setStatusData(response.data))
+    .then(console.log("Status Data >>>>",statusData))
+  }
+
+  const loadFacilityData = async() => {
+    await axios.get('http://localhost:3005/api/facility/')
+    .then(response => setFacilityData(response.data))
+    .then(console.log("Facility Data >>>>",facilityData))
+  }
+
+  const loadDepartmentData = async() => {
+    await axios.get('http://localhost:3005/api/department/')
+    .then(response => setDepartmentData(response.data))
+    .then(console.log("Department Data >>>>",departmentData))
+  }
+
+  const loadPriorityData = async() => {
+    await axios.get('http://localhost:3005/api/priority/')
+    .then(response => setPriorityData(response.data))
+    .then(console.log("Priority Data >>>>",priorityData))
+  }
+  
 
   return (
     <div className='create-container'>
@@ -46,23 +92,11 @@ const Create = () => {
               <label>Category</label>
               <select className = 'formSelect' onChange={(e)=>setCategory(e.target.value)} value={category}>
                 <option>--Select One--</option>
-                <option value="User creation">User creation</option>
-                <option value="User priviledges">User priviledges</option>
-                <option value="Password reset">Password reset</option>
-                <option value="Service price update">Service price update</option>
-                <option value="Item price update">Item price update</option>
-                <option value="Service price configuration update">Service price configuration update</option>
-                <option value="EMR user enquiry">EMR user enquiry</option>
-                <option value="Service creation">Service creation</option>
-                <option value="Company creation">Company creation</option>
-                <option value="Tariff upload/Tariff update">Tariff upload/Tariff update</option>
-                <option value="Payor Configuration Update (Approvals/Exclusions)">Payor Configuration Update (Approvals/Exclusions)</option>
-                <option value="Bill resolutions">Bill resolutions</option>
-                <option value="Bed Occupancy">Bed Occupancy</option>
-                <option value="Report requests">Report requests</option>
-                <option value="EMR bugs /Incidences">EMR bugs /Incidences</option>
-                <option value="CRM incidences">CRM incidences</option>
-                <option value="Sage incidences">Sage incidences</option>
+                {
+                  categoryData.map((data) => (
+                    <option value={data.name} key={data._id}>{data.name}</option>
+                  ))
+                }
               </select>
               {/* <input type="text" name='' value={issue} onChange={(e)=> setIssue(e.target.value)}></input> */}
             </p>
@@ -70,12 +104,11 @@ const Create = () => {
               <label>Facility</label>
               <select className = 'formSelect' onChange={(e) => setFacility(e.target.value)} value={facility}>
                 <option>--Select One--</option>
-                <option value="Ikeja">Ikeja</option>
-                <option value="Ikeja Clinic">Ikeja Clinic</option>
-                <option value="Idejo">Idejo</option>
-                <option value="LSS">LSS</option>
-                <option value="FABAC">FABAC</option>
-                <option value="Ikoyi">Ikoyi</option>
+                {
+                  facilityData.map((data)=> (
+                    <option value={data.name} key={data._id}>{data.name}</option>
+                  ))
+                }
               </select>
               {/* <input type="text" name='' value={issue} onChange={(e)=> setIssue(e.target.value)}></input> */}
             </p>
@@ -83,24 +116,22 @@ const Create = () => {
               <label>Department</label>
                 <select className = 'formSelect' onChange={(e)=>setDepartment(e.target.value)} value={department}>
                   <option>--Select One--</option>
-                  <option value="PCS">PCS</option>
-                  <option value="Nursing">Nursing</option>
-                  <option value="Billing">Billing</option>
-                  <option value="Pharmacy">Pharmacy</option>
-                  <option value="Laboratory">Laboratory</option>
-                  <option value="Radiology">Radiology</option>
-                  <option value="Obstetrics & Gynaecology">Obstetrics & Gynaecology</option>
-                  <option value="Inventory">Inventory</option>
+                  {
+                    departmentData.map((data) => (
+                      <option value={data.name} key={data._id}>{data.name}</option>
+                    ))
+                  }
                 </select>
             </p>
             <p>
               <label>Priority</label>
                 <select className = 'formSelect' onChange={(e)=>setPriority(e.target.value)} value={priority}>
                   <option>--Select One--</option>
-                  <option value="High">High</option>
-                  <option value="Medium">Medium</option>
-                  <option value="Immediate">Immediate</option>
-                  <option value="Low">Low</option>
+                  {
+                    priorityData.map((data) => (
+                      <option value={data.name}>{data.name}</option>
+                    ))
+                  }
                 </select>
             </p>
             <p>
@@ -114,9 +145,11 @@ const Create = () => {
             <p>
               <label>Status</label>
                 <select className = 'formSelect' onChange={(e)=>setStatus(e.target.value)} value={status}>
-                  <option value="open">Open</option>
-                  <option value="closed">Closed</option>
-                  <option value="delayed">Delayed</option>
+                {
+                  statusData.map((data) => (
+                    <option value={data.name}>{data.name}</option>
+                  ))
+                }
                 </select>
             </p>
             <p>
