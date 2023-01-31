@@ -47,12 +47,14 @@
     /* gap: 40px; */
     border-radius: 20px;
     max-width: max-content;
-    padding: 5px 15px 5px 15px;
+    padding: 0px 15px 0px 15px;
+    padding: 0px 0px 0px 0px;
     box-shadow: 0 10px 30px -8px rgb(0 0 0 / 10%);
     align-items: center;
     justify-content: center;
     margin: 0px auto 20px auto;
-    height: 20px;
+    overflow: hidden;
+    /* height: 20px; */
 }
 
 .incidence-tabs-wrapper div:not(:last-child) {
@@ -63,7 +65,8 @@
     cursor: pointer;
     opacity: 0.6;
     font-size: 12px;
-    padding: 2px 20px 2px 20px ;
+    padding: 7px 30px 7px 30px ;
+    /* width: 200px; */
 }
 
 .incidence-cases {
@@ -106,21 +109,21 @@
     /* opacity: 0.5; */
 }
 
-.incidence-priority.high {
+.incidence-priority.High {
     color: #fff;
     background-color: #FD841F;
     border-radius: 10px;
     padding: 0px 5px;
 }
 
-.incidence-priority.medium {
+.incidence-priority.Medium {
     color: #fff;
     background-color: #FFC93C;
     border-radius: 10px;
     padding: 0px 5px;
 }
 
-.incidence-priority.immediate {
+.incidence-priority.Immediate {
     color: #fff;
     background-color: #FF0032;
     border-radius: 10px;
@@ -136,6 +139,12 @@
 
 .incidence-user,.incidence-date  {
     opacity: 0.6;
+}
+
+.active {
+    background-color: #01579b;
+    color: white;
+    /* border-bottom: 1px solid black; */
 }
 
 
@@ -170,7 +179,7 @@
     .done {
         color: #54B435;
         position: absolute;
-        margin-left: 340px;
+        margin-left: 330px;
         margin-top: -6px;
     }
 }
