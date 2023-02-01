@@ -84,7 +84,13 @@
     font-size: 12px;
     color: #01579b;
     border: 1px solid #01579b;
-    max-width: max-content;
+    /* max-width: max-content; */
+    width: max-content;
+    max-width: 230px;
+    max-height: 18px;
+    White-Space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     padding: 1px 5px;
     border-radius: 50px;
 }
@@ -94,6 +100,13 @@
     position: absolute;
     margin-left: 260px;
     margin-top: -6px;
+    visibility: hidden;
+}
+
+.done.active {
+    color: #54B435;
+    visibility: visible;
+    background-color: #fff;
 }
 
 .incidence-detail {
@@ -130,7 +143,7 @@
     padding: 0px 5px;
 }
 
-.incidence-priority.low {
+.incidence-priority.Low {
     color: #fff;
     background-color: #5F6F94;
     border-radius: 10px;

@@ -16,6 +16,7 @@ const Incidence = () => {
 
   useEffect(() => {
     loadFacilityData();
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const loadFacilityData = async() => {
@@ -41,7 +42,7 @@ const Incidence = () => {
       lastUpdatedDate: "2023-01-23T08:00:20.000+00:00",
     },
     {
-      incidence: "Service needs to be updated.",
+      incidence: "Service needs to be updated for tomorrows clinic.",
       description: "Service needs to be updated for tomorrows clinic.",
       category: "Service price update",
       facility: "Ikeja Clinic",
@@ -63,7 +64,7 @@ const Incidence = () => {
       department: "Billing",
       priority: "Immediate",
       reportedBy: "Susan",
-      status: "Open",
+      status: "Closed",
       dateOpened: "2023-01-25T08:00:20.000+00:00",
       dateClosed: null,
       active: true,
@@ -110,7 +111,7 @@ const Incidence = () => {
       <div className="incidence-location">
         <span><FontAwesomeIcon icon={faLocationDot}/></span>
         <span>
-          <select className='incidence-select'>
+          <select className='incidence-select' onChange={(e)=>setFacility(e.target.value)} value={facility}>
             <option value="All Facilities">All Facilities</option>
                 {
                   facilityData.map((data)=> (
@@ -169,7 +170,7 @@ const Incidence = () => {
           </div>
         </div>
         <div className="incidence-cases">
-          <div className="incidence-category">User creation</div> <FontAwesomeIcon icon={faCircleCheck} className="done" /> {/* Logic-If closed is true then display the done icon */}
+          <div className="incidence-category">User creation</div> <FontAwesomeIcon icon={faCircleCheck} className="done active" /> {/* Logic-If closed is true then display the done icon */}
           <div className="incidence-detail">New HMO staffs needs to be created.</div>
           <div className="incidence-reporter">
             <div className='incidence-priority Medium'>Medium</div>•
@@ -180,11 +181,11 @@ const Incidence = () => {
         {
           data.map((data) => (
             <div className="incidence-cases">
-              <div className="incidence-category">{data.incidence}</div> <FontAwesomeIcon icon={faCircleCheck} className="done"/> {/* Logic-If closed is true then display the done icon */}
+              <div className="incidence-category">{data.incidence}</div> <FontAwesomeIcon icon={faCircleCheck} className={`${data.status==="Open"? "done": "done active"}`}/> {/* Logic-If closed is true then display the done icon */}
               <div className="incidence-detail">{data.description}</div>
               <div className="incidence-reporter">
                 <div className={`${data}? incidence-priority ${data.priority}`}>{data.priority}</div>•
-                <div className='incidence-user'>By Deborah</div>•
+                <div className='incidence-user'>By {data.reportedBy}</div>•
                 <div className='incidence-date'>27 January 02:31pm</div>
               </div>
             </div>            
