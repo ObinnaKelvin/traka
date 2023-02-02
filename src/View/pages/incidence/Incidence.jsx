@@ -12,7 +12,51 @@ const Incidence = () => {
   // const dispatch = useDispatch();
   // const { incidence } = useSelector(state => state);
   const [facility, setFacility] = useState('');
-  const [facilityData, setFacilityData] = useState([])
+  const [facilityData, setFacilityData] = useState([]);
+  const [facilityState, setFacilityState] = useState(1);
+  const [ikejaData, setIkejaData] = useState([]);
+  const [ikejaClinicData, setIkejaClinicData] = useState([]);
+  const [idejoData, setIdejoData] = useState([]);
+  const [lssData, setLssData] = useState([]);
+  const [fabacData, setFabacData] = useState([]);
+  const [ikoyiData, setIkoyiData] = useState([]);
+  const [toggleState, setToggleState] = useState(1);
+
+  const toggleTab = (index) => {
+    setToggleState(index);
+  }
+
+  const getOpenCases = (data) => {
+    if(data.status === "Open")
+    return (
+      <div className="incidence-cases">
+              <div className="incidence-category">{data.incidence}</div> <FontAwesomeIcon icon={faCircleCheck} className={`${data.status==="Open"? "done": "done active"}`}/> {/* Logic-If closed is true then display the done icon */}
+              <div className="incidence-detail">{data.description}</div>
+              <div className="incidence-reporter">
+                <div className={`${data}? incidence-priority ${data.priority}`}>{data.priority}</div>•
+                <div className='incidence-user'>By {data.reportedBy}</div>•
+                <div className='incidence-date'>27 January 02:31pm</div>
+              </div>
+      </div> 
+    )
+  }
+
+  const getClosedCases = (data) => {
+    if(data.status === "Closed")
+    return (
+      <div className="incidence-cases">
+              <div className="incidence-category">{data.incidence}</div> <FontAwesomeIcon icon={faCircleCheck} className={`${data.status==="Open"? "done": "done active"}`}/> {/* Logic-If closed is true then display the done icon */}
+              <div className="incidence-detail">{data.description}</div>
+              <div className="incidence-reporter">
+                <div className={`${data}? incidence-priority ${data.priority}`}>{data.priority}</div>•
+                <div className='incidence-user'>By {data.reportedBy}</div>•
+                <div className='incidence-date'>27 January 02:31pm</div>
+              </div>
+      </div> 
+    )
+  }
+
+
 
   useEffect(() => {
     loadFacilityData();
@@ -23,6 +67,10 @@ const Incidence = () => {
     await axios.get('http://localhost:3005/api/facility/')
     .then(response => setFacilityData(response.data))
     .then(console.log("Facility Data >>>>",facilityData))
+  }
+
+  const loadIkejaData = async() => {
+    
   }
 
   const data = [
@@ -128,11 +176,11 @@ const Incidence = () => {
         </span>
       </div>
       <div className="incidence-tabs-wrapper">
-        <div className="incidence-tab active">All (7)</div>
-        <div className="incidence-tab">Open(6)</div>
-        <div className="incidence-tab">Closed(1)</div>
+        <div className={toggleState === 1 ? "incidence-tab active-tab": "incidence-tab"} onClick={()=>toggleTab(1)}>All (7)</div>
+        <div className={toggleState === 2 ? "incidence-tab active-tab": "incidence-tab"}  onClick={()=>toggleTab(2)}>Open(6)</div>
+        <div className={toggleState === 3 ? "incidence-tab active-tab": "incidence-tab"}  onClick={()=>toggleTab(3)}>Closed(1)</div>
       </div>
-      <div className="incidence-wrapper">
+      <div className={toggleState === 1 ? "incidence-wrapper active-content": "incidence-wrapper"}>
         <div className="incidence-cases">
           <div className="incidence-category">Bed Occupancy</div>
           <div className="incidence-detail">Patient needs to be admitted for an emergency surgery.</div>
@@ -191,6 +239,22 @@ const Incidence = () => {
             </div>            
           ))
         }
+      </div>
+
+      <div className={toggleState === 2 ? "incidence-wrapper active-content": "incidence-wrapper"}>
+
+        {
+          data.map(getOpenCases)
+        }
+
+      </div>
+
+      <div className={toggleState === 3 ? "incidence-wrapper active-content": "incidence-wrapper"}>
+
+        {
+          data.map(getClosedCases)
+        }
+        
       </div>
     </div>
   )

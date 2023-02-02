@@ -39,6 +39,8 @@
     flex-wrap: wrap;
     gap: 10px;
     align-items: center;
+    margin-bottom: 50px;
+    display: none;
 }
 
 .incidence-tabs-wrapper {
@@ -154,10 +156,14 @@
     opacity: 0.6;
 }
 
-.active {
+.active-tab {
     background-color: #01579b;
     color: white;
     /* border-bottom: 1px solid black; */
+}
+
+.active-content {
+    display:flex;
 }
 
 
