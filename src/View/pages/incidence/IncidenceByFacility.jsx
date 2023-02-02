@@ -5,18 +5,21 @@ import AddButton from '../../components/addButton/AddButton'
 import NavBar from '../../components/navigation/NavBar'
 import './incidence.css';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
-
+import { Link, useParams } from 'react-router-dom';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { getIncidences } from '../../../Controller/Redux/incidenceSlice'
 
-const Incidence = () => {
+
+
+const IncidenceByFacility = () => {
   // const dispatch = useDispatch();
   // const { incidence } = useSelector(state => state);
-  
-  const {id, facilities} = useParams();
+  const {facilityName} = useParams();
+  console.log("Params>>>", useParams())
   const [facility, setFacility] = useState('');
   const [facilityData, setFacilityData] = useState([]);
+  const [facilityIncidenceData, setFacilityIncidenceData] = useState([]);
+  const [facilityState, setFacilityState] = useState(1);
   const [toggleState, setToggleState] = useState(1);
 
   const toggleTab = (index) => {
@@ -58,6 +61,7 @@ const Incidence = () => {
   useEffect(() => {
     loadFacilityData();
     //eslint-disable-next-line react-hooks/exhaustive-deps
+    loadFacilityIncidenceData();
   }, [])
 
   const loadFacilityData = async() => {
@@ -66,8 +70,10 @@ const Incidence = () => {
     .then(console.log("Facility Data >>>>",facilityData))
   }
 
-  const loadIkejaData = async() => {
-    
+  const loadFacilityIncidenceData = async() => {
+    await axios.get(`http://localhost:3005/api/incidenceByFacility/${facilityName}`)
+    .then(response => setFacilityIncidenceData(response.data))
+    .then(console.log("Facility Incidence Data >>>>",facilityIncidenceData))
   }
 
   const data = [
@@ -147,7 +153,6 @@ const Incidence = () => {
       lastUpdatedDate: "2023-01-25T08:00:20.000+00:00",  
     }
   ]
-
   return (
     <div className='incidence-container'>
       <AddButton />
@@ -163,12 +168,6 @@ const Incidence = () => {
                     <option value={data.name} key={data._id}>{data.name}</option>
                   ))
                 }
-
-            {/* <option value="Ikeja - Awolowo">Ikeja - Awolowo</option>
-            <option value="Ikeja - Adeniyi Jones">Ikeja - Adeniyi Jones</option>
-            <option value="Victoria Island">Victoria Island</option>
-            <option value="FABAC">FABAC</option>
-            <option value="Ikoyi">Ikoyi</option> */}
           </select>
         </span>
       </div>
@@ -178,53 +177,8 @@ const Incidence = () => {
         <div className={toggleState === 3 ? "incidence-tab active-tab": "incidence-tab"}  onClick={()=>toggleTab(3)}>Closed(1)</div>
       </div>
       <div className={toggleState === 1 ? "incidence-wrapper active-content": "incidence-wrapper"}>
-        <div className="incidence-cases">
-          <div className="incidence-category">Bed Occupancy</div>
-          <div className="incidence-detail">Patient needs to be admitted for an emergency surgery.</div>
-          <div className="incidence-reporter">
-            <div className='incidence-priority High'>High</div>•
-            <div className='incidence-user'>By Damilola</div>•
-            <div className='incidence-date'>23 January 09:53am</div>
-          </div>
-        </div>
-        <div className="incidence-cases">
-          <div className="incidence-category">Service price update</div>
-          <div className="incidence-detail">Service needs to be updated for tomorrows clinic.</div>
-          <div className="incidence-reporter">
-            <div className='incidence-priority Medium'>Medium</div>•
-            <div className='incidence-user'>By Mary</div>•
-            <div className='incidence-date'>25 January 10:28am</div>
-          </div>
-        </div>
-        <div className="incidence-cases">
-          <div className="incidence-category">EMR Bug</div>
-          <div className="incidence-detail">Patient account balance displays zero balance</div>
-          <div className="incidence-reporter">
-            <div className='incidence-priority Immediate'>Immediate</div>•
-            <div className='incidence-user'>By Susan</div>•
-            <div className='incidence-date'>25 January 10:28am</div>
-          </div>
-        </div>
-        <div className="incidence-cases">
-          <div className="incidence-category">Password Reset</div>
-          <div className="incidence-detail">Conceirge user's password expired.</div>
-          <div className="incidence-reporter">
-            <div className='incidence-priority Low'>Low</div>•
-            <div className='incidence-user'>By Abiola</div>•
-            <div className='incidence-date'>25 January 10:28am</div>
-          </div>
-        </div>
-        <div className="incidence-cases">
-          <div className="incidence-category">User creation</div> <FontAwesomeIcon icon={faCircleCheck} className="done active" /> {/* Logic-If closed is true then display the done icon */}
-          <div className="incidence-detail">New HMO staffs needs to be created.</div>
-          <div className="incidence-reporter">
-            <div className='incidence-priority Medium'>Medium</div>•
-            <div className='incidence-user'>By Deborah</div>•
-            <div className='incidence-date'>27 January 02:31pm</div>
-          </div>
-        </div>
         {
-          data.map((data) => (
+          facilityIncidenceData.map((data) => (
             <div className="incidence-cases">
               <div className="incidence-category">{data.incidence}</div> <FontAwesomeIcon icon={faCircleCheck} className={`${data.status==="Open"? "done": "done active"}`}/> {/* Logic-If closed is true then display the done icon */}
               <div className="incidence-detail">{data.description}</div>
@@ -257,4 +211,4 @@ const Incidence = () => {
   )
 }
 
-export default Incidence
+export default IncidenceByFacility
