@@ -169,7 +169,7 @@ const Create = () => {
               }
             </p>
 
-            <button>Create</button>
+            <button type="submit">Create</button>
           </form>
       </div>
     </div>

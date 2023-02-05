@@ -60,8 +60,8 @@ const IncidenceByFacility = () => {
 
   useEffect(() => {
     loadFacilityData();
-    //eslint-disable-next-line react-hooks/exhaustive-deps
     loadFacilityIncidenceData();
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const loadFacilityData = async() => {
@@ -71,7 +71,7 @@ const IncidenceByFacility = () => {
   }
 
   const loadFacilityIncidenceData = async() => {
-    await axios.get(`http://localhost:3005/api/incidenceByFacility/${facilityName}`)
+    await axios.get(`http://localhost:3005/api/incidenceByFacility/${facility}`)
     .then(response => setFacilityIncidenceData(response.data))
     .then(console.log("Facility Incidence Data >>>>",facilityIncidenceData))
   }

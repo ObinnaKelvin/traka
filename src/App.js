@@ -23,6 +23,7 @@ function App() {
           <Route path='/dashboard' element={<Home />}/>
           <Route path='/incidence' element={<Incidence />}/>
           <Route path='/incidence/:id' element={<Update />}/>
+          <Route path='/incidenceByFacility/' element={<Incidence />}/>
           <Route path='/incidenceByFacility/:facilityName' element={<IncidenceByFacility />}/>
           <Route path='/team' element={<Team />}/>
           <Route path='/chatbox' element={<Chatbox />}/>

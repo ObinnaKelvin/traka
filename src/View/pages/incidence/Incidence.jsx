@@ -5,7 +5,7 @@ import AddButton from '../../components/addButton/AddButton'
 import NavBar from '../../components/navigation/NavBar'
 import './incidence.css';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { format } from 'date-fns'//transform the dates to readable formats
 
 // import { useDispatch, useSelector } from 'react-redux';
 // import { getIncidences } from '../../../Controller/Redux/incidenceSlice'
@@ -13,10 +13,10 @@ import { useParams } from 'react-router-dom';
 const Incidence = () => {
   // const dispatch = useDispatch();
   // const { incidence } = useSelector(state => state);
-  
-  const {id, facilities} = useParams();
+  //const {id, facilities} = useParams();
   const [facility, setFacility] = useState('');
   const [facilityData, setFacilityData] = useState([]);
+  const [facilityIncidenceData, setFacilityIncidenceData] = useState([]);
   const [toggleState, setToggleState] = useState(1);
 
   const toggleTab = (index) => {
@@ -57,6 +57,8 @@ const Incidence = () => {
 
   useEffect(() => {
     loadFacilityData();
+    loadFacilityIncidenceData();
+    onChangeFacility();
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -66,87 +68,100 @@ const Incidence = () => {
     .then(console.log("Facility Data >>>>",facilityData))
   }
 
-  const loadIkejaData = async() => {
-    
+  const loadFacilityIncidenceData = async() => {
+    await axios.get(`http://localhost:3005/api/incidenceByFacility/`)
+    .then(response => setFacilityIncidenceData(response.data))
+    .then(console.log("Facility Incidence Data >>>>",facilityIncidenceData))
   }
 
-  const data = [
-    {
-      incidence: "Patient needs to be admitted.",
-      description: "Patient needs to be admitted for an emergency surgery.",
-      category: "Bed Occupancy",
-      facility: "Ikeja",
-      department: "Nursing",
-      priority: "High",
-      reportedBy: "Damilola",
-      status: "Open",
-      dateOpened: "2023-01-25T08:00:20.000+00:00",
-      dateClosed: null,
-      active: true,
-      lastUpdatedBy: "",
-      lastUpdatedDate: "2023-01-23T08:00:20.000+00:00",
-    },
-    {
-      incidence: "Service needs to be updated for tomorrows clinic.",
-      description: "Service needs to be updated for tomorrows clinic.",
-      category: "Service price update",
-      facility: "Ikeja Clinic",
-      department: "Billing",
-      priority: "Medium",
-      reportedBy: "Mary",
-      status: "Open",
-      dateOpened: "2023-01-25T08:00:20.000+00:00",
-      dateClosed: null,
-      active: true,
-      lastUpdatedBy: "",
-      lastUpdatedDate: "2023-01-25T08:00:20.000+00:00",
-    },
-    {
-      incidence: "Zero balance",
-      description: "Patient account balance displays zero balance",
-      category: "EMR Bug",
-      facility: "LSS",
-      department: "Billing",
-      priority: "Immediate",
-      reportedBy: "Susan",
-      status: "Closed",
-      dateOpened: "2023-01-25T08:00:20.000+00:00",
-      dateClosed: null,
-      active: true,
-      lastUpdatedBy: "",
-      lastUpdatedDate: "2023-01-25T08:00:20.000+00:00",
-    },
-    {
-      incidence: "Conceirge user's password expired.",
-      description: "Conceirge user's password expired.",
-      category: "Password Reset",
-      facility: "Idejo",
-      department: "Nursing",
-      priority: "Low",
-      reportedBy: "Abiola",
-      status: "Open",
-      dateOpened: "2023-01-25T08:00:20.000+00:00",
-      dateClosed: null,
-      active: true,
-      lastUpdatedBy: "",
-      lastUpdatedDate: "2023-01-25T08:00:20.000+00:00",   
-    },
-    {
-      incidence: "New HMO staffs account",
-      description: "New HMO staffs needs to be created.",
-      category: "User creation",
-      facility: "Ikoyi",
-      department: "Inventory",
-      priority: "Medium",
-      reportedBy: "Deborah",
-      status: "Closed",
-      dateOpened: "2023-01-27T08:00:20.000+00:00",
-      dateClosed: null,
-      active: true,
-      lastUpdatedBy: "",
-      lastUpdatedDate: "2023-01-25T08:00:20.000+00:00",  
-    }
-  ]
+
+  const onChangeFacility = async(event) => {
+    setFacility(event.target.value); //Fix 1: Delayed State
+    console.log(event.target.value); //Fix 2: Delayed State
+    const url = event.target.value === "All Facilities" ? "http://localhost:3005/api/incidenceByFacility/"
+    : `http://localhost:3005/api/incidenceByFacility/${event.target.value}` //Fix 3: Delayed State
+    await axios.get(url) 
+    .then(response => {setFacilityIncidenceData(response.data); console.log("Facility Incidence Data >>>>",response.data)}) //Fix 4: Delayed State
+    //.then(console.log("Facility Dummy Data >>>>",facilityIncidenceData))
+  }
+
+  // const data = [
+  //   {
+  //     incidence: "Patient needs to be admitted.",
+  //     description: "Patient needs to be admitted for an emergency surgery.",
+  //     category: "Bed Occupancy",
+  //     facility: "Ikeja",
+  //     department: "Nursing",
+  //     priority: "High",
+  //     reportedBy: "Damilola",
+  //     status: "Open",
+  //     dateOpened: "2023-01-25T08:00:20.000+00:00",
+  //     dateClosed: null,
+  //     active: true,
+  //     lastUpdatedBy: "",
+  //     lastUpdatedDate: "2023-01-23T08:00:20.000+00:00",
+  //   },
+  //   {
+  //     incidence: "Service needs to be updated for tomorrows clinic.",
+  //     description: "Service needs to be updated for tomorrows clinic.",
+  //     category: "Service price update",
+  //     facility: "Ikeja Clinic",
+  //     department: "Billing",
+  //     priority: "Medium",
+  //     reportedBy: "Mary",
+  //     status: "Open",
+  //     dateOpened: "2023-01-25T08:00:20.000+00:00",
+  //     dateClosed: null,
+  //     active: true,
+  //     lastUpdatedBy: "",
+  //     lastUpdatedDate: "2023-01-25T08:00:20.000+00:00",
+  //   },
+  //   {
+  //     incidence: "Zero balance",
+  //     description: "Patient account balance displays zero balance",
+  //     category: "EMR Bug",
+  //     facility: "LSS",
+  //     department: "Billing",
+  //     priority: "Immediate",
+  //     reportedBy: "Susan",
+  //     status: "Closed",
+  //     dateOpened: "2023-01-25T08:00:20.000+00:00",
+  //     dateClosed: null,
+  //     active: true,
+  //     lastUpdatedBy: "",
+  //     lastUpdatedDate: "2023-01-25T08:00:20.000+00:00",
+  //   },
+  //   {
+  //     incidence: "Conceirge user's password expired.",
+  //     description: "Conceirge user's password expired.",
+  //     category: "Password Reset",
+  //     facility: "Idejo",
+  //     department: "Nursing",
+  //     priority: "Low",
+  //     reportedBy: "Abiola",
+  //     status: "Open",
+  //     dateOpened: "2023-01-25T08:00:20.000+00:00",
+  //     dateClosed: null,
+  //     active: true,
+  //     lastUpdatedBy: "",
+  //     lastUpdatedDate: "2023-01-25T08:00:20.000+00:00",   
+  //   },
+  //   {
+  //     incidence: "New HMO staffs account",
+  //     description: "New HMO staffs needs to be created.",
+  //     category: "User creation",
+  //     facility: "Ikoyi",
+  //     department: "Inventory",
+  //     priority: "Medium",
+  //     reportedBy: "Deborah",
+  //     status: "Closed",
+  //     dateOpened: "2023-01-27T08:00:20.000+00:00",
+  //     dateClosed: null,
+  //     active: true,
+  //     lastUpdatedBy: "",
+  //     lastUpdatedDate: "2023-01-25T08:00:20.000+00:00",  
+  //   }
+  // ]
 
   return (
     <div className='incidence-container'>
@@ -156,11 +171,11 @@ const Incidence = () => {
       <div className="incidence-location">
         <span><FontAwesomeIcon icon={faLocationDot}/></span>
         <span>
-          <select className='incidence-select' onChange={(e)=>setFacility(e.target.value)} value={facility}>
+          <select className='incidence-select' onChange={onChangeFacility} value={facility}>
             <option value="All Facilities">All Facilities</option>
                 {
                   facilityData.map((data)=> (
-                    <option value={data.name} key={data._id}>{data.name}</option>
+                    <option value={data.name.split(' ').join('')} key={data._id}>{data.name}</option>
                   ))
                 }
 
@@ -173,64 +188,20 @@ const Incidence = () => {
         </span>
       </div>
       <div className="incidence-tabs-wrapper">
-        <div className={toggleState === 1 ? "incidence-tab active-tab": "incidence-tab"} onClick={()=>toggleTab(1)}>All (7)</div>
-        <div className={toggleState === 2 ? "incidence-tab active-tab": "incidence-tab"}  onClick={()=>toggleTab(2)}>Open(6)</div>
-        <div className={toggleState === 3 ? "incidence-tab active-tab": "incidence-tab"}  onClick={()=>toggleTab(3)}>Closed(1)</div>
+        <div className={toggleState === 1 ? "incidence-tab active-tab": "incidence-tab"} onClick={()=>toggleTab(1)}>All ({facilityIncidenceData.length})</div>
+        <div className={toggleState === 2 ? "incidence-tab active-tab": "incidence-tab"}  onClick={()=>toggleTab(2)}>Open</div>
+        <div className={toggleState === 3 ? "incidence-tab active-tab": "incidence-tab"}  onClick={()=>toggleTab(3)}>Closed</div>
       </div>
       <div className={toggleState === 1 ? "incidence-wrapper active-content": "incidence-wrapper"}>
-        <div className="incidence-cases">
-          <div className="incidence-category">Bed Occupancy</div>
-          <div className="incidence-detail">Patient needs to be admitted for an emergency surgery.</div>
-          <div className="incidence-reporter">
-            <div className='incidence-priority High'>High</div>•
-            <div className='incidence-user'>By Damilola</div>•
-            <div className='incidence-date'>23 January 09:53am</div>
-          </div>
-        </div>
-        <div className="incidence-cases">
-          <div className="incidence-category">Service price update</div>
-          <div className="incidence-detail">Service needs to be updated for tomorrows clinic.</div>
-          <div className="incidence-reporter">
-            <div className='incidence-priority Medium'>Medium</div>•
-            <div className='incidence-user'>By Mary</div>•
-            <div className='incidence-date'>25 January 10:28am</div>
-          </div>
-        </div>
-        <div className="incidence-cases">
-          <div className="incidence-category">EMR Bug</div>
-          <div className="incidence-detail">Patient account balance displays zero balance</div>
-          <div className="incidence-reporter">
-            <div className='incidence-priority Immediate'>Immediate</div>•
-            <div className='incidence-user'>By Susan</div>•
-            <div className='incidence-date'>25 January 10:28am</div>
-          </div>
-        </div>
-        <div className="incidence-cases">
-          <div className="incidence-category">Password Reset</div>
-          <div className="incidence-detail">Conceirge user's password expired.</div>
-          <div className="incidence-reporter">
-            <div className='incidence-priority Low'>Low</div>•
-            <div className='incidence-user'>By Abiola</div>•
-            <div className='incidence-date'>25 January 10:28am</div>
-          </div>
-        </div>
-        <div className="incidence-cases">
-          <div className="incidence-category">User creation</div> <FontAwesomeIcon icon={faCircleCheck} className="done active" /> {/* Logic-If closed is true then display the done icon */}
-          <div className="incidence-detail">New HMO staffs needs to be created.</div>
-          <div className="incidence-reporter">
-            <div className='incidence-priority Medium'>Medium</div>•
-            <div className='incidence-user'>By Deborah</div>•
-            <div className='incidence-date'>27 January 02:31pm</div>
-          </div>
-        </div>
         {
-          data.map((data) => (
+          facilityIncidenceData.map((data) => (
             <div className="incidence-cases">
               <div className="incidence-category">{data.incidence}</div> <FontAwesomeIcon icon={faCircleCheck} className={`${data.status==="Open"? "done": "done active"}`}/> {/* Logic-If closed is true then display the done icon */}
               <div className="incidence-detail">{data.description}</div>
               <div className="incidence-reporter">
                 <div className={`${data}? incidence-priority ${data.priority}`}>{data.priority}</div>•
                 <div className='incidence-user'>By {data.reportedBy}</div>•
+                {/* <div className='incidence-date'>{`${format(data.dateOpened, "dd/MM/yyyy HH:mm:ss")}`}</div> */}
                 <div className='incidence-date'>27 January 02:31pm</div>
               </div>
             </div>            
@@ -241,7 +212,7 @@ const Incidence = () => {
       <div className={toggleState === 2 ? "incidence-wrapper active-content": "incidence-wrapper"}>
 
         {
-          data.map(getOpenCases)
+          facilityIncidenceData.map(getOpenCases)
         }
 
       </div>
@@ -249,7 +220,7 @@ const Incidence = () => {
       <div className={toggleState === 3 ? "incidence-wrapper active-content": "incidence-wrapper"}>
 
         {
-          data.map(getClosedCases)
+          facilityIncidenceData.map(getClosedCases)
         }
         
       </div>
