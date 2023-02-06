@@ -33,6 +33,27 @@ const Create = () => {
 //       closedDate: null
 // }]
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    //const {incidence, description, } = data;
+    axios.post('http://localhost:3005/api/incidences/', {
+      incidence: incidence,
+      description: description,
+      category: category,
+      facility: facility,
+      department: department,
+      priority: priority,
+      reportedBy: "Test User",
+      status: status,
+      dateOpened: openDate,
+      dateClosed: closedDate,
+      active: true,
+      lastUpdatedBy: "",
+      lastUpdateDate: openDate
+    })
+    .then(response => console.log(response))
+  }
+
   useEffect(()=> {
     loadCategoryData();
     loadStatusData();
@@ -79,7 +100,7 @@ const Create = () => {
     
       <div className='create-form'>
           <p className='create-form-header'>Create an incidence</p>
-          <form>
+          <form onSubmit={handleSubmit}>
             <p>
               <label>Incidence</label>
               <input className = 'formInput' type="text" name='' value={incidence} onChange={(e)=> setIncidence(e.target.value)} placeholder="What's the incidence?"></input>
@@ -169,7 +190,7 @@ const Create = () => {
               }
             </p>
 
-            <button type="submit">Create</button>
+            <button>Create</button>
           </form>
       </div>
     </div>
