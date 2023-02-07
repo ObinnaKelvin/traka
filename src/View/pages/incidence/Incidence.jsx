@@ -201,8 +201,9 @@ const Incidence = () => {
               <div className="incidence-reporter">
                 <div className={`${data}? incidence-priority ${data.priority}`}>{data.priority}</div>•
                 <div className='incidence-user'>By {data.reportedBy}</div>•
-                {/* <div className='incidence-date'>{`${format(data.dateOpened, "dd/MM/yyyy HH:mm:ss")}`}</div> */}
-                <div className='incidence-date'>27 January 02:31pm</div>
+                <div className='incidence-date'>{`${format(new Date (data.dateOpened), "dd/MM/yyyy hh:mm aaa")}`}</div>
+                {/* <div className='incidence-date'>27 January 02:31pm</div> */}
+                {/* <div className='incidence-date'>{data.dateOpened}</div> */}
               </div>
             </div>            
           ))
