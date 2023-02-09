@@ -6,11 +6,14 @@ import CountUp from 'react-countup';
 import AddButton from '../../components/addButton/AddButton';
 import NavBar from '../../components/navigation/NavBar';
 import { useState, useEffect } from 'react';
+import Skeleton from '../../components/skeleton/Skeleton';
 
-const Dashboard = () => {
+const Dashboard = ({loading, count, countStatus}) => {
 
-    const [greet, setGreet] = useState('')
-
+    const [greet, setGreet] = useState('');
+    // const [count, setCount] = useState([]);
+    // const [countStatus, setCountStatus] = useState([]);
+    console.log("Count", countStatus)
     const handleGreet = () => {
         let today = new Date()
         let getCurrentHour = today.getHours() 
@@ -29,6 +32,7 @@ const Dashboard = () => {
     useEffect(() => {
         handleGreet();
     }, [])
+    
     
   return (
     <div className='dashboard-container'>
@@ -49,7 +53,7 @@ const Dashboard = () => {
                     </div>
                     <div className="figures">
                         <span>
-                            <CountUp end={42} duration={2}/>
+                            <CountUp end={3} duration={2}/>
                         </span>
                         <span>Cases</span>
                     </div>
@@ -57,11 +61,14 @@ const Dashboard = () => {
                 <div className="status">
                     <div className="Open">
                         <div>Open</div>
-                        <div>35</div>
+                        <div>
+                            {loading && <p>...</p>}
+                            {<p>countStatus[1].open</p>}
+                        </div>
                     </div>
                     <div className="Closed">
                         <div>Closed</div>
-                        <div>7</div>
+                        {/* <div>{countStatus[1].closed}</div> */}
                     </div>
                 </div>
             </div>
@@ -84,11 +91,11 @@ const Dashboard = () => {
                 <div className="status">
                     <div className="Open">
                         <div>Open</div>
-                        <div>2</div>
+                        {/* <div>{countStatus[0].open}</div> */}
                     </div>
                     <div className="Closed">
                         <div>Closed</div>
-                        <div>49</div>
+                        {/* <div>{countStatus[0].closed}</div> */}
                     </div>
                 </div>
             </div>
@@ -113,11 +120,11 @@ const Dashboard = () => {
                 <div className="status">
                     <div className="Open">
                         <div>Open</div>
-                        <div>2</div>
+                        {/* <div>{countStatus[3].open}</div> */}
                     </div>
                     <div className="Closed">
                         <div>Closed</div>
-                        <div>28</div>
+                        {/* <div>{countStatus[3].closed}</div> */}
                     </div>
                 </div>
             </div>
@@ -142,11 +149,11 @@ const Dashboard = () => {
                 <div className="status">
                     <div className="Open">
                         <div>Open</div>
-                        <div>2</div>
+                        {/* <div>{countStatus[4].open}</div> */}
                     </div>
                     <div className="Closed">
                         <div>Closed</div>
-                        <div>28</div>
+                        {/* <div>{countStatus[4].closed}</div> */}
                     </div>
                 </div>
             </div>
@@ -169,11 +176,11 @@ const Dashboard = () => {
                 <div className="status">
                     <div className="Open">
                         <div>Open</div>
-                        <div>11</div>
+                        {/* <div>{countStatus[5].open}</div> */}
                     </div>
                     <div className="Closed">
                         <div>Closed</div>
-                        <div>44</div>
+                        {/* <div>{countStatus[5].closed}</div> */}
                     </div>
                 </div>
             </div>
@@ -195,11 +202,11 @@ const Dashboard = () => {
                 <div className="status">
                     <div className="Open">
                         <div>Open</div>
-                        <div>12</div>
+                        {/* <div>{countStatus[2].open}</div> */}
                     </div>
                     <div className="Closed">
                         <div>Closed</div>
-                        <div>57</div>
+                        {/* <div>{countStatus[2].closed}</div> */}
                     </div>
                 </div>
             </div>
@@ -229,6 +236,7 @@ const Dashboard = () => {
                     </div>
                 </div>
             </div>
+            <Skeleton type="feed"/>
         </div>
 
         {/* <AddButton /> */}

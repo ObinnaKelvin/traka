@@ -1,10 +1,12 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import NavBar from '../../components/navigation/NavBar'
-import { format } from 'date-fns'//transform the dates to readable formats
+import { format, parseISO } from 'date-fns'//transform the dates to readable formats
 import './update.css'
+import { useParams } from 'react-router-dom'
+import axios from 'axios'
 
 const Update = () => {
-
+    const { incidenceId } = useParams();
     const [incidence, setIncidence] = useState('');
     const [description, setDescription] = useState('');
     const [category, setCategory] = useState('');
@@ -12,10 +14,24 @@ const Update = () => {
     const [facility, setFacility] = useState('');
     const [department, setDepartment] = useState('');
     const [priority, setPriority] = useState('');
-    const [openDate, setOpenDate] = useState(new Date());
-    const [closedDate, setClosedDate] = useState(null);
+    const [openDate, setOpenDate] = useState('');
+    const [closedDate, setClosedDate] = useState('');
     const [active, setActive] = useState('active');
+    const [singleIncidence, setSingleIncidence] = useState([])
 
+    useEffect(()=> {
+      loadIncidence()
+    }, [])
+    // console.log(incidenceId)
+    const loadIncidence = async() => {
+      try {
+        await axios.get(`http://localhost:3005/api/incidences/find/${incidenceId}`)
+        .then( response => {setSingleIncidence(response.data); console.log("Single Incidence >>>>",response.data)})
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    console.log (singleIncidence.dateOpened)
   return (
     <div className='update-container'>
     <NavBar />
@@ -25,15 +41,15 @@ const Update = () => {
           <form>
             <p>
               <label>Incidence</label>
-              <input className = 'formInput' type="text" name='' value={incidence} onChange={(e)=> setIncidence(e.target.value)} placeholder="What's the incidence?"></input>
+              <input className = 'formInput' type="text" name='' value={singleIncidence.incidence} onChange={(e)=> setIncidence(e.target.value)} placeholder="What's the incidence?"></input>
             </p>
             <p>
               <label>Description</label>
-              <textarea className = 'formTextArea' type="text" name='' value={description} onChange={(e)=> setDescription(e.target.value)} placeholder="Can you describe as detailed as possible?"/>
+              <textarea className = 'formTextArea' type="text" name='' value={singleIncidence.description} onChange={(e)=> setDescription(e.target.value)} placeholder="Can you describe as detailed as possible?"/>
             </p>
             <p>
               <label>Category</label>
-              <select className = 'formSelect' onChange={(e)=>setCategory(e.target.value)} value={category}>
+              <select className = 'formSelect' onChange={(e)=>setCategory(e.target.value)} value={singleIncidence.category}>
                 <option>--Select One--</option>
                 <option value="User creation">User creation</option>
                 <option value="User priviledges">User priviledges</option>
@@ -49,7 +65,7 @@ const Update = () => {
                 <option value="Bill resolutions">Bill resolutions</option>
                 <option value="Bed Occupancy">Bed Occupancy</option>
                 <option value="Report requests">Report requests</option>
-                <option value="EMR bugs /Incidences">EMR bugs /Incidences</option>
+                <option value="EMR Bug">EMR Bug</option>
                 <option value="CRM incidences">CRM incidences</option>
                 <option value="Sage incidences">Sage incidences</option>
               </select>
@@ -57,7 +73,7 @@ const Update = () => {
             </p>
             <p>
               <label>Facility</label>
-              <select className = 'formSelect' onChange={(e) => setFacility(e.target.value)} value={facility}>
+              <select className = 'formSelect' onChange={(e) => setFacility(e.target.value)} value={singleIncidence.facility}>
                 <option>--Select One--</option>
                 <option value="Ikeja">Ikeja - Awolowo</option>
                 <option value="Ikeja Clinic">Ikeja Clinic</option>
@@ -70,7 +86,7 @@ const Update = () => {
             </p>
             <p>
               <label>Department</label>
-                <select className = 'formSelect' onChange={(e)=>setDepartment(e.target.value)} value={department}>
+                <select className = 'formSelect' onChange={(e)=>setDepartment(e.target.value)} value={singleIncidence.department}>
                   <option>--Select One--</option>
                   <option value="PCS">PCS</option>
                   <option value="Nursing">Nursing</option>
@@ -84,7 +100,7 @@ const Update = () => {
             </p>
             <p>
               <label>Priority</label>
-                <select className = 'formSelect' onChange={(e)=>setPriority(e.target.value)} value={priority}>
+                <select className = 'formSelect' onChange={(e)=>setPriority(e.target.value)} value={singleIncidence.priority}>
                   <option>--Select One--</option>
                   <option value="High">High</option>
                   <option value="Medium">Medium</option>
@@ -94,7 +110,7 @@ const Update = () => {
             </p>
             <p>
               <label>Reported by</label>
-              <input className = 'formInput' type="text" name='' disabled></input>
+              <input className = 'formInput' type="text" name='' value={singleIncidence.reportedBy} disabled></input>
             </p>
             {/* <p>
               <label>Responsibility</label>
@@ -102,25 +118,26 @@ const Update = () => {
             </p> */}
             <p>
               <label>Status</label>
-                <select className = 'formSelect' onChange={(e)=>setStatus(e.target.value)} value={status}>
-                  <option value="open">Open</option>
-                  <option value="closed">Closed</option>
-                  <option value="delayed">Delayed</option>
+                <select className = 'formSelect' onChange={(e)=>setStatus(e.target.value)} value={singleIncidence.status}>
+                  <option value="Open">Open</option>
+                  <option value="Closed">Closed</option>
+                  <option value="Delayed">Delayed</option>
                 </select>
             </p>
             <p>
               <label>Date Opened</label>
-              {/* <input className = 'formInput' type="text" name='' value={`${format(date[0].openDate, "dd/MM/yyyy HH:mm:ss")}`} onChange={(e)=> setOpenDate(e.target.value)}  disabled> */}
-              <input className = 'formInput' type="text" name='' value={`${format(openDate, "dd/MM/yyyy HH:mm:ss")}`} onChange={(e)=> setOpenDate(e.target.value)}  disabled>
+              {/* <input className = 'formInput' type="text" name='' value={`${format( new Date (), "dd/MM/yyyy hh:mm aaa")}`} onChange={(e)=> setOpenDate(e.target.value)}  disabled> */}
+              <input className = 'formInput' type="text" name='' value={`${format(new Date (), "dd/MM/yyyy hh:mm aaa")}`} onChange={(e)=> setOpenDate(e.target.value)}  disabled>
               </input>
             </p>
             <p>
               {
-                status === 'closed' &&
+                singleIncidence.status === 'Closed' &&
                 <>
                   <label>Date Closed</label>
-                  <input className = 'formInput' type="text" name='' value={`${format(new Date(), "dd/MM/yyyy HH:mm:ss")}` }  onChange={(e)=> setClosedDate(e.target.value)} disabled></input>
-                  {/* <input className = 'formInput' type="text" name='' value={`${format(new Date(), "dd/MM/yyyy HH:mm:ss")}`} onChange={(e)=> setClosedDate(e.target.value)} disabled></input> */}
+                  {/* <input className = 'formInput' type="text" name='' value={`${format(new Date (singleIncidence.lastUpdatedDate), "dd/MM/yyyy hh:mm aaa")}` }  onChange={(e)=> setClosedDate(e.target.value)} disabled> */}
+                  <input className = 'formInput' type="text" name='' value={`${format(new Date (), "dd/MM/yyyy hh:mm aaa")}` }  onChange={(e)=> setClosedDate(e.target.value)} disabled>
+                  </input>
                 </>
               }
             </p>

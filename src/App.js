@@ -22,7 +22,7 @@ function App() {
           <Route path='/' element={<Login />}/>
           <Route path='/dashboard' element={<Home />}/>
           <Route path='/incidence' element={<Incidence />}/>
-          <Route path='/incidence/:id' element={<Update />}/>
+          <Route path='/incidence/:incidenceId' element={<Update />}/>
           <Route path='/incidenceByFacility/' element={<Incidence />}/>
           <Route path='/incidenceByFacility/:facilityName' element={<IncidenceByFacility />}/>
           <Route path='/team' element={<Team />}/>
