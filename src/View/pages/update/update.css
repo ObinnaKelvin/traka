@@ -2,6 +2,22 @@
     padding: 10px;
 }
 
+.update-goBack {
+    margin: 50px 0px -40px 20px;
+    font-size: 12px;
+    background-color: #01579b;
+    width: max-content;
+    padding: 5px;
+    border-radius: 7px;
+    color: white;
+}
+
+.update-goBack-link {
+    text-decoration: none;
+    color: white;
+}
+
+
 .update-form {
     display: flex;
     flex-direction: column;
@@ -13,7 +29,7 @@
 
 .update-form-header {
     font-weight:200;
-    font-size: 30px;
+    font-size: 20px;
     margin-bottom: 40px;
 }
 
