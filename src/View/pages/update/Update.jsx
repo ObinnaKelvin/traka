@@ -41,17 +41,17 @@ const Update = () => {
 
     const handleUpdate = (e) => {
       e.preventDefault();
-    }
-
-    const setData = (e) => {
-      console.log("Target Value", e.target.value);
-      //const { name, value } = e.target;
-      setUpdatedIncidence((currentFormData) => {
-        return {
-          //...currentFormData,[name]:value
-          ...currentFormData,[e.target.name]:e.target.value
-        }
+      axios.put(`http://localhost:3005/api/incidences/${incidenceId}`, {
+        incidence: incidence,
+        description: description,
+        category: category,
+        facility: facility,
+        department: department,
+        priority: priority,
+        status: status,
+        active: active  
       })
+      .then(response => console.log(response))
     }
 
     useEffect(()=> {
