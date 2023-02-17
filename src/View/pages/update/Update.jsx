@@ -19,6 +19,7 @@ const Update = () => {
     const [department, setDepartment] = useState('');
     const [priority, setPriority] = useState('');
     const [openDate, setOpenDate] = useState('');
+    const [reportedBy, setReportedBy] = useState('');
     const [closedDate, setClosedDate] = useState('');
     const [active, setActive] = useState('active');
     // const [updatedIncidence, setUpdatedIncidence] = useState({
@@ -42,6 +43,16 @@ const Update = () => {
       e.preventDefault();
     }
 
+    const setData = (e) => {
+      console.log("Target Value", e.target.value);
+      //const { name, value } = e.target;
+      setUpdatedIncidence((currentFormData) => {
+        return {
+          //...currentFormData,[name]:value
+          ...currentFormData,[e.target.name]:e.target.value
+        }
+      })
+    }
 
     useEffect(()=> {
       loadIncidence()
@@ -66,6 +77,17 @@ const Update = () => {
         //   lastUpdatedDate: response.data.lastUpdatedDate,
         // }); 
         .then(response => {setUpdatedIncidence(response.data)
+          setIncidence(response.data.incidence)
+          setDescription(response.data.description)
+          setCategory(response.data.category)
+          setFacility(response.data.facility)
+          setDepartment(response.data.department)
+          setPriority(response.data.priority)
+          setReportedBy(response.data.reportedBy)
+          setStatus(response.data.status)
+          setClosedDate(response.data.closedDate)
+          setActive(response.data.active)
+          setCategory(response.data.category)
           console.log("Single Incidence >>>>",response.data)})
           // console.log("Single Incidence >>>>",response.data)})
       } catch (error) {
@@ -82,15 +104,15 @@ const Update = () => {
           <form onSubmit={handleUpdate}>
             <p>
               <label>Incidence</label>
-              <input className = 'formInput' type="text" name='' value={updatedIncidence.incidence} onChange={(e)=> setIncidence(e.target.value)} placeholder="What's the incidence?"></input>
+              <input className = 'formInput' type="text" name='Incidence' value={incidence} onChange={(e) => setIncidence(e.target.value)} placeholder="What's the incidence?"></input>
             </p>
             <p>
               <label>Description</label>
-              <textarea className = 'formTextArea' type="text" name='' value={updatedIncidence.description} onChange={(e)=> setDescription(e.target.value)} placeholder="Can you describe as detailed as possible?"/>
+              <textarea className = 'formTextArea' type="text" name='Description' value={description} onChange={(e)=> setDescription(e.target.value)} placeholder="Can you describe as detailed as possible?"/>
             </p>
             <p>
               <label>Category</label>
-              <select className = 'formSelect' onChange={(e)=>setCategory(e.target.value)} value={updatedIncidence.category}>
+              <select className = 'formSelect' onChange={(e)=>setCategory(e.target.value)} value={category}>
                 <option>--Select One--</option>
                 <option value="User creation">User creation</option>
                 <option value="User priviledges">User priviledges</option>
@@ -114,7 +136,7 @@ const Update = () => {
             </p>
             <p>
               <label>Facility</label>
-              <select className = 'formSelect' onChange={(e) => setFacility(e.target.value)} value={updatedIncidence.facility}>
+              <select className = 'formSelect' onChange={(e) => setFacility(e.target.value)} value={facility}>
                 <option>--Select One--</option>
                 <option value="Ikeja">Ikeja - Awolowo</option>
                 <option value="Ikeja Clinic">Ikeja Clinic</option>
@@ -127,7 +149,7 @@ const Update = () => {
             </p>
             <p>
               <label>Department</label>
-                <select className = 'formSelect' onChange={(e)=>setDepartment(e.target.value)} value={updatedIncidence.department}>
+                <select className = 'formSelect' onChange={(e)=>setDepartment(e.target.value)} value={department}>
                   <option>--Select One--</option>
                   <option value="PCS">PCS</option>
                   <option value="Nursing">Nursing</option>
@@ -141,7 +163,7 @@ const Update = () => {
             </p>
             <p>
               <label>Priority</label>
-                <select className = 'formSelect' onChange={(e)=>setPriority(e.target.value)} value={updatedIncidence.priority}>
+                <select className = 'formSelect' onChange={(e)=>setPriority(e.target.value)} value={priority}>
                   <option>--Select One--</option>
                   <option value="High">High</option>
                   <option value="Medium">Medium</option>
@@ -151,7 +173,7 @@ const Update = () => {
             </p>
             <p>
               <label>Reported by</label>
-              <input className = 'formInput' type="text" name='' value={updatedIncidence.reportedBy} disabled></input>
+              <input className = 'formInput' type="text" name='' value={reportedBy} disabled></input>
             </p>
             {/* <p>
               <label>Responsibility</label>
@@ -159,7 +181,7 @@ const Update = () => {
             </p> */}
             <p>
               <label>Status</label>
-                <select className = 'formSelect' onChange={(e)=>setStatus(e.target.value)} value={updatedIncidence.status}>
+                <select className = 'formSelect' onChange={(e)=>setStatus(e.target.value)} value={status}>
                   <option value="Open">Open</option>
                   <option value="Closed">Closed</option>
                   <option value="Delayed">Delayed</option>
@@ -187,10 +209,10 @@ const Update = () => {
             </p>
             <p className='update-activeStatus'>
                 <>
-                    <input type="radio" value={updatedIncidence.active} checked={active === 'active'} name="activeLife" onChange={(e)=>setActive(e.target.value) }/>Active 
+                    <input type="radio" value={active} checked={active === 'active'} name="activeLife" onChange={(e)=>setActive(e.target.value) }/>Active 
                 </>
                 <>
-                    <input type="radio" value={updatedIncidence.active} checked={active === 'inactive'} name="activeLife" onChange={(e)=>setActive(e.target.value)}/>Inactive 
+                    <input type="radio" value={active} checked={active === 'inactive'} name="activeLife" onChange={(e)=>setActive(e.target.value)}/>Inactive 
                 </>
             </p>
 

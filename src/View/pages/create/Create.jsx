@@ -52,6 +52,8 @@ const Create = () => {
       lastUpdateDate: openDate
     })
     .then(response => console.log(response))
+
+    // history.push('/incidences');
   }
 
   useEffect(()=> {
