@@ -70,6 +70,52 @@
     width: 300px;
 }
 
+.upload-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.upload-container span {
+    color: #01579b;
+    font-size: 15px;
+}
+
+.upload-space {
+    display: flex;
+    flex-direction: column;
+    background-color: #ECF2FF;
+    height: 300px;
+    width: 400px;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload-top-icon {
+    font-size: 50px;
+    /* color: #5FD068; */
+    /* color: #03C988; */
+    /* color: #1de9b6; */
+    color: #4caf50;
+    margin-bottom: 30px;
+}
+
+.upload-text-holder {
+    margin-bottom: 80px;
+    font-size: 13px;
+}
+
+.upload-text-detail-holder {
+    /* display: flex;
+    flex-direction: row;
+    align-items: center; */
+    color: #4caf50;
+    background-color: #c8e6c9;
+    max-width: max-content;
+    padding: 5px 10px;
+    border-radius: 3px;
+    /* margin-bottom: 20px; */
+}
+
 @media screen and (max-width: 480px) {
     .create-form form {
         width: 300px;

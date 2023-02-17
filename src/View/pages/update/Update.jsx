@@ -88,7 +88,7 @@ const Update = () => {
           setClosedDate(response.data.closedDate)
           setActive(response.data.active)
           setCategory(response.data.category)
-          console.log("Single Incidence >>>>",response.data)})
+          console.log("Update Incidence >>>>",response.data)})
           // console.log("Single Incidence >>>>",response.data)})
       } catch (error) {
         console.log(error)

@@ -4,6 +4,8 @@ import NavBar from '../../components/navigation/NavBar'
 import { format } from 'date-fns'//transform the dates to readable formats
 import './create.css';
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCloudArrowUp, faLaptop } from '@fortawesome/free-solid-svg-icons'
 
 const Create = () => {
 
@@ -190,6 +192,27 @@ const Create = () => {
                   {/* <input className = 'formInput' type="text" name='' value={`${format(new Date(), "dd/MM/yyyy HH:mm:ss")}`} onChange={(e)=> setClosedDate(e.target.value)} disabled></input> */}
                 </>
               }
+            </p>
+
+            <p>
+
+              <div className='upload-container'>
+                <span> Upload Screenshot</span>
+                <div className="upload-space">
+                  <div className="upload-top-icon">
+                    <FontAwesomeIcon icon={faCloudArrowUp}/>
+                  </div>
+                  <div className="upload-text-holder">
+                   Drop image file here (.jpeg, .jpg, .png)
+                  </div>
+                  <div className="upload-text-detail-holder" type="file">
+                    {/* <input type="file" placeholder='Choose a' disabled></input> */}
+                    <FontAwesomeIcon icon={faLaptop}/> Select file from device.
+                  </div>
+                </div>
+
+              </div>
+
             </p>
 
             <button>Create</button>
