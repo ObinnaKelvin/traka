@@ -209,3 +209,9 @@
         margin-top: -6px;
     }
 }
+
+@media screen and (min-width: 1280px) {
+    .incidence-wrapper {
+        width: 98%;
+    }
+}
