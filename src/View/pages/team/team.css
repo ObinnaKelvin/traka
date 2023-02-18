@@ -5,15 +5,41 @@
     /* margin-bottom: 100px; */
 }
 
+.team-header {
+    margin-top: 30px;
+    font-size: 30px;
+    font-weight: 300;
+    height: 70px;
+    /* border: 1px solid black; */
+    width: 93%;
+    border-radius: 10px;
+    padding: 5px 5px 5px 15px;
+    box-shadow: 0px 10px 23px rgb(0 0 0 / 3%);
+    background-color: #e3f2fd;   
+}
+
 .team-wrapper {
     display: flex;
     flex-direction: column;
+    margin-top: 20px;
 }
 
 .team-wrapper p {
     font-size: 20px;
     font-weight: 300;
     margin-bottom: 20px;
+}
+
+.team-level {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 20px;
+}
+
+.level {
+ width: 25px;
+ height: 25px;
 }
 
 .team-group {

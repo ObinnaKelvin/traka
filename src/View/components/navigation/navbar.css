@@ -1,7 +1,12 @@
 .navBar {
     /* border: 1px solid red; */
-    padding-top: 0px;
+    /* padding-top: 10px; */
+    padding: 10px 10px 4px 10px;
+    /* margin-top: -9px; */
+    margin: -9px;
     /* position: fixed */
+    background-color: white;
+    height: 40px;
 }
 
 .link {

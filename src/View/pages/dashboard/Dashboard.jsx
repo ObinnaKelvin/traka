@@ -39,9 +39,12 @@ const Dashboard = ({loading, count, countStatus}) => {
         <NavBar />
         <AddButton />
         {/* Dashboard */}
-        <div className="greetings">
-            Hi! <span className="wave">👋</span> {greet},
+        <div className='dashboard-header'>
+            <div className="greetings">
+                Hi <span className="wave">👋</span> {greet}!
+            </div>        
         </div>
+
         <div className="stats">
             <div className="facilityStats ikejaJones">
                 <div className="facility ikejaJones">

@@ -130,7 +130,7 @@ const Incidence = () => {
     <div className='incidence-container'>
       <AddButton />
       <NavBar />
-      <p className='incidence-header'>Incidences</p>
+      <div className='incidence-header'>Incidences</div>
       <div className="incidence-location">
         <span><FontAwesomeIcon icon={faLocationDot}/></span>
         <span>
@@ -141,12 +141,6 @@ const Incidence = () => {
                     <option value={data.name.split(' ').join('')} key={data._id}>{data.name}</option>
                   ))
                 }
-
-            {/* <option value="Ikeja - Awolowo">Ikeja - Awolowo</option>
-            <option value="Ikeja - Adeniyi Jones">Ikeja - Adeniyi Jones</option>
-            <option value="Victoria Island">Victoria Island</option>
-            <option value="FABAC">FABAC</option>
-            <option value="Ikoyi">Ikoyi</option> */}
           </select>
         </span>
       </div>

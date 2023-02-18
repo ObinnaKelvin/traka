@@ -4,15 +4,17 @@ import React from 'react'
 import AddButton from '../../components/addButton/AddButton'
 import NavBar from '../../components/navigation/NavBar'
 import './team.css'
+import levelOne from '../../assets/images/levelOne.png'
+import levelTwo from '../../assets/images/levelTwo.png'
 
 const Team = () => {
   return (
     <div className='team-container'>
         <AddButton />
         <NavBar />
-        <p className='team-header'>Team</p>
+        <div className='team-header'>Team</div>
         <div className="team-wrapper">
-                <p>Level 1</p>
+                <div className='team-level'>Level 1 <img class="level" src={levelOne} alt='single badge'/></div>
             <div className="team-group">
                 <div className="team-member">
                     <div className="team-member-avatar">
@@ -123,7 +125,7 @@ const Team = () => {
                     </div>
                     <div className="team-member-details">
                         <div className='team-member-name'>
-                            Arthur
+                            Arthur Idorenyin
                         </div>
                         <div className='team-member-phone'>
                             <span><FontAwesomeIcon icon={faPhone}/></span>
@@ -139,8 +141,58 @@ const Team = () => {
                         </div>
                     </div>
                 </div>
+                <div className="team-member">
+                    <div className="team-member-avatar">
+                        <span>
+                            <FontAwesomeIcon icon={faUser}/>
+                            <div className="team-member-rank"></div>
+                        </span>
+                    </div>
+                    <div className="team-member-details">
+                        <div className='team-member-name'>
+                            Ayotola Awosika
+                        </div>
+                        <div className='team-member-phone'>
+                            <span><FontAwesomeIcon icon={faPhone}/></span>
+                            <span>+234 703  463  3132</span>
+                        </div>
+                        <div className='team-member-facility'>
+                            <span><FontAwesomeIcon icon={faLocationDot}/></span>
+                            <span>Ikeja - Awolowo</span>
+                        </div>
+                        <div className='team-member-email'>
+                            <span><FontAwesomeIcon icon={faEnvelope}/></span>
+                            <span>itsupport@lagoonhospitals.com</span>
+                        </div>
+                    </div>
+                </div>
+                <div className="team-member">
+                    <div className="team-member-avatar">
+                        <span>
+                            <FontAwesomeIcon icon={faUser}/>
+                            <div className="team-member-rank"></div>
+                        </span>
+                    </div>
+                    <div className="team-member-details">
+                        <div className='team-member-name'>
+                            Ekene Okoli
+                        </div>
+                        <div className='team-member-phone'>
+                            <span><FontAwesomeIcon icon={faPhone}/></span>
+                            <span>+234 808  992  5040</span>
+                        </div>
+                        <div className='team-member-facility'>
+                            <span><FontAwesomeIcon icon={faLocationDot}/></span>
+                            <span>Ikoyi</span>
+                        </div>
+                        <div className='team-member-email'>
+                            <span><FontAwesomeIcon icon={faEnvelope}/></span>
+                            <span>itsupport@lagoonhospitals.com</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-                <p>Level 2</p>
+            <div className='team-level'>Level 2 <img class="level" src={levelTwo} alt='single badge'/> <img class="level" src={levelTwo} alt='single badge'/></div>
             <div className="team-group">
                 <div className="team-member">
                     <div className="team-member-avatar">
