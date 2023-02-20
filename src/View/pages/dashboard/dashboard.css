@@ -534,24 +534,25 @@
     .stats {
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-around;
+        /* justify-content: space-around; */
         width: 100%;
-        gap: 2px;
+        gap: 0px;
+        /* border: 1px solid red; */
     }
 
     .facility_Stats {
         /* display: flex;
         flex-direction: column; */
-        width: 175px;
+        width: 154px;
         height: 220px;
         margin-bottom: 10px;
     }
 
     .coverPhoto {
         position: absolute;
-        margin: 90px 0px 0px 120px;
-        width: 60px;
-        height: 60px;
+        margin: 100px 0px 0px 100px;
+        width: 50px;
+        height: 50px;
         opacity: 0.3;
     }
 
@@ -560,6 +561,7 @@
     .status_closed.idejo,.status_closed.lss,
     .status_closed.fabac,.status_closed.ikoyi {
         margin: 10px 0px 0px 10px;
+
     }
 
     .facility_Stats_icon.total,.facility_Stats_icon.ikeja,
