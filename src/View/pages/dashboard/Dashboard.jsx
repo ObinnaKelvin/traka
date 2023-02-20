@@ -11,7 +11,7 @@ import coverTotal from '../../assets/images/rectangles.png'
 import coverIkeja from '../../assets/images/abstract2.png'
 import coverIkejaClinic from '../../assets/images/abstract3.png'
 import coverIdejo from '../../assets/images/abstract4.png'
-import coverLss from '../../assets/images/abstract5.png'
+import coverLss from '../../assets/images/abstract4.png'
 import coverFabac from '../../assets/images/abstract6.png'
 import coverIkoyi from '../../assets/images/abstract7.png'
 

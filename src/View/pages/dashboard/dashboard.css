@@ -105,7 +105,7 @@
     align-items: center;
     justify-content: center;
     display: flex;
-    color: #00337C;
+    color: #01579b;
     font-size: 30px;
     margin-left: 71%;
 }
@@ -127,7 +127,8 @@
     align-items: center;
     justify-content: center;
     display: flex;
-    color: #cddc39;
+    /* color: #cddc39; */
+    color: #CB1C8D;
     font-size: 30px;
     margin-left: 71%;
 }
@@ -218,7 +219,8 @@
 .status_open.lss, .status_closed.lss {
     height: 15px;
     width: 75px;
-    background-color: #cddc39;
+    /* background-color: #cddc39; */
+    background-color: #f48fb1;
     color: #fff;
     /* border: 1px solid salmon; */
     border-radius: 20px;
@@ -534,10 +536,18 @@
     .stats {
         flex-direction: row;
         flex-wrap: wrap;
-        /* justify-content: space-around; */
+        /* justify-content: space-between; */
         width: 100%;
-        gap: 0px;
+        gap: 2px;
         /* border: 1px solid red; */
+    }
+
+    .facility_Stats.total {
+        /* display: flex;
+        flex-direction: column; */
+        width: 98%;
+        height: 220px;
+        margin-bottom: 10px;
     }
 
     .facility_Stats {
