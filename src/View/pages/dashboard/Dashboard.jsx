@@ -238,7 +238,7 @@ const Dashboard = ({loading, count, countStatus}) => {
                 <div className="facility_Stats_details">
                     <div className="figures_">
                         <span>
-                            <CountUp end={69} duration={2}/>
+                            <CountUp end={59} duration={2}/>
                         </span>
                         <span>Cases</span>
                     </div>
