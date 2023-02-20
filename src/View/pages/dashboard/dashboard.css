@@ -542,7 +542,7 @@
     .facility_Stats {
         /* display: flex;
         flex-direction: column; */
-        width: 180px;
+        width: 175px;
         height: 220px;
         margin-bottom: 10px;
     }
