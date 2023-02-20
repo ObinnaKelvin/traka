@@ -51,11 +51,244 @@
     flex-direction: row;
     flex-wrap: wrap;
     width: 95%;
+    gap: 40px;
     /* width: 100%; */
-    justify-content: space-between;
+    /* justify-content: space-between; */
     margin-top: 20px;
     /* border: 1px solid red; */
 }
+
+.facility_Stats {
+    display: flex;
+    flex-direction: column;
+    width: 210px;
+    height: 240px;
+    box-shadow: 0px 10px 23px rgb(0 0 0 / 12%);
+    background-color: white;
+    margin-bottom: 20px;    
+}
+
+.facility_Stats.total {
+    background-color: #01579b;
+    color: white;
+}
+
+.facility_Stats.others {
+    background-color: white;
+    color: #000;
+}
+
+.facility_Stats_icon.total {
+    height: 70px;
+    width: 70px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color: white;
+    font-size: 30px;
+    margin-left: 73%;
+}
+
+.facility_Stats_icon.ikeja {
+    height: 70px;
+    width: 70px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color: #01579b;
+    font-size: 30px;
+    margin-left: 71%;
+}
+.facility_Stats_icon.ikejaClinic {
+    height: 70px;
+    width: 70px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color: #00337C;
+    font-size: 30px;
+    margin-left: 71%;
+}
+
+.facility_Stats_icon.idejo {
+    height: 70px;
+    width: 70px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color: #CB1C8D;
+    font-size: 30px;
+    margin-left: 71%;
+}
+
+.facility_Stats_icon.lss {
+    height: 70px;
+    width: 70px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color: #cddc39;
+    font-size: 30px;
+    margin-left: 71%;
+}
+
+.facility_Stats_icon.fabac {
+    height: 70px;
+    width: 70px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color: #00e676;
+    font-size: 30px;
+    margin-left: 71%;
+}
+
+.facility_Stats_icon.ikoyi {
+    height: 70px;
+    width: 70px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color: #ef6c00;
+    font-size: 30px;
+    margin-left: 71%;
+}
+
+.facility_Stats_header {
+    margin-left: 5%;
+    margin-top: -40px;
+    font-weight: 300;
+}
+
+.facility_Stats_details {
+    display: flex;
+    flex-direction: column;
+}
+
+.facility_Stats_status {
+    display: flex;
+    flex-direction: column;
+}
+
+.status_Open, .status_Closed {
+        height: 15px;
+        width: 75px;
+        background-color: #fff;
+        color: #0d47a1;
+        /* border: 1px solid salmon; */
+        border-radius: 20px;
+        font-size: 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 3px 5px;
+        margin: 20px 0px 0px 10px;
+}
+
+.status_open.ikeja, .status_closed.ikeja {
+    height: 15px;
+    width: 75px;
+    background-color: #8c9eff;
+    color: #fff;
+    /* border: 1px solid salmon; */
+    border-radius: 20px;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px 5px;
+    margin: 20px 0px 0px 10px;
+}
+
+.status_open.idejo, .status_closed.idejo {
+    height: 15px;
+    width: 75px;
+    background-color: #f48fb1;
+    color: #fff;
+    /* border: 1px solid salmon; */
+    border-radius: 20px;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px 5px;
+    margin: 20px 0px 0px 10px;
+}
+
+.status_open.lss, .status_closed.lss {
+    height: 15px;
+    width: 75px;
+    background-color: #cddc39;
+    color: #fff;
+    /* border: 1px solid salmon; */
+    border-radius: 20px;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px 5px;
+    margin: 20px 0px 0px 10px;
+}
+
+.status_open.fabac, .status_closed.fabac {
+    height: 15px;
+    width: 75px;
+    background-color: #69f0ae;
+    color: #fff;
+    /* border: 1px solid salmon; */
+    border-radius: 20px;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px 5px;
+    margin: 20px 0px 0px 10px;
+}
+
+.status_open.ikoyi, .status_closed.ikoyi {
+    height: 15px;
+    width: 75px;
+    background-color: #ffb74d;
+    color: #fff;
+    /* border: 1px solid salmon; */
+    border-radius: 20px;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px 5px;
+    margin: 20px 0px 0px 10px;
+}
+
+
+
+.figures_ {
+    font-size: 50px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.figures_ span:nth-child(1) {
+    max-width: max-content;
+}
+
+.figures_ span:nth-child(2) {
+    font-size: 10px;
+    /* position: absolute; */
+    font-style: italic;
+    margin-top: -10px;
+    margin-left: 10px;
+}
+
+.coverPhoto {
+    position: absolute;
+    margin: 90px 0px 0px 130px;
+    width: 80px;
+    height: 80px;
+    opacity: 0.3;
+}
+
 
 .facilityStats {
     display: flex;
@@ -303,7 +536,40 @@
         flex-wrap: wrap;
         justify-content: space-around;
         width: 100%;
+        gap: 2px;
     }
+
+    .facility_Stats {
+        /* display: flex;
+        flex-direction: column; */
+        width: 180px;
+        height: 220px;
+        margin-bottom: 10px;
+    }
+
+    .coverPhoto {
+        position: absolute;
+        margin: 90px 0px 0px 120px;
+        width: 60px;
+        height: 60px;
+        opacity: 0.3;
+    }
+
+    /* .status_Open,  */
+    .status_Closed,.status_closed.ikeja,
+    .status_closed.idejo,.status_closed.lss,
+    .status_closed.fabac,.status_closed.ikoyi {
+        margin: 10px 0px 0px 10px;
+    }
+
+    .facility_Stats_icon.total,.facility_Stats_icon.ikeja,
+    .facility_Stats_icon.ikejaClinic,.facility_Stats_icon.idejo,
+    .facility_Stats_icon.lss,.facility_Stats_icon.fabac,
+    .facility_Stats_icon.ikoyi {
+        height: 50px;
+        width: 50px;
+    }
+
 
     .facilityStats {
         /* display: flex;

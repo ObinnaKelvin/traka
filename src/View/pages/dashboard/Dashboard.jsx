@@ -7,6 +7,13 @@ import AddButton from '../../components/addButton/AddButton';
 import NavBar from '../../components/navigation/NavBar';
 import { useState, useEffect } from 'react';
 import Skeleton from '../../components/skeleton/Skeleton';
+import coverTotal from '../../assets/images/rectangles.png'
+import coverIkeja from '../../assets/images/abstract2.png'
+import coverIkejaClinic from '../../assets/images/abstract3.png'
+import coverIdejo from '../../assets/images/abstract4.png'
+import coverLss from '../../assets/images/abstract5.png'
+import coverFabac from '../../assets/images/abstract6.png'
+import coverIkoyi from '../../assets/images/abstract7.png'
 
 const Dashboard = ({loading, count, countStatus}) => {
 
@@ -46,6 +53,214 @@ const Dashboard = ({loading, count, countStatus}) => {
         </div>
 
         <div className="stats">
+            <div className="facility_Stats total">
+                <div className="facility_Stats_icon total">
+                    <FontAwesomeIcon icon={faChartSimple}/>
+                </div> 
+                <div className="facility_Stats_header">
+                    Dashboard
+                </div> 
+                <div className="facility_Stats_details">
+                    <div className="figures_">
+                        <span>
+                            <CountUp end={143} duration={2}/>
+                        </span>
+                        <span>Cases</span>
+                    </div>
+                    <img className='coverPhoto' src={coverTotal}/>
+                    <div className="facility_Stats_status">
+                        <div className="status_Open">
+                            <div>Open</div>
+                            <div>67</div>
+                            {/* <div>{countStatus[0].open}</div> */}
+                        </div>
+                        <div className="status_Closed">
+                            <div>Closed</div>
+                            <div>102</div>
+                            {/* <div>{countStatus[0].closed}</div> */}
+                        </div>
+                    </div>
+                </div>               
+
+            </div>
+            <div className="facility_Stats others">
+                <div className="facility_Stats_icon ikeja">
+                    <FontAwesomeIcon icon={faHospital}/>
+                </div> 
+                <div className="facility_Stats_header">
+                    Ikeja
+                </div> 
+                <div className="facility_Stats_details">
+                    <div className="figures_">
+                        <span>
+                            <CountUp end={13} duration={2}/>
+                        </span>
+                        <span>Cases</span>
+                    </div>
+                    <img className='coverPhoto' src={coverIkeja}/>
+                    <div className="facility_Stats_status">
+                        <div className="status_open ikeja">
+                            <div>Open</div>
+                            <div>67</div>
+                            {/* <div>{countStatus[0].open}</div> */}
+                        </div>
+                        <div className="status_closed ikeja">
+                            <div>Closed</div>
+                            <div>102</div>
+                            {/* <div>{countStatus[0].closed}</div> */}
+                        </div>
+                    </div>
+                </div>    
+            </div>            
+            <div className="facility_Stats others">
+                <div className="facility_Stats_icon ikejaClinic">
+                    <FontAwesomeIcon icon={faHospital}/>
+                </div> 
+                <div className="facility_Stats_header">
+                    Ikeja Clinic
+                </div> 
+                <div className="facility_Stats_details">
+                    <div className="figures_">
+                        <span>
+                            <CountUp end={51} duration={2}/>
+                        </span>
+                        <span>Cases</span>
+                    </div>
+                    <img className='coverPhoto' src={coverIkejaClinic}/>
+                    <div className="facility_Stats_status">
+                        <div className="status_open ikeja">
+                            <div>Open</div>
+                            <div>67</div>
+                            {/* <div>{countStatus[0].open}</div> */}
+                        </div>
+                        <div className="status_closed ikeja">
+                            <div>Closed</div>
+                            <div>102</div>
+                            {/* <div>{countStatus[0].closed}</div> */}
+                        </div>
+                    </div>
+                </div>    
+            </div>            
+            <div className="facility_Stats others">
+                <div className="facility_Stats_icon idejo">
+                    <FontAwesomeIcon icon={faHospital}/>
+                </div> 
+                <div className="facility_Stats_header">
+                    Idejo
+                </div> 
+                <div className="facility_Stats_details">
+                    <div className="figures_">
+                        <span>
+                            <CountUp end={37} duration={2}/>
+                        </span>
+                        <span>Cases</span>
+                    </div>
+                    <img className='coverPhoto' src={coverIdejo}/>
+                    <div className="facility_Stats_status">
+                        <div className="status_open idejo">
+                            <div>Open</div>
+                            <div>67</div>
+                            {/* <div>{countStatus[0].open}</div> */}
+                        </div>
+                        <div className="status_closed idejo">
+                            <div>Closed</div>
+                            <div>102</div>
+                            {/* <div>{countStatus[0].closed}</div> */}
+                        </div>
+                    </div>
+                </div>    
+            </div>            
+            <div className="facility_Stats others">
+                <div className="facility_Stats_icon lss">
+                    <FontAwesomeIcon icon={faHospital}/>
+                </div> 
+                <div className="facility_Stats_header">
+                    LSS
+                </div> 
+                <div className="facility_Stats_details">
+                    <div className="figures_">
+                        <span>
+                            <CountUp end={12} duration={2}/>
+                        </span>
+                        <span>Cases</span>
+                    </div>
+                    <img className='coverPhoto' src={coverLss}/>
+                    <div className="facility_Stats_status">
+                        <div className="status_open lss">
+                            <div>Open</div>
+                            <div>67</div>
+                            {/* <div>{countStatus[0].open}</div> */}
+                        </div>
+                        <div className="status_closed lss">
+                            <div>Closed</div>
+                            <div>102</div>
+                            {/* <div>{countStatus[0].closed}</div> */}
+                        </div>
+                    </div>
+                </div>    
+            </div>            
+            <div className="facility_Stats others">
+                <div className="facility_Stats_icon fabac">
+                    <FontAwesomeIcon icon={faHospital}/>
+                </div> 
+                <div className="facility_Stats_header">
+                    FABAC
+                </div> 
+                <div className="facility_Stats_details">
+                    <div className="figures_">
+                        <span>
+                            <CountUp end={55} duration={2}/>
+                        </span>
+                        <span>Cases</span>
+                    </div>
+                    <img className='coverPhoto' src={coverFabac}/>
+                    <div className="facility_Stats_status">
+                        <div className="status_open fabac">
+                            <div>Open</div>
+                            <div>67</div>
+                            {/* <div>{countStatus[0].open}</div> */}
+                        </div>
+                        <div className="status_closed fabac">
+                            <div>Closed</div>
+                            <div>102</div>
+                            {/* <div>{countStatus[0].closed}</div> */}
+                        </div>
+                    </div>
+                </div>    
+            </div>            
+            <div className="facility_Stats others">
+                <div className="facility_Stats_icon ikoyi">
+                    <FontAwesomeIcon icon={faHospital}/>
+                </div> 
+                <div className="facility_Stats_header">
+                    Ikoyi
+                </div> 
+                <div className="facility_Stats_details">
+                    <div className="figures_">
+                        <span>
+                            <CountUp end={69} duration={2}/>
+                        </span>
+                        <span>Cases</span>
+                    </div>
+                    <img className='coverPhoto' src={coverIkoyi}/>
+                    <div className="facility_Stats_status">
+                        <div className="status_open ikoyi">
+                            <div>Open</div>
+                            <div>67</div>
+                            {/* <div>{countStatus[0].open}</div> */}
+                        </div>
+                        <div className="status_closed ikoyi">
+                            <div>Closed</div>
+                            <div>102</div>
+                            {/* <div>{countStatus[0].closed}</div> */}
+                        </div>
+                    </div>
+                </div>    
+            </div>
+
+        </div>
+
+        {/* <div className="stats">
             <div className="facilityStats ikejaJones">
                 <div className="facility ikejaJones">
                     Ikeja - Adeniyi Jones
@@ -71,7 +286,7 @@ const Dashboard = ({loading, count, countStatus}) => {
                     </div>
                     <div className="Closed">
                         <div>Closed</div>
-                        {/* <div>{countStatus[1].closed}</div> */}
+                        <div>{countStatus[1].closed}</div>
                     </div>
                 </div>
             </div>
@@ -94,11 +309,11 @@ const Dashboard = ({loading, count, countStatus}) => {
                 <div className="status">
                     <div className="Open">
                         <div>Open</div>
-                        {/* <div>{countStatus[0].open}</div> */}
+                        <div>{countStatus[0].open}</div>
                     </div>
                     <div className="Closed">
                         <div>Closed</div>
-                        {/* <div>{countStatus[0].closed}</div> */}
+                        <div>{countStatus[0].closed}</div>
                     </div>
                 </div>
             </div>
@@ -123,11 +338,11 @@ const Dashboard = ({loading, count, countStatus}) => {
                 <div className="status">
                     <div className="Open">
                         <div>Open</div>
-                        {/* <div>{countStatus[3].open}</div> */}
+                        <div>{countStatus[3].open}</div>
                     </div>
                     <div className="Closed">
                         <div>Closed</div>
-                        {/* <div>{countStatus[3].closed}</div> */}
+                        <div>{countStatus[3].closed}</div>
                     </div>
                 </div>
             </div>
@@ -152,11 +367,11 @@ const Dashboard = ({loading, count, countStatus}) => {
                 <div className="status">
                     <div className="Open">
                         <div>Open</div>
-                        {/* <div>{countStatus[4].open}</div> */}
+                        <div>{countStatus[4].open}</div>
                     </div>
                     <div className="Closed">
                         <div>Closed</div>
-                        {/* <div>{countStatus[4].closed}</div> */}
+                        <div>{countStatus[4].closed}</div>
                     </div>
                 </div>
             </div>
@@ -179,11 +394,11 @@ const Dashboard = ({loading, count, countStatus}) => {
                 <div className="status">
                     <div className="Open">
                         <div>Open</div>
-                        {/* <div>{countStatus[5].open}</div> */}
+                        <div>{countStatus[5].open}</div>
                     </div>
                     <div className="Closed">
                         <div>Closed</div>
-                        {/* <div>{countStatus[5].closed}</div> */}
+                        <div>{countStatus[5].closed}</div>
                     </div>
                 </div>
             </div>
@@ -205,11 +420,11 @@ const Dashboard = ({loading, count, countStatus}) => {
                 <div className="status">
                     <div className="Open">
                         <div>Open</div>
-                        {/* <div>{countStatus[2].open}</div> */}
+                        <div>{countStatus[2].open}</div>
                     </div>
                     <div className="Closed">
                         <div>Closed</div>
-                        {/* <div>{countStatus[2].closed}</div> */}
+                        <div>{countStatus[2].closed}</div>
                     </div>
                 </div>
             </div>
@@ -239,8 +454,7 @@ const Dashboard = ({loading, count, countStatus}) => {
                     </div>
                 </div>
             </div>
-            <Skeleton type="feed"/>
-        </div>
+        </div> */}
 
         {/* <AddButton /> */}
     </div>
