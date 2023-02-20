@@ -2,7 +2,7 @@
     padding: 10px;
     /* width: 100%; */
     /* width: 95%; */
-    /* margin-bottom: 100px; */
+    /* margin-bottom: 150px; */
 }
 
 .dashboard-header {
@@ -560,9 +560,17 @@
 
     .coverPhoto {
         position: absolute;
-        margin: 100px 0px 0px 100px;
-        width: 50px;
-        height: 50px;
+        margin: 100px 0px 0px 110px;
+        width: 60px;
+        height: 60px;
+        opacity: 0.3;
+    }
+
+    .coverPhoto.total {
+        position: absolute;
+        margin: 100px 0px 0px 280px;
+        width: 65px;
+        height: 65px;
         opacity: 0.3;
     }
 
@@ -574,7 +582,13 @@
 
     }
 
-    .facility_Stats_icon.total,.facility_Stats_icon.ikeja,
+    .facility_Stats_icon.total{
+        height: 50px;
+        width: 50px;
+        margin-left: 85%;
+    }
+    
+    .facility_Stats_icon.ikeja,
     .facility_Stats_icon.ikejaClinic,.facility_Stats_icon.idejo,
     .facility_Stats_icon.lss,.facility_Stats_icon.fabac,
     .facility_Stats_icon.ikoyi {

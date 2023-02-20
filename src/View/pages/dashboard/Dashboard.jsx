@@ -67,7 +67,7 @@ const Dashboard = ({loading, count, countStatus}) => {
                         </span>
                         <span>Cases</span>
                     </div>
-                    <img className='coverPhoto' src={coverTotal}/>
+                    <img className='coverPhoto total' src={coverTotal}/>
                     <div className="facility_Stats_status">
                         <div className="status_Open">
                             <div>Open</div>
