@@ -6,6 +6,7 @@ import './create.css';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCloudArrowUp, faLaptop } from '@fortawesome/free-solid-svg-icons'
+import { useNavigate } from "react-router-dom";
 
 const Create = () => {
 
@@ -23,6 +24,7 @@ const Create = () => {
   const [priorityData, setPriorityData] = useState([]);
   const [openDate, setOpenDate] = useState(new Date());
   const [closedDate, setClosedDate] = useState(null);
+  const navigate = useNavigate();
   // const [date, setDate] = useState([
   //   {
   //     openDate: new Date(),
@@ -54,7 +56,7 @@ const Create = () => {
       lastUpdateDate: openDate
     })
     .then(response => console.log(response))
-
+    navigate("/incidence")
     // history.push('/incidences');
   }
 
