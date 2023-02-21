@@ -7,4 +7,11 @@
     /* background-color: #f0f1f3; */
     background-color: #F9F9F9;
     height: 100vh;
+    margin-bottom: 150px;
+}
+
+@media screen and (max-width: 480px) { 
+    .container {
+        margin-bottom: 550px;
+    }
 }
