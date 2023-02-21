@@ -50,15 +50,15 @@ const Team = () => {
                     </div>
                     <div className="team-member-details">
                         <div className='team-member-name'>
-                            Emeka Madumere
+                            Uchechi Ezeh-Moses
                         </div>
                         <div className='team-member-phone'>
                             <span><FontAwesomeIcon icon={faPhone}/></span>
-                            <span>+234 906 461 6468</span>
+                            <span>+234 903 960 1114</span>
                         </div>
                         <div className='team-member-facility'>
                             <span><FontAwesomeIcon icon={faLocationDot}/></span>
-                            <span>Ikoyi</span>
+                            <span>Ikeja Clinic</span>
                         </div>
                         <div className='team-member-email'>
                             <span><FontAwesomeIcon icon={faEnvelope}/></span>
@@ -100,15 +100,15 @@ const Team = () => {
                     </div>
                     <div className="team-member-details">
                         <div className='team-member-name'>
-                            Damilola Awosika
+                            Damilola Ayodele
                         </div>
                         <div className='team-member-phone'>
                             <span><FontAwesomeIcon icon={faPhone}/></span>
-                            <span>+234 815 723 5673</span>
+                            <span>+234 810 904 0334</span>
                         </div>
                         <div className='team-member-facility'>
                             <span><FontAwesomeIcon icon={faLocationDot}/></span>
-                            <span>Ikeja - Awolowo</span>
+                            <span>Idejo</span>
                         </div>
                         <div className='team-member-email'>
                             <span><FontAwesomeIcon icon={faEnvelope}/></span>
@@ -116,7 +116,7 @@ const Team = () => {
                         </div>
                     </div>
                 </div>
-                <div className="team-member">
+                {/* <div className="team-member">
                     <div className="team-member-avatar">
                         <span>
                             <FontAwesomeIcon icon={faUser}/>
@@ -140,7 +140,7 @@ const Team = () => {
                             <span>itsupport@lagoonhospitals.com</span>
                         </div>
                     </div>
-                </div>
+                </div> */}
                 <div className="team-member">
                     <div className="team-member-avatar">
                         <span>
