@@ -7,9 +7,12 @@ import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCloudArrowUp, faLaptop } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
-const Create = () => {
+const Create = ({createdStatus}) => {
 
+  const [created, setCreated] = useState(false)
   const [incidence, setIncidence] = useState('');
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
@@ -57,6 +60,8 @@ const Create = () => {
     })
     .then(response => console.log(response))
     navigate("/incidence")
+    toast("Incidence created!")
+    setCreated(true)
     // history.push('/incidences');
   }
 
@@ -66,6 +71,7 @@ const Create = () => {
     loadFacilityData();
     loadDepartmentData()
     loadPriorityData();
+    checkCreated()
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -99,6 +105,15 @@ const Create = () => {
     .then(console.log("Priority Data >>>>",priorityData))
   }
   
+  // const notify = () => {
+  //   toast("Incidence created!")
+  // }
+
+  const checkCreated = () => {
+    if(created === true){
+      createdStatus = true
+    }
+  }
 
   return (
     <div className='create-container'>
@@ -219,6 +234,9 @@ const Create = () => {
 
             <button>Create</button>
           </form>
+
+          {/* <button onClick={notify}>Activate Toast</button>
+          <ToastContainer></ToastContainer> */}
       </div>
     </div>
   )

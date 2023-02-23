@@ -8,8 +8,13 @@ import Moment from 'react-moment';
 import 'moment-timezone';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
-const Update = () => {
+const Update = ({updatedStatus}) => {
+
+    const [updated, setUpdated] = useState(false);
     const { incidenceId } = useParams();
     const [incidence, setIncidence] = useState('');
     const [description, setDescription] = useState('');
@@ -22,6 +27,7 @@ const Update = () => {
     const [reportedBy, setReportedBy] = useState('');
     const [closedDate, setClosedDate] = useState('');
     const [active, setActive] = useState('active');
+    const navigate = useNavigate();
     // const [updatedIncidence, setUpdatedIncidence] = useState({
     //   incidence: incidence,
     //   description: description,
@@ -52,10 +58,14 @@ const Update = () => {
         active: active  
       })
       .then(response => console.log(response))
+      setUpdated(true)
+      navigate("/incidence")
+      toast("Incidence updated!")
     }
 
     useEffect(()=> {
       loadIncidence()
+      checkUpdated()
     }, [])
     // console.log(incidenceId)
     const loadIncidence = async() => {
@@ -94,7 +104,16 @@ const Update = () => {
         console.log(error)
       }
     }
-    console.log (updatedIncidence)
+
+    const checkUpdated = () => {
+      if (updated === true){
+        updatedStatus = true
+      }
+    }
+
+    //console.log (updatedIncidence)//console.log should be last
+
+
   return (
     <div className='update-container'>
     <NavBar />

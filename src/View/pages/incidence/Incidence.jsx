@@ -61,7 +61,7 @@ const Incidence = () => {
   const getOpenCases = (data) => {
     if(data.status === "Open")
     return (
-      <div className="incidence-cases">
+      <div className="incidence-cases" onClick={() => navigate(`/incidence/${data._id}`)}>
               <div className="incidence-category">{data.incidence}</div> <FontAwesomeIcon icon={faCircleCheck} className={`${data.status==="Open"? "done": "done active"}`}/> {/* Logic-If closed is true then display the done icon */}
               <div className="incidence-detail">{data.description}</div>
               <div className="incidence-reporter">
@@ -76,7 +76,7 @@ const Incidence = () => {
   const getClosedCases = (data) => {
     if(data.status === "Closed")
     return (
-      <div className="incidence-cases">
+      <div className="incidence-cases" onClick={() => navigate(`/incidence/${data._id}`)}>
               <div className="incidence-category">{data.incidence}</div> <FontAwesomeIcon icon={faCircleCheck} className={`${data.status==="Open"? "done": "done active"}`}/> {/* Logic-If closed is true then display the done icon */}
               <div className="incidence-detail">{data.description}</div>
               <div className="incidence-reporter">
