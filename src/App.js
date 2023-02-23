@@ -12,6 +12,7 @@ import IncidenceByFacility from "./View/pages/incidence/IncidenceByFacility.jsx"
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import Notifications from "./View/pages/notifications/Notifications.jsx";
+import Administration from "./View/pages/administration/Administration.jsx";
 
 function App() {
   const {auth} = useSelector(state => state)
@@ -54,6 +55,7 @@ function App() {
           <Route path='/chatbox' element={<Chatbox />}/>
           <Route path='/create' element={<Create createdStatus={createdStatus}/>}/>
           <Route path='/notifications' element={<Notifications />}/>
+          <Route path='/administration' element={<Administration />}/>
         </Routes>
         <ToastContainer></ToastContainer>
       </Router>

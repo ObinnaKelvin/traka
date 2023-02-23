@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRightFromBracket, faBell, faBug, faChartLine, faComments, faPeopleGroup } from '@fortawesome/free-solid-svg-icons'
+import { faArrowRightFromBracket, faBell, faBug, faChartLine, faComments, faPeopleGroup, faUserGear } from '@fortawesome/free-solid-svg-icons'
 import './navbar.css'; 
 import { Link } from 'react-router-dom';
 import logo from '../../assets/images/traka_logo.gif'
@@ -60,6 +60,12 @@ const NavBar = () => {
                 <Link className='link' to ="/notifications">
                   <span><FontAwesomeIcon icon={faBell}/></span>
                   <span>Notifications</span>
+                </Link>
+              </li>
+              <li>
+                <Link className='link' to ="/administration">
+                  <span><FontAwesomeIcon icon={faUserGear}/></span>
+                  <span>Administration</span>
                 </Link>
               </li>
               <li className='logout'>
