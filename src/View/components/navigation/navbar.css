@@ -142,8 +142,8 @@
 
 @media screen and (min-width: 1400px) {
     .navBar-sideBar {
-        left: 97%;
+        left: 97.7%;
         transition: 500ms;
-        top: 8%;
+        top: 5.2%;
     }
 }
