@@ -6,12 +6,14 @@
 .container {
     /* background-color: #f0f1f3; */
     background-color: #F9F9F9;
-    height: 100vh;
-    margin-bottom: 150px;
+    /* height: 100vh; */
+    height: 100%;
+    /* margin-bottom: 150px; */
+    padding-bottom: 200px;
 }
 
 @media screen and (max-width: 480px) { 
     .container {
-        margin-bottom: 400px;
+        padding-bottom: 400px;
     }
 }

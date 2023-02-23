@@ -57,7 +57,7 @@ const Dashboard = ({loading, count, countStatus}) => {
                 <div className="facility_Stats_icon total">
                     <FontAwesomeIcon icon={faChartSimple}/>
                 </div> 
-                <div className="facility_Stats_header">
+                <div className="facility_Stats_header total">
                     Dashboard
                 </div> 
                 <div className="facility_Stats_details">
