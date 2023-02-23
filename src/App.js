@@ -11,6 +11,7 @@ import {useSelector} from 'react-redux'
 import IncidenceByFacility from "./View/pages/incidence/IncidenceByFacility.jsx";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
+import Notifications from "./View/pages/notifications/Notifications.jsx";
 
 function App() {
   const {auth} = useSelector(state => state)
@@ -52,6 +53,7 @@ function App() {
           <Route path='/team' element={<Team />}/>
           <Route path='/chatbox' element={<Chatbox />}/>
           <Route path='/create' element={<Create createdStatus={createdStatus}/>}/>
+          <Route path='/notifications' element={<Notifications />}/>
         </Routes>
         <ToastContainer></ToastContainer>
       </Router>

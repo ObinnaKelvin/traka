@@ -45,6 +45,7 @@
     height: 2px;
     margin-bottom: 7px;
     border-radius: 50px;
+    width: 60%;
 }
 
 .hamTwo {
@@ -58,6 +59,8 @@
     background-color: #01579b;
     height: 2px;
     border-radius: 50px;
+    width: 70%;
+    /* margin-left: 10px; */
 }
 
 .navBar-sideBar {
@@ -69,8 +72,8 @@
     /* top: 6%; */
     top: 8.7%;
     /* left: 85%; */
-    left: 95%;
-    padding: 10px ;
+    left: 96%;
+    /* padding: 10px ; */
     z-index: 2;
     transition: 500ms;
     border-radius: 0px 0px 0px 0px;
@@ -83,7 +86,7 @@
     text-decoration: none;
     display: flex;
     padding: 15px;
-    font-size: 20px;
+    font-size: 16px;
     cursor: pointer;
 }
 
@@ -94,6 +97,25 @@
 .navBar-sideBar.open {
     left: 85%;
     transition: 500ms;
+}
+
+.overlay {
+    /* border: 1px solid red; */
+    height: 100vh;
+    /* height: 100%; */
+    width: 99%;
+    margin-left: -10px;
+    margin-top: 20px;
+    position: absolute;
+    z-index: 1;
+    position: fixed;
+    display: none;
+}
+
+.overlay.open{
+    display: inline-block;
+    background-color: black;
+    opacity: 0.3;
 }
 
 

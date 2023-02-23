@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRightFromBracket, faBug, faChartLine, faComments, faPeopleGroup } from '@fortawesome/free-solid-svg-icons'
+import { faArrowRightFromBracket, faBell, faBug, faChartLine, faComments, faPeopleGroup } from '@fortawesome/free-solid-svg-icons'
 import './navbar.css'; 
 import { Link } from 'react-router-dom';
 import logo from '../../assets/images/traka_logo.gif'
@@ -29,6 +29,7 @@ const NavBar = () => {
                 <span className="hamThree"></span>
             </div>
         </div>
+        <div className={open ? 'overlay open': 'overlay'} onClick={toggle}></div>
         <div className={open ? 'navBar-sideBar open' : 'navBar-sideBar'}>
             <ul>
               <li>
@@ -53,6 +54,12 @@ const NavBar = () => {
                 <Link className='link' to ="/chatbox">
                   <span><FontAwesomeIcon icon={faComments}/></span>
                   <span>Chatbox</span>
+                </Link>
+              </li>
+              <li>
+                <Link className='link' to ="/notifications">
+                  <span><FontAwesomeIcon icon={faBell}/></span>
+                  <span>Notifications</span>
                 </Link>
               </li>
               <li className='logout'>
