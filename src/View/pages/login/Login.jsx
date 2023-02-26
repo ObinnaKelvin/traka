@@ -9,7 +9,7 @@ import logo from '../../assets/images/traka_logo.gif'
 const Login = () => {
     const dispatch = useDispatch();
     const [formInput, setFormInput] = useState({
-        name:"",
+        firstName:"",
         password:""
     })
 
@@ -46,7 +46,7 @@ const Login = () => {
                 <form>
                     <p>
                         <label>First Name</label>
-                        <input type="text" name='firstName' className='formInput' placeholder="Enter your first name" onChange={(e)=> setFormInput(e.target.value) } value={formInput.name}></input>
+                        <input type="text" name='firstName' className='formInput' placeholder="Enter your first name" onChange={(e)=> setFormInput(e.target.value) } value={formInput.firstName}></input>
                     </p>
                     <p>
                         <label>Password</label>
