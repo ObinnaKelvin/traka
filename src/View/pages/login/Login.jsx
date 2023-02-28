@@ -1,17 +1,36 @@
-import React, { useState }  from 'react';
-import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { signIn } from '../../../Controller/Redux/authSlice'
+import React, { useEffect, useState }  from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { login, reset } from '../../../Controller/Redux/authSlice'
 import './login.css';
 import trakabg from '../../assets/images/traka1.jpg'
 import logo from '../../assets/images/traka_logo.gif'
+import {toast} from 'react-toastify'
+import axios from 'axios';
 
 const Login = () => {
+    const LOGIN_URL = "http://localhost:3005/api/auth/login"
+    // const LOGIN_URL = "http://localhost:3005/api/auth/login"
     const dispatch = useDispatch();
+    const navigate = useNavigate()
+    const { user, isLoading, isError, isSuccess, message } = useSelector( (state) => state.auth)
+
+
     const [formInput, setFormInput] = useState({
         firstName:"",
         password:""
     })
+
+    // useEffect(()=> {
+    //     if(isError) {
+    //         toast.error(message)
+    //     }
+    //     if(isSuccess || user) {
+    //         navigate('/dashboard')
+    //     }
+
+    //     dispatch(reset())
+    // }, [user, isError, isSuccess, message, navigate, dispatch])
 
     // const inputChanged = (e) => {
     //     setFormInput({
@@ -21,9 +40,33 @@ const Login = () => {
     //     })
     // }
 
-    const submit =(e) => {
-        dispatch(signIn(formInput))
+    // useEffect(() => {
+    //     authenticate()
+    // }, [])
+
+    // const authenticate = async() => {
+    //     await axios.post(LOGIN_URL, formInput)
+    //     .then(response => console.log(response.data))
+    // }
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
+
+        try {
+            const response = await axios.post("http://localhost:3005/api/auth/login", formInput
+            )
+            .then(response => console.log(response.data));
+            //console.log("Are you trying to login?", response)
+            navigate('/dashboard')
+
+        } catch (error) {
+            console.log(error)
+        }
+        //dispatch(login(formInput))
+    }
+
+    if(isLoading) {
+        return <>Loading...</>
     }
 
 
@@ -43,7 +86,7 @@ const Login = () => {
             </div>
             <div className="login-wrapper-right">
                 <div className="login-logo-wrapper"><img src={logo} alt="traka logo" className='logo'/></div>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <p>
                         <label>First Name</label>
                         <input type="text" name='firstName' className='formInput' placeholder="Enter your first name" onChange={(e)=> setFormInput(e.target.value) } value={formInput.firstName}></input>
@@ -53,8 +96,8 @@ const Login = () => {
                         <input type="password" className='formInput' placeholder="Enter your password" onChange={(e)=> setFormInput(e.target.value) } value={formInput.password}></input>
                     </p>
 
-                    <Link className='login-link' to="/dashboard">
-                        <button type='submit' onClick={submit}>Login</button>
+                    <Link className='login-link'>
+                        <button type='submit'>Login</button>
                     </Link>
                 </form>
             </div>

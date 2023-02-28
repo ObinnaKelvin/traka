@@ -2,10 +2,15 @@ import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRightFromBracket, faBell, faBug, faChartLine, faComments, faPeopleGroup, faUserGear } from '@fortawesome/free-solid-svg-icons'
 import './navbar.css'; 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/images/traka_logo.gif'
+import { useSelector, useDispatch } from 'react-redux';
+import { logout, reset } from '../../../Controller/Redux/authSlice'
 
 const NavBar = () => {
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const {user} = useSelector((state) => state.auth)
 
   const [open, setOpen] = useState(false);
 
@@ -13,6 +18,13 @@ const NavBar = () => {
     setOpen(!open)
     console.log(open)
   }
+
+  const onLogout = () => {
+    dispatch(logout())
+    dispatch(reset())
+    navigate('/')
+  }
+
 
   return (
     <div className='navBar'>
@@ -68,8 +80,8 @@ const NavBar = () => {
                   <span>Administration</span>
                 </Link>
               </li>
-              <li className='logout'>
-                <Link className='link logout' to ="/">
+              <li className='logout' onClick={onLogout}>
+                <Link className='link logout'>
                   <span><FontAwesomeIcon icon={faArrowRightFromBracket}/></span>
                   <span>Log Out</span>
                 </Link>
