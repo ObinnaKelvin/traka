@@ -39,6 +39,9 @@ const Dashboard = ({loading, count, countStatus}) => {
     useEffect(() => {
         handleGreet();
     }, [])
+
+    const currentUser = JSON.parse(localStorage.getItem('user'));
+    if(currentUser? currentUser : <span></span>)
     
     
   return (
@@ -48,7 +51,7 @@ const Dashboard = ({loading, count, countStatus}) => {
         {/* Dashboard */}
         <div className='dashboard-header'>
             <div className="greetings">
-                Hi <span className="wave">👋</span> {greet}!
+                Hi <span className='user'>{currentUser.details.firstname}</span> <span className="wave">👋</span> {greet}!
             </div>        
         </div>
 

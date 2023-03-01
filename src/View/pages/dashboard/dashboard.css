@@ -24,6 +24,12 @@
     font-weight: 300;
 }
 
+.user {
+    color: #01579b;
+    /* font-style: italic; */
+    font-weight: 300;
+}
+
 .wave {
     animation-name: wave-animation;  /* Refers to the name of your @keyframes element below */
     animation-duration: 2.5s;        /* Change to speed up or slow down */
