@@ -16,12 +16,12 @@ const Login = () => {
     const { user, isLoading, isError, isSuccess, message } = useSelector( (state) => state.auth)
 
 
-    const [formInput, setFormInput] = useState({
-        firstName:"",
-        password:""
-    })
+    // const [formInput, setFormInput] = useState({
+    //     firstName:"",
+    //     password:""
+    // })
 
-    const [firstName, setFirstName] = useState("")
+    const [firstname, setFirstName] = useState("")
     const [password, setPassword] = useState("")
 
     // useEffect(()=> {
@@ -56,8 +56,7 @@ const Login = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post("http://localhost:3005/api/auth/login", {firstName, password})
-            .then(response => console.log(response.data));
+            const response = await axios.post("http://localhost:3005/api/auth/login", {firstname, password})
             localStorage.setItem('user', JSON.stringify(response.data));
             // .then(response => console.log(response.data));
             //console.log("Are you trying to login?", response)
@@ -94,7 +93,7 @@ const Login = () => {
                     <p>
                         <label>First Name</label>
                         {/* <input type="text" name='firstName' className='formInput' placeholder="Enter your first name" onChange={(e)=> setFormInput(e.target.value) } value={formInput.firstName}></input> */}
-                        <input type="text" name='firstName' className='formInput' placeholder="Enter your first name" onChange={(e)=> {setFirstName(e.target.value); console.log(e.target.value)}} value={firstName}></input>
+                        <input type="text" name='firstName' className='formInput' placeholder="Enter your first name" onChange={(e)=> {setFirstName(e.target.value); console.log(e.target.value)}} value={firstname}></input>
                     </p>
                     <p>
                         <label>Password</label>
