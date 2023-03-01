@@ -21,6 +21,9 @@ const Login = () => {
         password:""
     })
 
+    const [firstName, setFirstName] = useState("")
+    const [password, setPassword] = useState("")
+
     // useEffect(()=> {
     //     if(isError) {
     //         toast.error(message)
@@ -53,21 +56,22 @@ const Login = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post("http://localhost:3005/api/auth/login", formInput
-            )
+            const response = await axios.post("http://localhost:3005/api/auth/login", {firstName, password})
             .then(response => console.log(response.data));
+            localStorage.setItem('user', JSON.stringify(response.data));
+            // .then(response => console.log(response.data));
             //console.log("Are you trying to login?", response)
             navigate('/dashboard')
 
         } catch (error) {
-            console.log(error)
+            console.log(error.response.data)
         }
         //dispatch(login(formInput))
     }
 
-    if(isLoading) {
-        return <>Loading...</>
-    }
+    // if(isLoading) {
+    //     return <>Loading...</>
+    // }
 
 
 
@@ -89,16 +93,18 @@ const Login = () => {
                 <form onSubmit={handleSubmit}>
                     <p>
                         <label>First Name</label>
-                        <input type="text" name='firstName' className='formInput' placeholder="Enter your first name" onChange={(e)=> setFormInput(e.target.value) } value={formInput.firstName}></input>
+                        {/* <input type="text" name='firstName' className='formInput' placeholder="Enter your first name" onChange={(e)=> setFormInput(e.target.value) } value={formInput.firstName}></input> */}
+                        <input type="text" name='firstName' className='formInput' placeholder="Enter your first name" onChange={(e)=> {setFirstName(e.target.value); console.log(e.target.value)}} value={firstName}></input>
                     </p>
                     <p>
                         <label>Password</label>
-                        <input type="password" className='formInput' placeholder="Enter your password" onChange={(e)=> setFormInput(e.target.value) } value={formInput.password}></input>
+                        {/* <input type="password" className='formInput' placeholder="Enter your password" onChange={(e)=> setFormInput(e.target.value) } value={formInput.password}></input> */}
+                        <input type="password" className='formInput' placeholder="Enter your password" onChange={(e)=> {setPassword(e.target.value); console.log(e.target.value)}} value={password}></input>
                     </p>
 
-                    <Link className='login-link'>
+                    {/* <Link className='login-link'> */}
                         <button type='submit'>Login</button>
-                    </Link>
+                    {/* </Link> */}
                 </form>
             </div>
         </div>
