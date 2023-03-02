@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import landscape from '../../assets/images/landscape.png'
+import placeholder from '../../assets/images/placeholder1.png'
 
 const Create = ({createdStatus}) => {
 
@@ -29,7 +30,7 @@ const Create = ({createdStatus}) => {
   const [reportedBy, setReportedBy] = useState('');
   const [openDate, setOpenDate] = useState(new Date());
   const [closedDate, setClosedDate] = useState(null);
-  const [image, setImage] = useState([]);
+  const [image, setImage] = useState([{myImage: ""}]);
   const navigate = useNavigate();
   // const [date, setDate] = useState([
   //   {
@@ -124,6 +125,29 @@ const Create = ({createdStatus}) => {
   const loadReporter = async() => {
     await currentUser
     setReportedBy(currentUser.details.firstname)
+  }
+
+  //Convert To Base64
+  function convertToBase64(file) {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => {
+        resolve(fileReader.result)
+      };
+      fileReader.onerror = (error) => {
+        reject(error)
+      }
+    })
+  }
+
+  const handleFileUpload = async (e) => {
+    const file = e.target.files[0];
+    const base64 = await convertToBase64(file);
+    //console.log(base64);
+    //const addimage = image.push(base64)
+    setImage({myImage: base64})
+    console.log("Uploaded Image", image);
   }
 
   return (
@@ -255,6 +279,7 @@ const Create = ({createdStatus}) => {
                       name="myFile"
                       id="file-upload"
                       accept='.jpeg, .png, .jpg'
+                      onChange={e => handleFileUpload(e)}
                     />
                     <div className="upload-text-holder-copy">
                      We support JPG and PNG files. Maximum file size is 500kb.
@@ -267,7 +292,9 @@ const Create = ({createdStatus}) => {
             <section>
               <p>
                 <div className="upload-content-holder">
-
+                  {/* <div> */}
+                    <img src={image.myImage || placeholder} alt="uploaded image" className='upload-image-item'/>
+                  {/* </div> */}
                 </div>
               </p>
             </section>
