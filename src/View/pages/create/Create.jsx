@@ -9,6 +9,7 @@ import { faCloudArrowUp, faLaptop } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
+import landscape from '../../assets/images/landscape.png'
 
 const Create = ({createdStatus}) => {
 
@@ -25,6 +26,7 @@ const Create = ({createdStatus}) => {
   const [departmentData, setDepartmentData] = useState([]);
   const [priority, setPriority] = useState('');
   const [priorityData, setPriorityData] = useState([]);
+  const [reportedBy, setReportedBy] = useState('');
   const [openDate, setOpenDate] = useState(new Date());
   const [closedDate, setClosedDate] = useState(null);
   const navigate = useNavigate();
@@ -50,7 +52,7 @@ const Create = ({createdStatus}) => {
       facility: facility,
       department: department,
       priority: priority,
-      reportedBy: "Test User",
+      reportedBy: reportedBy,
       status: status,
       dateOpened: openDate,
       dateClosed: closedDate,
@@ -72,6 +74,7 @@ const Create = ({createdStatus}) => {
     loadDepartmentData()
     loadPriorityData();
     checkCreated()
+    loadReporter()
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -115,6 +118,12 @@ const Create = ({createdStatus}) => {
     }
   }
 
+  const currentUser = JSON.parse(localStorage.getItem('user'));
+  const loadReporter = async() => {
+    await currentUser
+    setReportedBy(currentUser.details.firstname)
+  }
+
   return (
     <div className='create-container'>
     <NavBar />
@@ -122,116 +131,128 @@ const Create = ({createdStatus}) => {
       <div className='create-form'>
           <p className='create-form-header'>Create an incidence</p>
           <form onSubmit={handleSubmit}>
-            <p>
-              <label>Incidence</label>
-              <input className = 'formInput' type="text" name='' value={incidence} onChange={(e)=> setIncidence(e.target.value)} placeholder="What's the incidence?"></input>
-            </p>
-            <p>
-              <label>Description</label>
-              <textarea className = 'formTextArea' type="text" name='' value={description} onChange={(e)=> setDescription(e.target.value)} placeholder="Can you describe as detailed as possible?"/>
-            </p>
-            <p>
-              <label>Category</label>
-              <select className = 'formSelect' onChange={(e)=>setCategory(e.target.value)} value={category}>
-                <option>--Select One--</option>
-                {
-                  categoryData.map((data) => (
-                    <option value={data.name} key={data._id}>{data.name}</option>
-                  ))
-                }
-              </select>
-              {/* <input type="text" name='' value={issue} onChange={(e)=> setIssue(e.target.value)}></input> */}
-            </p>
-            <p>
-              <label>Facility</label>
-              <select className = 'formSelect' onChange={(e) => setFacility(e.target.value)} value={facility}>
-                <option>--Select One--</option>
-                {
-                  facilityData.map((data)=> (
-                    <option value={data.name} key={data._id}>{data.name}</option>
-                  ))
-                }
-              </select>
-              {/* <input type="text" name='' value={issue} onChange={(e)=> setIssue(e.target.value)}></input> */}
-            </p>
-            <p>
-              <label>Department</label>
-                <select className = 'formSelect' onChange={(e)=>setDepartment(e.target.value)} value={department}>
+            <section>
+              <p>
+                <label>Incidence</label>
+                <input className = 'formInput' type="text" name='' value={incidence} onChange={(e)=> setIncidence(e.target.value)} placeholder="What's the incidence?"></input>
+              </p>
+              <p>
+                <label>Description</label>
+                <textarea className = 'formTextArea' type="text" name='' value={description} onChange={(e)=> setDescription(e.target.value)} placeholder="Can you describe as detailed as possible?"/>
+              </p>
+              <p>
+                <label>Category</label>
+                <select className = 'formSelect' onChange={(e)=>setCategory(e.target.value)} value={category}>
                   <option>--Select One--</option>
                   {
-                    departmentData.map((data) => (
+                    categoryData.map((data) => (
                       <option value={data.name} key={data._id}>{data.name}</option>
                     ))
                   }
                 </select>
-            </p>
-            <p>
-              <label>Priority</label>
-                <select className = 'formSelect' onChange={(e)=>setPriority(e.target.value)} value={priority}>
+                {/* <input type="text" name='' value={issue} onChange={(e)=> setIssue(e.target.value)}></input> */}
+              </p>
+              <p>
+                <label>Facility</label>
+                <select className = 'formSelect' onChange={(e) => setFacility(e.target.value)} value={facility}>
                   <option>--Select One--</option>
                   {
-                    priorityData.map((data) => (
-                      <option value={data.name}>{data.name}</option>
+                    facilityData.map((data)=> (
+                      <option value={data.name} key={data._id}>{data.name}</option>
                     ))
                   }
                 </select>
-            </p>
-            <p>
-              <label>Reported by</label>
-              <input className = 'formInput' type="text" name='' disabled></input>
-            </p>
-            {/* <p>
-              <label>Responsibility</label>
-              <input type="text" name='' value={issue} onChange={(e)=> setIssue(e.target.value)}></input>
-            </p> */}
-            <p>
-              <label>Status</label>
-                <select className = 'formSelect' onChange={(e)=>setStatus(e.target.value)} value={status}>
+                {/* <input type="text" name='' value={issue} onChange={(e)=> setIssue(e.target.value)}></input> */}
+              </p>
+            </section>
+            <section>
+              <p>
+                <label>Department</label>
+                  <select className = 'formSelect' onChange={(e)=>setDepartment(e.target.value)} value={department}>
+                    <option>--Select One--</option>
+                    {
+                      departmentData.map((data) => (
+                        <option value={data.name} key={data._id}>{data.name}</option>
+                      ))
+                    }
+                  </select>
+              </p>
+              <p>
+                <label>Priority</label>
+                  <select className = 'formSelect' onChange={(e)=>setPriority(e.target.value)} value={priority}>
+                    <option>--Select One--</option>
+                    {
+                      priorityData.map((data) => (
+                        <option value={data.name}>{data.name}</option>
+                      ))
+                    }
+                  </select>
+              </p>
+              <p>
+                <label>Reported by</label>
+                <input className = 'formInput' type="text" name='' value={reportedBy} disabled></input>
+              </p>
+              {/* <p>
+                <label>Responsibility</label>
+                <input type="text" name='' value={issue} onChange={(e)=> setIssue(e.target.value)}></input>
+              </p> */}
+              <p>
+                <label>Status</label>
+                  <select className = 'formSelect' onChange={(e)=>setStatus(e.target.value)} value={status}>
+                  {
+                    statusData.map((data) => (
+                      <option value={data.name}>{data.name}</option>
+                    ))
+                  }
+                  </select>
+              </p>
+              <p>
+                <label>Date Opened</label>
+                {/* <input className = 'formInput' type="text" name='' value={`${format(date[0].openDate, "dd/MM/yyyy HH:mm:ss")}`} onChange={(e)=> setOpenDate(e.target.value)}  disabled> */}
+                <input className = 'formInput' type="text" name='' value={`${format(openDate, "dd/MM/yyyy HH:mm:ss")}`} onChange={(e)=> setOpenDate(e.target.value)}  disabled>
+                </input>
+              </p>
+              <p>
                 {
-                  statusData.map((data) => (
-                    <option value={data.name}>{data.name}</option>
-                  ))
+                  status === 'closed' &&
+                  <>
+                    <label>Date Closed</label>
+                    <input className = 'formInput' type="text" name='' value={`${format(new Date(), "dd/MM/yyyy HH:mm:ss")}` }  onChange={(e)=> setClosedDate(e.target.value)} disabled></input>
+                    {/* <input className = 'formInput' type="text" name='' value={`${format(new Date(), "dd/MM/yyyy HH:mm:ss")}`} onChange={(e)=> setClosedDate(e.target.value)} disabled></input> */}
+                  </>
                 }
-                </select>
-            </p>
-            <p>
-              <label>Date Opened</label>
-              {/* <input className = 'formInput' type="text" name='' value={`${format(date[0].openDate, "dd/MM/yyyy HH:mm:ss")}`} onChange={(e)=> setOpenDate(e.target.value)}  disabled> */}
-              <input className = 'formInput' type="text" name='' value={`${format(openDate, "dd/MM/yyyy HH:mm:ss")}`} onChange={(e)=> setOpenDate(e.target.value)}  disabled>
-              </input>
-            </p>
-            <p>
-              {
-                status === 'closed' &&
-                <>
-                  <label>Date Closed</label>
-                  <input className = 'formInput' type="text" name='' value={`${format(new Date(), "dd/MM/yyyy HH:mm:ss")}` }  onChange={(e)=> setClosedDate(e.target.value)} disabled></input>
-                  {/* <input className = 'formInput' type="text" name='' value={`${format(new Date(), "dd/MM/yyyy HH:mm:ss")}`} onChange={(e)=> setClosedDate(e.target.value)} disabled></input> */}
-                </>
-              }
-            </p>
+              </p>
 
-            <p>
-
-              <div className='upload-container'>
-                <span> Upload Screenshot</span>
-                <div className="upload-space">
-                  <div className="upload-top-icon">
-                    <FontAwesomeIcon icon={faCloudArrowUp}/>
-                  </div>
-                  <div className="upload-text-holder">
-                   Drop image file here (.jpeg, .jpg, .png)
-                  </div>
-                  <div className="upload-text-detail-holder" type="file">
-                    {/* <input type="file" placeholder='Choose a' disabled></input> */}
-                    <FontAwesomeIcon icon={faLaptop}/> Select file from device.
+            </section>
+            
+            <section>
+              <p>
+                <div className='upload-container'>
+                  <span> Upload Screenshot</span>
+                  <div className="upload-space">
+                    <div className="upload-top-icon">
+                      <img className="upload-top-icon-placeholder" src={landscape}/>
+                      {/* <FontAwesomeIcon icon={faCloudArrowUp}/> */}
+                    </div>
+                    <div className="upload-text-holder">
+                    Drop image file here (.jpeg, .jpg, .png)
+                    </div>
+                    <div className="upload-text-detail-holder" type="file">
+                      {/* <input type="file" placeholder='Choose a' disabled></input> */}
+                      <FontAwesomeIcon icon={faLaptop}/> Select file from device.
+                    </div>
                   </div>
                 </div>
+              </p>
+            </section>
 
-              </div>
+            <section>
+              <p>
+                <div className="upload-content-holder">
 
-            </p>
-
+                </div>
+              </p>
+            </section>
             <button>Create</button>
           </form>
 
