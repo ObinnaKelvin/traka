@@ -29,6 +29,7 @@ const Create = ({createdStatus}) => {
   const [reportedBy, setReportedBy] = useState('');
   const [openDate, setOpenDate] = useState(new Date());
   const [closedDate, setClosedDate] = useState(null);
+  const [image, setImage] = useState([]);
   const navigate = useNavigate();
   // const [date, setDate] = useState([
   //   {
@@ -58,7 +59,8 @@ const Create = ({createdStatus}) => {
       dateClosed: closedDate,
       active: true,
       lastUpdatedBy: "",
-      lastUpdateDate: openDate
+      lastUpdateDate: openDate,
+      image: image
     })
     .then(response => console.log(response))
     navigate("/incidence")
@@ -235,11 +237,27 @@ const Create = ({createdStatus}) => {
                       {/* <FontAwesomeIcon icon={faCloudArrowUp}/> */}
                     </div>
                     <div className="upload-text-holder">
-                    Drop image file here (.jpeg, .jpg, .png)
+                          <label htmlFor="file-upload" id='custom-file-upload-a'>
+                            Drop image file here or 
+                          </label>
+                          
+                          <label htmlFor="file-upload" id='custom-file-upload-b'>
+                              Browse...
+                          </label>
                     </div>
-                    <div className="upload-text-detail-holder" type="file">
+                    {/* <div className="upload-text-detail-holder" type="file"> */}
                       {/* <input type="file" placeholder='Choose a' disabled></input> */}
-                      <FontAwesomeIcon icon={faLaptop}/> Select file from device.
+                      {/* <FontAwesomeIcon icon={faLaptop}/> Select file from device. */}
+                    {/* </div> */}
+                    <input 
+                      type="file"
+                      label="Image"
+                      name="myFile"
+                      id="file-upload"
+                      accept='.jpeg, .png, .jpg'
+                    />
+                    <div className="upload-text-holder-copy">
+                     We support JPG and PNG files. Maximum file size is 500kb.
                     </div>
                   </div>
                 </div>
