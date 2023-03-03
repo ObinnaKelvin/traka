@@ -62,7 +62,7 @@ const Team = () => {
                         </div>
                         <div className='team-member-email'>
                             <span><FontAwesomeIcon icon={faEnvelope}/></span>
-                            <span>itsupport@lagoonhospitals.com</span>
+                            <span>mosesfavour42@gmail.com</span>
                         </div>
                     </div>
                 </div>
