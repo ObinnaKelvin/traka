@@ -11,6 +11,8 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import landscape from '../../assets/images/landscape.png'
 import placeholder from '../../assets/images/placeholder1.png'
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import app from "../../../firebase";
 
 const Create = ({createdStatus}) => {
 
@@ -30,7 +32,10 @@ const Create = ({createdStatus}) => {
   const [reportedBy, setReportedBy] = useState('');
   const [openDate, setOpenDate] = useState(new Date());
   const [closedDate, setClosedDate] = useState(null);
-  const [image, setImage] = useState([{myImage: ""}]);
+  const [showImage, setShowImage] = useState("");
+  const [image, setImage] = useState("");
+  const [imageURL, setImageURL] = useState("");
+  // const [image, setImage] = useState([{myImage: ""}]);
   const navigate = useNavigate();
   // const [date, setDate] = useState([
   //   {
@@ -46,6 +51,72 @@ const Create = ({createdStatus}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const fileName = new Date().getTime() + image.name;
+    const storage = getStorage(app)
+    const storageRef = ref(storage, fileName)
+    //const uploadTask = uploadBytesResumable(storageRef, fileName);
+    const uploadTask = storage.ref(`images/${image.name}`).put(image);
+
+    // Register three observers:
+    // 1. 'state_changed' observer, called any time the state changes
+    // 2. Error observer, called on failure
+    // 3. Completion observer, called on successful completion
+    uploadTask.on('state_changed', 
+      (snapshot) => {
+        // Observe state change events such as progress, pause, and resume
+        // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        console.log('Upload is ' + progress + '% done');
+        switch (snapshot.state) {
+          case 'paused':
+            console.log('Upload is paused');
+            break;
+          case 'running':
+            console.log('Upload is running');
+            break;
+        }
+      }, 
+      (error) => {
+        // Handle unsuccessful uploads
+        console.log(error);
+      }, 
+      () => {
+        // Handle successful uploads on complete
+        // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          setImageURL(downloadURL)
+          //include the creation request
+          // axios.post('http://localhost:3005/api/incidences/', {
+          //   incidence: incidence,
+          //   description: description,
+          //   category: category,
+          //   facility: facility,
+          //   department: department,
+          //   priority: priority,
+          //   reportedBy: reportedBy,
+          //   status: status,
+          //   dateOpened: openDate,
+          //   dateClosed: closedDate,
+          //   active: true,
+          //   lastUpdatedBy: "",
+          //   lastUpdateDate: openDate,
+          //   image: imageURL
+          // })
+          // .then(response => console.log(response))
+          // navigate("/incidence")
+          // toast("Incidence created!")
+          // setCreated(true)
+          
+          // console.log('File available at', downloadURL);
+        });
+      }
+    );
+
+
+
+
+
+
     //const {incidence, description, } = data;
     axios.post('http://localhost:3005/api/incidences/', {
       incidence: incidence,
@@ -61,13 +132,12 @@ const Create = ({createdStatus}) => {
       active: true,
       lastUpdatedBy: "",
       lastUpdateDate: openDate,
-      image: image
+      image: imageURL
     })
     .then(response => console.log(response))
     navigate("/incidence")
     toast("Incidence created!")
     setCreated(true)
-    // history.push('/incidences');
   }
 
   useEffect(()=> {
@@ -143,11 +213,11 @@ const Create = ({createdStatus}) => {
 
   const handleFileUpload = async (e) => {
     const file = e.target.files[0];
+    setImage(file)
     const base64 = await convertToBase64(file);
-    //console.log(base64);
-    //const addimage = image.push(base64)
-    setImage({myImage: base64})
-    console.log("Uploaded Image", image);
+    setShowImage(base64)
+    //console.log("Uploaded Image", image);
+    console.log("Uploaded Image", file);
   }
 
   return (
@@ -156,7 +226,7 @@ const Create = ({createdStatus}) => {
     
       <div className='create-form'>
           <p className='create-form-header'>Create an incidence</p>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} encType="multipart/form-data">
             <section>
               <p>
                 <label>Incidence</label>
@@ -293,7 +363,8 @@ const Create = ({createdStatus}) => {
               <p>
                 <div className="upload-content-holder">
                   {/* <div> */}
-                    <img src={image.myImage || placeholder} alt="uploaded image" className='upload-image-item'/>
+                    {/* <img src={image.myImage || placeholder} alt="uploaded image" className='upload-image-item'/> */}
+                    <img src={showImage || placeholder} alt="uploaded image" className='upload-image-item'/>
                   {/* </div> */}
                 </div>
               </p>
