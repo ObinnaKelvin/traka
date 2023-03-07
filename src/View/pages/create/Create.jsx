@@ -12,7 +12,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import landscape from '../../assets/images/landscape.png'
 import placeholder from '../../assets/images/placeholder1.png'
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import app from "../../../firebase";
+import { storage } from "../../../firebase";
 
 const Create = ({createdStatus}) => {
 
@@ -35,6 +35,7 @@ const Create = ({createdStatus}) => {
   const [showImage, setShowImage] = useState("");
   const [image, setImage] = useState("");
   const [imageURL, setImageURL] = useState("");
+  const [uploadProgress, setUploadProgress] = useState("")
   // const [image, setImage] = useState([{myImage: ""}]);
   const navigate = useNavigate();
   // const [date, setDate] = useState([
@@ -49,13 +50,11 @@ const Create = ({createdStatus}) => {
 //       closedDate: null
 // }]
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleUpload = (file) => {
+    if(!image) return;
     const fileName = new Date().getTime() + image.name;
-    const storage = getStorage(app)
-    const storageRef = ref(storage, fileName)
-    //const uploadTask = uploadBytesResumable(storageRef, fileName);
-    const uploadTask = storage.ref(`images/${image.name}`).put(image);
+    const storageRef = ref(storage, `/uploads/${fileName}`)
+    const uploadTask = uploadBytesResumable(storageRef, image);
 
     // Register three observers:
     // 1. 'state_changed' observer, called any time the state changes
@@ -65,16 +64,17 @@ const Create = ({createdStatus}) => {
       (snapshot) => {
         // Observe state change events such as progress, pause, and resume
         // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+        setUploadProgress(progress)
         console.log('Upload is ' + progress + '% done');
-        switch (snapshot.state) {
-          case 'paused':
-            console.log('Upload is paused');
-            break;
-          case 'running':
-            console.log('Upload is running');
-            break;
-        }
+        // switch (snapshot.state) {
+        //   case 'paused':
+        //     console.log('Upload is paused');
+        //     break;
+        //   case 'running':
+        //     console.log('Upload is running');
+        //     break;
+        // }
       }, 
       (error) => {
         // Handle unsuccessful uploads
@@ -83,41 +83,21 @@ const Create = ({createdStatus}) => {
       () => {
         // Handle successful uploads on complete
         // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          setImageURL(downloadURL)
-          //include the creation request
-          // axios.post('http://localhost:3005/api/incidences/', {
-          //   incidence: incidence,
-          //   description: description,
-          //   category: category,
-          //   facility: facility,
-          //   department: department,
-          //   priority: priority,
-          //   reportedBy: reportedBy,
-          //   status: status,
-          //   dateOpened: openDate,
-          //   dateClosed: closedDate,
-          //   active: true,
-          //   lastUpdatedBy: "",
-          //   lastUpdateDate: openDate,
-          //   image: imageURL
-          // })
-          // .then(response => console.log(response))
-          // navigate("/incidence")
-          // toast("Incidence created!")
-          // setCreated(true)
+        //storage.ref("uploads")
+        //.child(fileName)
+          getDownloadURL(uploadTask.snapshot.ref)
+          .then((downloadURL) => {
+            setImageURL(downloadURL)
+            console.log('File available at', downloadURL);
+          });
           
-          // console.log('File available at', downloadURL);
-        });
       }
-    );
+    );    
+  }
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-
-
-
-
-    //const {incidence, description, } = data;
     axios.post('http://localhost:3005/api/incidences/', {
       incidence: incidence,
       description: description,
@@ -327,7 +307,7 @@ const Create = ({createdStatus}) => {
                   <span> Upload Screenshot</span>
                   <div className="upload-space">
                     <div className="upload-top-icon">
-                      <img className="upload-top-icon-placeholder" src={landscape}/>
+                      <img className="upload-top-icon-placeholder" alt="upload space placeholder" src={landscape}/>
                       {/* <FontAwesomeIcon icon={faCloudArrowUp}/> */}
                     </div>
                     <div className="upload-text-holder">
@@ -364,7 +344,9 @@ const Create = ({createdStatus}) => {
                 <div className="upload-content-holder">
                   {/* <div> */}
                     {/* <img src={image.myImage || placeholder} alt="uploaded image" className='upload-image-item'/> */}
-                    <img src={showImage || placeholder} alt="uploaded image" className='upload-image-item'/>
+                    {uploadProgress && <div>Uploaded {uploadProgress}%</div>}
+                    <img src={showImage || placeholder} alt="uploaded screenshot container" className='upload-image-item'/>
+                    <div onClick={handleUpload}>Upload</div>
                   {/* </div> */}
                 </div>
               </p>
