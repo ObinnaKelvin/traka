@@ -5,7 +5,7 @@ import { format } from 'date-fns'//transform the dates to readable formats
 import './create.css';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCloudArrowUp, faLaptop } from '@fortawesome/free-solid-svg-icons'
+import { faCloudArrowUp, faLaptop, faUpload, faXmark } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
@@ -13,6 +13,7 @@ import landscape from '../../assets/images/landscape.png'
 import placeholder from '../../assets/images/placeholder1.png'
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage } from "../../../firebase";
+import { UploadProgress } from '../../components/progressBar/ProgressBar';
 
 const Create = ({createdStatus}) => {
 
@@ -200,6 +201,11 @@ const Create = ({createdStatus}) => {
     console.log("Uploaded Image", file);
   }
 
+  const cancelUpload = () => {
+    setImage("");
+    setShowImage("")
+  }
+
   return (
     <div className='create-container'>
     <NavBar />
@@ -344,9 +350,14 @@ const Create = ({createdStatus}) => {
                 <div className="upload-content-holder">
                   {/* <div> */}
                     {/* <img src={image.myImage || placeholder} alt="uploaded image" className='upload-image-item'/> */}
+                    <span>Preview Image</span>
+                    <UploadProgress percent={uploadProgress}/>
                     {uploadProgress && <div>Uploaded {uploadProgress}%</div>}
-                    <img src={showImage || placeholder} alt="uploaded screenshot container" className='upload-image-item'/>
-                    <div onClick={handleUpload}>Upload</div>
+                    <div className='upload-upload'>
+                      <div className={image? 'cancel-upload': 'cancel-upload inactive'} onClick={cancelUpload}><FontAwesomeIcon icon={faXmark} /></div>
+                      <img src={showImage || placeholder} alt="uploaded screenshot container" className={image? 'upload-image-item' : 'upload-image-item-placeholder'}/>
+                    </div>
+                    <div onClick={handleUpload}className='upload-button'><FontAwesomeIcon icon={faUpload}/>Upload</div>
                   {/* </div> */}
                 </div>
               </p>
