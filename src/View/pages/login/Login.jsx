@@ -9,7 +9,7 @@ import {toast} from 'react-toastify'
 import axios from 'axios';
 
 const Login = () => {
-    const LOGIN_URL = "http://localhost:3005/api/auth/login"
+    const LOGIN_URL = process.env.API_URL
     // const LOGIN_URL = "http://localhost:3005/api/auth/login"
     const dispatch = useDispatch();
     const navigate = useNavigate()
@@ -56,7 +56,8 @@ const Login = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post("http://localhost:3005/api/auth/login", {firstname, password})
+            // const response = await axios.post("http://localhost:3005/api/auth/login", {firstname, password})
+            const response = await axios.post(LOGIN_URL+"/api/auth/login", {firstname, password})
             localStorage.setItem('user', JSON.stringify(response.data));
             navigate('/dashboard')
 
