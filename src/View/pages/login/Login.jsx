@@ -57,7 +57,8 @@ const Login = () => {
 
         try {
             // const response = await axios.post("http://localhost:3005/api/auth/login", {firstname, password})
-            const response = await axios.post(LOGIN_URL+"/api/auth/login", {firstname, password})
+            //const response = await axios.post(LOGIN_URL+"/api/auth/login", {firstname, password})
+            const response = await axios.post("https://traka.onrender.com/api/auth/login", {firstname, password})
             localStorage.setItem('user', JSON.stringify(response.data));
             navigate('/dashboard')
 
