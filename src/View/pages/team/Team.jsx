@@ -100,6 +100,31 @@ const Team = () => {
                     </div>
                     <div className="team-member-details">
                         <div className='team-member-name'>
+                            Mary Bassey
+                        </div>
+                        <div className='team-member-phone'>
+                            <span><FontAwesomeIcon icon={faPhone}/></span>
+                            <span>+234 812 782 2787</span>
+                        </div>
+                        <div className='team-member-facility'>
+                            <span><FontAwesomeIcon icon={faLocationDot}/></span>
+                            <span>Victoria Island - Idejo</span>
+                        </div>
+                        <div className='team-member-email'>
+                            <span><FontAwesomeIcon icon={faEnvelope}/></span>
+                            <span>itsupport@lagoonhospitals.com</span>
+                        </div>
+                    </div>
+                </div>
+                <div className="team-member">
+                    <div className="team-member-avatar">
+                        <span>
+                            <FontAwesomeIcon icon={faUser}/>
+                            <div className="team-member-rank"></div>
+                        </span>
+                    </div>
+                    <div className="team-member-details">
+                        <div className='team-member-name'>
                             Damilola Ayodele
                         </div>
                         <div className='team-member-phone'>
