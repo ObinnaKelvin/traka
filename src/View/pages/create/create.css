@@ -275,6 +275,10 @@ input[type="file"] {
         width: 300px;
     }
 
+    .create-form-header {
+        font-size: 20px;
+    }
+
     .create-form form section {
         display: flex;
         flex-direction: column;

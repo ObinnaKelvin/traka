@@ -3,13 +3,24 @@
 }
 
 .update-goBack {
-    margin: 50px 0px -40px 20px;
-    font-size: 12px;
-    background-color: #01579b;
-    width: max-content;
+    margin: 50px 0px -40px 40px;
+    font-size: 20px;
+    background-color: #03a9f4;
+    width: 50px;
+    height: 50px;
     padding: 5px;
-    border-radius: 7px;
+    border-radius: 50%;
     color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: box-shadow 0.5s;
+}
+
+.update-goBack:hover {
+    -webkit-box-shadow: inset 70px 0 0 0 #0277bd;
+    box-shadow: inset 70px 0 0 0 #0277bd;
 }
 
 .update-goBack-link {
@@ -35,10 +46,28 @@
 
 .update-form form {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     gap: 30px;
-    width: 600px; 
+    /* width: 600px;  */
+    width: 95%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.update-form form section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 41%;
+    padding: 30px;
+    border: 1px solid #01579b;
+    border-radius: 2em;
+}
+
+.update-form form section:nth-child(3) {
+    border-style: dashed;
 }
 
 .update-form .formInput{
@@ -76,22 +105,29 @@
     margin: -6px 0px 0px -2px;
 }
 
-.update-form form button {
-    background-color: #01579b;
-    color: white;
-    height: 50px;
-    border: none;
-    border-radius: 30px;
-    font-size: 20px;
-    margin-top: 20px 0px 0px 0px;
-    width: 300px;
-}
-
 .update-activeStatus {
     font-size: 15px;
     display: flex;
     justify-content: center;
     gap: 10px;
+}
+
+.update-button {
+    background-color: #01579b;
+    color: white;
+    height: 50px;
+    border: none;
+    border-radius: 20em;
+    font-size: 20px;
+    margin-top: 20px 0px 0px 0px;
+    width: 300px;
+    cursor: pointer;
+    transition: box-shadow 0.5s;
+}
+
+.update-button:hover {
+    -webkit-box-shadow: inset 300px 0 0 0 #0277bd;
+    box-shadow: inset 300px 0 0 0 #0277bd;
 }
 
 

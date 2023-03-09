@@ -5,7 +5,7 @@ import { format } from 'date-fns'//transform the dates to readable formats
 import './create.css';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCloudArrowUp, faLaptop, faUpload, faXmark } from '@fortawesome/free-solid-svg-icons'
+import { faUpload, faXmark } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
