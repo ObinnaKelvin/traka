@@ -125,7 +125,7 @@ const Create = ({createdStatus}) => {
     loadCategoryData();
     loadStatusData();
     loadFacilityData();
-    loadDepartmentData()
+    loadDepartmentData();
     loadPriorityData();
     checkCreated()
     loadReporter()
@@ -351,18 +351,19 @@ const Create = ({createdStatus}) => {
                   {/* <div> */}
                     {/* <img src={image.myImage || placeholder} alt="uploaded image" className='upload-image-item'/> */}
                     <span>Preview Image</span>
-                    <UploadProgress percent={uploadProgress}/>
-                    {uploadProgress && <div>Uploaded {uploadProgress}%</div>}
+                    {/* <UploadProgress percent={uploadProgress}/> */}
+                    {uploadProgress && <UploadProgress percent={uploadProgress}/>}
+                    {/* {uploadProgress && <div>Uploaded {uploadProgress}%</div>} */}
                     <div className='upload-upload'>
                       <div className={image? 'cancel-upload': 'cancel-upload inactive'} onClick={cancelUpload}><FontAwesomeIcon icon={faXmark} /></div>
                       <img src={showImage || placeholder} alt="uploaded screenshot container" className={image? 'upload-image-item' : 'upload-image-item-placeholder'}/>
                     </div>
-                    <div onClick={handleUpload}className='upload-button'><FontAwesomeIcon icon={faUpload}/>Upload</div>
+                    <div onClick={handleUpload} className={image? 'upload-button': 'upload-button inactive'}><FontAwesomeIcon icon={faUpload}/>Upload</div>
                   {/* </div> */}
                 </div>
               </p>
             </section>
-            <button>Create</button>
+            <button className='create-button'>Create</button>
           </form>
 
           {/* <button onClick={notify}>Activate Toast</button>
