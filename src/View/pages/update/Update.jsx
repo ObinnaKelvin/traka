@@ -38,6 +38,7 @@ const Update = ({updatedStatus}) => {
     const [imageURL, setImageURL] = useState("");
     const [uploadProgress, setUploadProgress] = useState("")
     const navigate = useNavigate();
+    const PUBLIC_URL = 'https://traka.onrender.com/' // production
     // const [updatedIncidence, setUpdatedIncidence] = useState({
     //   incidence: incidence,
     //   description: description,
@@ -103,7 +104,8 @@ const Update = ({updatedStatus}) => {
 
     const handleUpdate = (e) => {
       e.preventDefault();
-      axios.put(`http://localhost:3005/api/incidences/${incidenceId}`, {
+      //axios.put(`http://localhost:3005/api/incidences/${incidenceId}`, { //local
+      axios.put(`${PUBLIC_URL}api/incidences/${incidenceId}`, { //production
         incidence: incidence,
         description: description,
         category: category,
@@ -130,7 +132,8 @@ const Update = ({updatedStatus}) => {
     // console.log(incidenceId)
     const loadIncidence = async() => {
       try {
-        await axios.get(`http://localhost:3005/api/incidences/find/${incidenceId}`)
+        //await axios.get(`http://localhost:3005/api/incidences/find/${incidenceId}`) //local
+        await axios.get(`${PUBLIC_URL}api/incidences/find/${incidenceId}`) //production
         // .then( response => {setUpdatedIncidence({
         //   incidence: response.data.incidence,
         //   description: response.data.description,

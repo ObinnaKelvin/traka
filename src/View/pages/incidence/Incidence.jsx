@@ -20,7 +20,7 @@ const Incidence = () => {
   const [facilityData, setFacilityData] = useState([]);
   const [facilityIncidenceData, setFacilityIncidenceData] = useState([]);
   const [toggleState, setToggleState] = useState(1);
-  const PUBLIC_URL = 'https://traka.onrender.com/'
+  const PUBLIC_URL = 'https://traka.onrender.com/' // production
   //const [loading, setLoading] = useState(false);
   // const [count, setCount] = useState([
   //     {
