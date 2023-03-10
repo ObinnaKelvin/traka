@@ -310,7 +310,10 @@ const Create = ({createdStatus}) => {
             <section>
               <p>
                 <div className='upload-container'>
-                  <span> Upload Screenshot</span>
+                  <div className='upload-container-header'>
+                    <span> Upload Screenshot</span><span>(Optional)</span>
+                  </div>
+                  {/* <span> Upload Screenshot</span><span>(Optional)</span> */}
                   <div className="upload-space">
                     <div className="upload-top-icon">
                       <img className="upload-top-icon-placeholder" alt="upload space placeholder" src={landscape}/>

@@ -94,9 +94,21 @@
     flex-direction: column;
 }
 
+.upload-container-header {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
 .upload-container span {
     color: #01579b;
     font-size: 15px;
+}
+
+.upload-container-header span:nth-child(2) {
+    font-style: italic;
+    color: #000;
+    opacity: 0.4;
 }
 
 .upload-space {
