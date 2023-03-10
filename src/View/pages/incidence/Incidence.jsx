@@ -20,6 +20,7 @@ const Incidence = () => {
   const [facilityData, setFacilityData] = useState([]);
   const [facilityIncidenceData, setFacilityIncidenceData] = useState([]);
   const [toggleState, setToggleState] = useState(1);
+  const PUBLIC_URL = 'https://traka.onrender.com/'
   //const [loading, setLoading] = useState(false);
   // const [count, setCount] = useState([
   //     {
@@ -99,7 +100,8 @@ const Incidence = () => {
   }, [])
 
   const loadFacilityData = async() => {
-    await axios.get('http://localhost:3005/api/facility/')
+    //await axios.get('http://localhost:3005/api/facility/') //local
+    await axios.get(`${PUBLIC_URL}api/facility/`) //production
     .then(response => setFacilityData(response.data))
     .then(console.log("Facility Data >>>>",facilityData))
   }
