@@ -140,6 +140,22 @@
         font-size: 20px;
     }
 
+    .update-goBack {
+        margin: 50px 0px -40px 0px;
+        font-size: 15px;
+        background-color: #03a9f4;
+        width: 30px;
+        height: 30px;
+        padding: 5px;
+        border-radius: 50%;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        transition: box-shadow 0.5s;
+    }
+
     .update-form form section {
         display: flex;
         flex-direction: column;

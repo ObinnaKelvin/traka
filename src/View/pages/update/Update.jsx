@@ -206,10 +206,6 @@ const Update = ({updatedStatus}) => {
       console.log("Uploaded Image", file);
     }
 
-    const loadImage = () => {
-      
-    }
-
     const cancelUpload = () => {
       setImage("");
       setShowImage("")
