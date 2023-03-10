@@ -107,7 +107,8 @@ const Incidence = () => {
   }
 
   const loadFacilityIncidenceData = async() => {
-    await axios.get(`http://localhost:3005/api/incidenceByFacility/`)
+    //await axios.get(`http://localhost:3005/api/incidenceByFacility/`) //local
+    await axios.get(`${PUBLIC_URL}api/incidenceByFacility/`) //production
     .then(response => setFacilityIncidenceData(response.data))
     .then(console.log("Facility Incidence Data >>>>",facilityIncidenceData))
   }
@@ -116,8 +117,10 @@ const Incidence = () => {
   const onChangeFacility = async(event) => {
     setFacility(event.target.value); //Fix 1: Delayed State
     console.log(event.target.value); //Fix 2: Delayed State
-    const url = event.target.value === "All Facilities" ? "http://localhost:3005/api/incidenceByFacility/"
-    : `http://localhost:3005/api/incidenceByFacility/${event.target.value}` //Fix 3: Delayed State
+    //const url = event.target.value === "All Facilities" ? "http://localhost:3005/api/incidenceByFacility/" //local
+    const url = event.target.value === "All Facilities" ? `${PUBLIC_URL}api/incidenceByFacility/` //production
+    //: `http://localhost:3005/api/incidenceByFacility/${event.target.value}` //Fix 3: Delayed State //local
+    : `${PUBLIC_URL}api/incidenceByFacility/${event.target.value}` //Fix 3: Delayed State //production
     await axios.get(url) 
     .then(response => {setFacilityIncidenceData(response.data); console.log("Facility Incidence Data >>>>",response.data)}) //Fix 4: Delayed State
     //.then(console.log("Facility Dummy Data >>>>",facilityIncidenceData))
