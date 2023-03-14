@@ -28,3 +28,39 @@
     }
 
 }
+
+
+.loadingscreen-container {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // border: 1px solid red;
+    // height: 400px;
+
+    .loadingscreen-image {
+        height: 200px;
+        // width: 300px;
+        //transition: all 2s ease-in-out;
+        animation: growShrink 2s ease infinite;
+    }
+
+    @keyframes growShrink {
+        50%{
+            transform: scale(1.2);
+        }
+        // 100% {
+        //     transform: scale(0.9);
+        // }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .loadingscreen-container {
+
+        .loadingscreen-image {
+            height: 130px;
+        }
+    }
+
+}

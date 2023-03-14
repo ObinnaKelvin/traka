@@ -65,7 +65,7 @@ const Login = () => {
             if(response.data){ 
                 setLoading(true);
                 localStorage.setItem('user', JSON.stringify(response.data));
-                //navigate('/dashboard') //1. navigate to loading page for 5 secs
+                navigate('/welcome') //1. navigate to loading page for 5 secs
                 setTimeout(() => {
                     navigate("/dashboard"); //2. Then navigate to dashboard
                   }, 5000);
@@ -84,7 +84,7 @@ const Login = () => {
         setLoading(true);
         setTimeout(() => {
             setLoading(false);
-        }, 8000);
+        }, 6000);
         return () => clearTimeout();
         // const timer = setTimeout(() => {
         //     console.log('This will run after 1 second!')
