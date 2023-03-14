@@ -109,7 +109,7 @@ const Update = ({updatedStatus}) => {
 
     const handleUpdate = (e) => {
       e.preventDefault();
-      //axios.put(`http://localhost:3005/api/incidences/${incidenceId}`, { //local
+      // axios.put(`http://localhost:3005/api/incidences/${incidenceId}`, { //local
       axios.put(`${PUBLIC_URL}api/incidences/${incidenceId}`, { //production
         incidence: incidence,
         description: description,
