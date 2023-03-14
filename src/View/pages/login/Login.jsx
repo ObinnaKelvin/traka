@@ -61,13 +61,16 @@ const Login = () => {
             // const response = await axios.post("http://localhost:3005/api/auth/login", {firstname, password}) //Local
             //const response = await axios.post(LOGIN_URL+"/api/auth/login", {firstname, password})
             const response = await axios.post("https://traka.onrender.com/api/auth/login", {firstname, password}) //Production
-            setLoading(true);
+            
             if(response.data){ 
+                setLoading(true);
                 localStorage.setItem('user', JSON.stringify(response.data));
-                
-                navigate('/dashboard')
+                //navigate('/dashboard') //1. navigate to loading page for 5 secs
+                setTimeout(() => {
+                    navigate("/dashboard"); //2. Then navigate to dashboard
+                  }, 5000);
             }
-            setLoading(false);
+            // setLoading(false);
 
         } catch (error) {
             toast.error(error.response.data)
@@ -78,10 +81,10 @@ const Login = () => {
 
     const handleClick = () => {
         console.log("Login button Clicked!")
-        // setLoading(true);
+        setLoading(true);
         setTimeout(() => {
-            setLoading(true);
-        }, 2000);
+            setLoading(false);
+        }, 8000);
         return () => clearTimeout();
         // const timer = setTimeout(() => {
         //     console.log('This will run after 1 second!')
