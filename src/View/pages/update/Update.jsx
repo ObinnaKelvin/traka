@@ -182,16 +182,18 @@ const Update = ({updatedStatus}) => {
       }
     }
 
-    //
+    //https://traka.onrender.com/
     
     const loadCategoryData = async() => {
-      await axios.get('http://localhost:3005/api/category/')
+      // await axios.get('http://localhost:3005/api/category/')
+      await axios.get('https://traka.onrender.com/api/category/')
       .then(response => setCategoryData(response.data))
       .then(console.log("Category Data >>>>",categoryData))
     }  
     
     const loadStatusData = async() => {
-      await axios.get('http://localhost:3005/api/status/')
+      // await axios.get('http://localhost:3005/api/status/') //local
+      await axios.get('https://traka.onrender.com/api/status/') //prod
       .then(response => setStatusData(response.data))
       .then(console.log("Status Data >>>>",statusData))
     }
