@@ -186,32 +186,35 @@ const Update = ({updatedStatus}) => {
     
     const loadCategoryData = async() => {
       // await axios.get('http://localhost:3005/api/category/')
-      await axios.get('https://traka.onrender.com/api/category/')
+      await axios.get(`${PUBLIC_URL}api/category/`)
       .then(response => setCategoryData(response.data))
       .then(console.log("Category Data >>>>",categoryData))
     }  
     
     const loadStatusData = async() => {
       // await axios.get('http://localhost:3005/api/status/') //local
-      await axios.get('https://traka.onrender.com/api/status/') //prod
+      await axios.get(`${PUBLIC_URL}api/status/`) //prod
       .then(response => setStatusData(response.data))
       .then(console.log("Status Data >>>>",statusData))
     }
 
     const loadFacilityData = async() => {
-      await axios.get('http://localhost:3005/api/facility/')
+      //await axios.get('http://localhost:3005/api/facility/') //local
+      await axios.get(`${PUBLIC_URL}api/facility/`)
       .then(response => setFacilityData(response.data))
       .then(console.log("Facility Data >>>>",facilityData))
     }
   
     const loadDepartmentData = async() => {
-      await axios.get('http://localhost:3005/api/department/')
+      //await axios.get('http://localhost:3005/api/department/') //local
+      await axios.get(`${PUBLIC_URL}api/department/`)
       .then(response => setDepartmentData(response.data))
       .then(console.log("Department Data >>>>",departmentData))
     }
   
     const loadPriorityData = async() => {
-      await axios.get('http://localhost:3005/api/priority/')
+      //await axios.get('http://localhost:3005/api/priority/') //local
+      await axios.get(`${PUBLIC_URL}api/priority/`)
       .then(response => setPriorityData(response.data))
       .then(console.log("Priority Data >>>>",priorityData))
     }  
@@ -256,6 +259,7 @@ const Update = ({updatedStatus}) => {
     const cancelUpload = () => {
       setImage("");
       setShowImage("")
+      setUploadProgress("")
     }
 
 

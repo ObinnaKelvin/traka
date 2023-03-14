@@ -37,6 +37,7 @@ const Create = ({createdStatus}) => {
   const [image, setImage] = useState("");
   const [imageURL, setImageURL] = useState("");
   const [uploadProgress, setUploadProgress] = useState("")
+  const PUBLIC_URL = 'https://traka.onrender.com/' // production
   // const [image, setImage] = useState([{myImage: ""}]);
   const navigate = useNavigate();
   // const [date, setDate] = useState([
@@ -99,7 +100,8 @@ const Create = ({createdStatus}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post('http://localhost:3005/api/incidences/', {
+    //axios.post('http://localhost:3005/api/incidences/', { //local
+    axios.post(`${PUBLIC_URL}api/incidences/`, { //local
       incidence: incidence,
       description: description,
       category: category,
@@ -133,31 +135,36 @@ const Create = ({createdStatus}) => {
   }, [])
 
   const loadCategoryData = async() => {
-    await axios.get('http://localhost:3005/api/category/')
+    // await axios.get('http://localhost:3005/api/category/') //local
+    await axios.get(`${PUBLIC_URL}api/category/`) //production
     .then(response => setCategoryData(response.data))
     .then(console.log("Category Data >>>>",categoryData))
   }
 
   const loadStatusData = async() => {
-    await axios.get('http://localhost:3005/api/status/')
+    //await axios.get('http://localhost:3005/api/status/') //local
+    await axios.get(`${PUBLIC_URL}api/status/`)
     .then(response => setStatusData(response.data))
     .then(console.log("Status Data >>>>",statusData))
   }
 
   const loadFacilityData = async() => {
-    await axios.get('http://localhost:3005/api/facility/')
+    //await axios.get('http://localhost:3005/api/facility/') //local
+    await axios.get(`${PUBLIC_URL}api/facility/`)
     .then(response => setFacilityData(response.data))
     .then(console.log("Facility Data >>>>",facilityData))
   }
 
   const loadDepartmentData = async() => {
-    await axios.get('http://localhost:3005/api/department/')
+    //await axios.get('http://localhost:3005/api/department/') //local
+    await axios.get(`${PUBLIC_URL}api/department/`)
     .then(response => setDepartmentData(response.data))
     .then(console.log("Department Data >>>>",departmentData))
   }
 
   const loadPriorityData = async() => {
-    await axios.get('http://localhost:3005/api/priority/')
+    //await axios.get('http://localhost:3005/api/priority/') //local
+    await axios.get(`${PUBLIC_URL}api/priority/`)
     .then(response => setPriorityData(response.data))
     .then(console.log("Priority Data >>>>",priorityData))
   }
@@ -204,6 +211,7 @@ const Create = ({createdStatus}) => {
   const cancelUpload = () => {
     setImage("");
     setShowImage("")
+    setUploadProgress("")
   }
 
   return (

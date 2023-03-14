@@ -1,0 +1,30 @@
+
+.circularloading-container {
+    position: absolute;
+    margin: -33px 0px 0px 250px;
+
+}
+
+.circularpath {
+    height: 30px;
+    width: 30px;
+    border: 3px solid #01579b;
+    border-radius: 50%;
+    border-right-color: #b3e5fc;
+    animation: spin 1s ease infinite;
+}
+
+@keyframes spin {
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+@media screen and (max-width: 480px) {
+   .circularloading-container {
+    position: absolute;
+    margin: -33px 0px 0px 10px;
+    
+    }
+    
+}
