@@ -7,6 +7,7 @@ import trakabg from '../../assets/images/traka1.jpg'
 import logo from '../../assets/images/traka_logo.gif'
 import {toast} from 'react-toastify'
 import axios from 'axios';
+import { CircularLoading } from '../../components/loading/Loading';
 
 const Login = () => {
     const LOGIN_URL = process.env.API_URL
@@ -14,6 +15,7 @@ const Login = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate()
     const { user, isLoading, isError, isSuccess, message } = useSelector( (state) => state.auth)
+    const [loading, setLoading] = useState(false); 
 
 
     // const [formInput, setFormInput] = useState({
@@ -59,14 +61,32 @@ const Login = () => {
             // const response = await axios.post("http://localhost:3005/api/auth/login", {firstname, password}) //Local
             //const response = await axios.post(LOGIN_URL+"/api/auth/login", {firstname, password})
             const response = await axios.post("https://traka.onrender.com/api/auth/login", {firstname, password}) //Production
-            localStorage.setItem('user', JSON.stringify(response.data));
-            navigate('/dashboard')
+            setLoading(true);
+            if(response.data){ 
+                localStorage.setItem('user', JSON.stringify(response.data));
+                
+                navigate('/dashboard')
+            }
+            setLoading(false);
 
         } catch (error) {
             toast.error(error.response.data)
             console.log(error.response.data)
         }
         //dispatch(login(formInput))
+    }
+
+    const handleClick = () => {
+        console.log("Login button Clicked!")
+        // setLoading(true);
+        setTimeout(() => {
+            setLoading(true);
+        }, 2000);
+        return () => clearTimeout();
+        // const timer = setTimeout(() => {
+        //     console.log('This will run after 1 second!')
+        //   }, 1000);
+        // return () => clearTimeout(timer);
     }
 
     // if(isLoading) {
@@ -103,7 +123,8 @@ const Login = () => {
                     </p>
 
                     {/* <Link className='login-link'> */}
-                        <button type='submit'>Login</button>
+                        <button type='submit' className='submit-button' onClick={handleClick}>Login {loading && <CircularLoading />}</button>
+                        
                     {/* </Link> */}
                 </form>
             </div>
