@@ -28,7 +28,7 @@ const Update = ({updatedStatus}) => {
     const [status, setStatus] = useState('Open');
     const [statusData, setStatusData] = useState([]);
     const [facility, setFacility] = useState('');
-    const [facilityData, setFacilityData] = useState('');
+    const [facilityData, setFacilityData] = useState([]);
     const [department, setDepartment] = useState('');
     const [departmentData, setDepartmentData] = useState([]);
     const [priority, setPriority] = useState('');
@@ -129,15 +129,47 @@ const Update = ({updatedStatus}) => {
       toast("Incidence updated!")
     }
 
+    
+
+    const loadCategoryData = async() => {
+      await axios.get('http://localhost:3005/api/category/')
+      .then(response => setCategoryData(response.data))
+      .then(console.log("Category Data >>>>",categoryData))
+    }  
+    
+    const loadStatusData = async() => {
+      await axios.get('http://localhost:3005/api/status/')
+      .then(response => setStatusData(response.data))
+      .then(console.log("Status Data >>>>",statusData))
+    }
+
+    const loadFacilityData = async() => {
+      await axios.get('http://localhost:3005/api/facility/')
+      .then(response => setFacilityData(response.data))
+      .then(console.log("Facility Data >>>>",facilityData))
+    }
+  
+    const loadDepartmentData = async() => {
+      await axios.get('http://localhost:3005/api/department/')
+      .then(response => setDepartmentData(response.data))
+      .then(console.log("Department Data >>>>",departmentData))
+    }
+  
+    const loadPriorityData = async() => {
+      await axios.get('http://localhost:3005/api/priority/')
+      .then(response => setPriorityData(response.data))
+      .then(console.log("Priority Data >>>>",priorityData))
+    }  
+
     useEffect(()=> {
-      loadIncidence()
-      checkUpdated()
-      loadUpdater()
-      loadCategoryData()
-      loadFacilityData()
-      loadDepartmentData()
-      loadStatusData()
-      loadPriorityData()
+      loadIncidence();
+      checkUpdated();
+      loadUpdater();
+      loadCategoryData();
+      loadFacilityData();
+      loadDepartmentData();
+      loadStatusData();
+      loadPriorityData();
     }, [])
     // console.log(incidenceId)
     const loadIncidence = async() => {
@@ -179,35 +211,7 @@ const Update = ({updatedStatus}) => {
       }
     }
 
-    const loadCategoryData = async() => {
-      await axios.get('http://localhost:3005/api/category/')
-      .then(response => setCategoryData(response.data))
-      .then(console.log("Category Data >>>>",categoryData))
-    }  
-    
-    const loadStatusData = async() => {
-      await axios.get('http://localhost:3005/api/status/')
-      .then(response => setStatusData(response.data))
-      .then(console.log("Status Data >>>>",statusData))
-    }
-
-    const loadFacilityData = async() => {
-      await axios.get('http://localhost:3005/api/facility/')
-      .then(response => setFacilityData(response.data))
-      .then(console.log("Facility Data >>>>",facilityData))
-    }
-  
-    const loadDepartmentData = async() => {
-      await axios.get('http://localhost:3005/api/department/')
-      .then(response => setDepartmentData(response.data))
-      .then(console.log("Department Data >>>>",departmentData))
-    }
-  
-    const loadPriorityData = async() => {
-      await axios.get('http://localhost:3005/api/priority/')
-      .then(response => setPriorityData(response.data))
-      .then(console.log("Priority Data >>>>",priorityData))
-    }  
+    //
 
     const checkUpdated = () => {
       if (updated === true){
