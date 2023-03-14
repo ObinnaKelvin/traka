@@ -24,10 +24,15 @@ const Update = ({updatedStatus}) => {
     const [incidence, setIncidence] = useState('');
     const [description, setDescription] = useState('');
     const [category, setCategory] = useState('');
+    const [categoryData, setCategoryData] = useState([]);
     const [status, setStatus] = useState('Open');
+    const [statusData, setStatusData] = useState([]);
     const [facility, setFacility] = useState('');
+    const [facilityData, setFacilityData] = useState('');
     const [department, setDepartment] = useState('');
+    const [departmentData, setDepartmentData] = useState([]);
     const [priority, setPriority] = useState('');
+    const [priorityData, setPriorityData] = useState([]);
     const [openDate, setOpenDate] = useState('');
     const [reportedBy, setReportedBy] = useState('');
     const [closedDate, setClosedDate] = useState('');
@@ -128,6 +133,11 @@ const Update = ({updatedStatus}) => {
       loadIncidence()
       checkUpdated()
       loadUpdater()
+      loadCategoryData()
+      loadFacilityData()
+      loadDepartmentData()
+      loadStatusData()
+      loadPriorityData()
     }, [])
     // console.log(incidenceId)
     const loadIncidence = async() => {
@@ -168,6 +178,36 @@ const Update = ({updatedStatus}) => {
         console.log(error)
       }
     }
+
+    const loadCategoryData = async() => {
+      await axios.get('http://localhost:3005/api/category/')
+      .then(response => setCategoryData(response.data))
+      .then(console.log("Category Data >>>>",categoryData))
+    }  
+    
+    const loadStatusData = async() => {
+      await axios.get('http://localhost:3005/api/status/')
+      .then(response => setStatusData(response.data))
+      .then(console.log("Status Data >>>>",statusData))
+    }
+
+    const loadFacilityData = async() => {
+      await axios.get('http://localhost:3005/api/facility/')
+      .then(response => setFacilityData(response.data))
+      .then(console.log("Facility Data >>>>",facilityData))
+    }
+  
+    const loadDepartmentData = async() => {
+      await axios.get('http://localhost:3005/api/department/')
+      .then(response => setDepartmentData(response.data))
+      .then(console.log("Department Data >>>>",departmentData))
+    }
+  
+    const loadPriorityData = async() => {
+      await axios.get('http://localhost:3005/api/priority/')
+      .then(response => setPriorityData(response.data))
+      .then(console.log("Priority Data >>>>",priorityData))
+    }  
 
     const checkUpdated = () => {
       if (updated === true){
@@ -231,7 +271,12 @@ const Update = ({updatedStatus}) => {
                 <p>
                   <label>Category</label>
                   <select className = 'formSelect' onChange={(e)=>setCategory(e.target.value)} value={category}>
-                    <option>--Select One--</option>
+                    {
+                      categoryData.map((data) => (
+                        <option value={data.name} key={data._id}>{data.name}</option>
+                      ))
+                    }
+                    {/* <option>--Select One--</option>
                     <option value="User creation">User creation</option>
                     <option value="User priviledges">User priviledges</option>
                     <option value="Password reset">Password reset</option>
@@ -248,7 +293,7 @@ const Update = ({updatedStatus}) => {
                     <option value="Report requests">Report requests</option>
                     <option value="EMR Bug">EMR Bug</option>
                     <option value="CRM incidences">CRM incidences</option>
-                    <option value="Sage incidences">Sage incidences</option>
+                    <option value="Sage incidences">Sage incidences</option> */}
                   </select>
                   {/* <input type="text" name='' value={issue} onChange={(e)=> setIssue(e.target.value)}></input> */}
                 </p>
@@ -256,12 +301,17 @@ const Update = ({updatedStatus}) => {
                   <label>Facility</label>
                   <select className = 'formSelect' onChange={(e) => setFacility(e.target.value)} value={facility}>
                     <option>--Select One--</option>
-                    <option value="Ikeja">Ikeja - Awolowo</option>
+                    {
+                      facilityData.map((data)=> (
+                        <option value={data.name} key={data._id}>{data.name}</option>
+                      ))
+                    }
+                    {/* <option value="Ikeja">Ikeja - Awolowo</option>
                     <option value="Ikeja Clinic">Ikeja Clinic</option>
                     <option value="Idejo">Idejo</option>
                     <option value="LSS">LSS</option>
                     <option value="FABAC">FABAC</option>
-                    <option value="Ikoyi">Ikoyi</option>
+                    <option value="Ikoyi">Ikoyi</option> */}
                   </select>
                   {/* <input type="text" name='' value={issue} onChange={(e)=> setIssue(e.target.value)}></input> */}
                 </p>
@@ -271,24 +321,34 @@ const Update = ({updatedStatus}) => {
                   <label>Department</label>
                     <select className = 'formSelect' onChange={(e)=>setDepartment(e.target.value)} value={department}>
                       <option>--Select One--</option>
-                      <option value="PCS">PCS</option>
+                      {
+                        departmentData.map((data) => (
+                          <option value={data.name} key={data._id}>{data.name}</option>
+                        ))
+                      }
+                      {/* <option value="PCS">PCS</option>
                       <option value="Nursing">Nursing</option>
                       <option value="Billing">Billing</option>
                       <option value="Pharmacy">Pharmacy</option>
                       <option value="Laboratory">Laboratory</option>
                       <option value="Radiology">Radiology</option>
                       <option value="Obstetrics & Gynaecology">Obstetrics & Gynaecology</option>
-                      <option value="Inventory">Inventory</option>
+                      <option value="Inventory">Inventory</option> */}
                     </select>
                 </p>
                 <p>
                   <label>Priority</label>
                     <select className = 'formSelect' onChange={(e)=>setPriority(e.target.value)} value={priority}>
                       <option>--Select One--</option>
-                      <option value="High">High</option>
+                      {
+                        priorityData.map((data) => (
+                          <option value={data.name}>{data.name}</option>
+                        ))
+                      }
+                      {/* <option value="High">High</option>
                       <option value="Medium">Medium</option>
                       <option value="Immediate">Immediate</option>
-                      <option value="Low">Low</option>
+                      <option value="Low">Low</option> */}
                     </select>
                 </p>
                 <p>
@@ -302,9 +362,14 @@ const Update = ({updatedStatus}) => {
                 <p>
                   <label>Status</label>
                     <select className = 'formSelect' onChange={(e)=>setStatus(e.target.value)} value={status}>
-                      <option value="Open">Open</option>
+                    {
+                      statusData.map((data) => (
+                        <option value={data.name}>{data.name}</option>
+                      ))
+                    }
+                      {/* <option value="Open">Open</option>
                       <option value="Closed">Closed</option>
-                      <option value="Delayed">Delayed</option>
+                      <option value="Delayed">Delayed</option> */}
                     </select>
                 </p>
                 <p>
