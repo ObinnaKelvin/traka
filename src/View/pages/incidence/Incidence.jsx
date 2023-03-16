@@ -99,6 +99,10 @@ const Incidence = () => {
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  useEffect(() => {
+    loadFacilityIncidenceData()
+  }, [])
+
   const loadFacilityData = async() => {
     //await axios.get('http://localhost:3005/api/facility/') //local
     await axios.get(`${PUBLIC_URL}api/facility/`) //production
