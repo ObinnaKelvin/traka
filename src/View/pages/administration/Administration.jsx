@@ -8,10 +8,11 @@ const Administration = () => {
   return (
     <div className='administration-container'>
         <NavBar />
+        
         Administration
 
 
-        <IncidenceSkeletonLoading />
+        {/* <IncidenceSkeletonLoading /> */}
     </div>
   )
 }
