@@ -14,6 +14,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import Notifications from "./View/pages/notifications/Notifications.jsx";
 import Administration from "./View/pages/administration/Administration.jsx";
 import { LoadingScreen } from "./View/components/loading/Loading.jsx";
+import { SkeletonTheme } from "react-loading-skeleton";
 
 function App() {
   const {auth} = useSelector(state => state)
@@ -39,6 +40,7 @@ function App() {
   // console.log(updatedStatus)
 
   return (
+    <SkeletonTheme>
       <Router>
         <Routes>
           {/* <>
@@ -61,6 +63,7 @@ function App() {
         </Routes>
         <ToastContainer></ToastContainer>
       </Router>
+    </SkeletonTheme>
   );
 }
 

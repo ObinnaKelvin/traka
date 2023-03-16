@@ -6,7 +6,6 @@ import CountUp from 'react-countup';
 import AddButton from '../../components/addButton/AddButton';
 import NavBar from '../../components/navigation/NavBar';
 import { useState, useEffect } from 'react';
-import Skeleton from '../../components/skeleton/Skeleton';
 import coverTotal from '../../assets/images/rectangles.png'
 import coverIkeja from '../../assets/images/abstract2.png'
 import coverIkejaClinic from '../../assets/images/abstract3.png'

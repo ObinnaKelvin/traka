@@ -64,3 +64,29 @@
     }
 
 }
+
+.incidence-skeleton-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    .incidence-skeleton {
+        width: 270px;
+        gap: 10px;
+        border: 1px solid #EEEEEE;
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+        border-radius: 5px;
+
+        .incidence-skeleton-title {
+            width: 50%;
+        }
+
+        .incidence-skeleton-tags {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}

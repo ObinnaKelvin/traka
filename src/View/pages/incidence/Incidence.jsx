@@ -7,6 +7,9 @@ import './incidence.css';
 import axios from 'axios';
 import { format } from 'date-fns'//transform the dates to readable formats
 import { useNavigate } from 'react-router-dom';
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+import { IncidenceSkeletonLoading } from '../../components/loading/Loading';
 
 // import { useDispatch, useSelector } from 'react-redux';
 // import { getIncidences } from '../../../Controller/Redux/incidenceSlice'
@@ -20,6 +23,7 @@ const Incidence = () => {
   const [facilityData, setFacilityData] = useState([]);
   const [facilityIncidenceData, setFacilityIncidenceData] = useState([]);
   const [toggleState, setToggleState] = useState(1);
+  const [isLoading, setIsLoading] = useState(true);
   const PUBLIC_URL = 'https://traka.onrender.com/' // production
   //const [loading, setLoading] = useState(false);
   // const [count, setCount] = useState([
@@ -100,7 +104,7 @@ const Incidence = () => {
   }, [])
 
   useEffect(() => {
-    loadFacilityIncidenceData()
+    loadFacilityIncidenceData() //This runs again to update the update state
   }, [])
 
   const loadFacilityData = async() => {
@@ -113,8 +117,8 @@ const Incidence = () => {
   const loadFacilityIncidenceData = async() => {
     //await axios.get(`http://localhost:3005/api/incidenceByFacility/`) //local
     await axios.get(`${PUBLIC_URL}api/incidenceByFacility/`) //production
-    .then(response => setFacilityIncidenceData(response.data))
-    .then(console.log("Facility Incidence Data >>>>",facilityIncidenceData))
+    .then(response => {setFacilityIncidenceData(response.data); setIsLoading(false)})
+    .then( console.log("Facility Incidence Data >>>>",facilityIncidenceData))
   }
 
 
@@ -158,7 +162,12 @@ const Incidence = () => {
         <div className={toggleState === 2 ? "incidence-tab active-tab": "incidence-tab"}  onClick={()=>toggleTab(2)}>Open()</div>
         <div className={toggleState === 3 ? "incidence-tab active-tab": "incidence-tab"}  onClick={()=>toggleTab(3)}>Closed</div>
       </div>
+
+      {isLoading &&<IncidenceSkeletonLoading cards={12}/>}
+
       <div className={toggleState === 1 ? "incidence-wrapper active-content": "incidence-wrapper"}>
+
+
         {
           facilityIncidenceData.map((data) => (
             <div className="incidence-cases" onClick={() => navigate(`/incidence/${data._id}`)}>
@@ -174,6 +183,7 @@ const Incidence = () => {
             </div>            
           ))
         }
+
       </div>
 
       <div className={toggleState === 2 ? "incidence-wrapper active-content": "incidence-wrapper"}>
