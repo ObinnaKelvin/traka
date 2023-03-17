@@ -151,13 +151,13 @@ const Dashboard = ({loading, countTotal, countStatus}) => {
                     <div className="facility_Stats_status">
                         <div className="status_open ikeja">
                             <div>Open</div>
-                            <div>67</div>
-                            {/* <div>{countStatus[0].open}</div> */}
+                            {/* <div>67</div> */}
+                            <div>{countStatus[1].open}</div>
                         </div>
                         <div className="status_closed ikeja">
                             <div>Closed</div>
-                            <div>102</div>
-                            {/* <div>{countStatus[0].closed}</div> */}
+                            {/* <div>102</div> */}
+                            <div>{countStatus[1].closed}</div>
                         </div>
                     </div>
                 </div>    
@@ -172,7 +172,7 @@ const Dashboard = ({loading, countTotal, countStatus}) => {
                 <div className="facility_Stats_details">
                     <div className="figures_">
                         <span>
-                            <CountUp end={37} duration={2}/>
+                            <CountUp end={countTotal[3].count} duration={2}/>
                         </span>
                         <span>Cases</span>
                     </div>
@@ -180,13 +180,13 @@ const Dashboard = ({loading, countTotal, countStatus}) => {
                     <div className="facility_Stats_status">
                         <div className="status_open idejo">
                             <div>Open</div>
-                            <div>67</div>
-                            {/* <div>{countStatus[0].open}</div> */}
+                            {/* <div>67</div> */}
+                            <div>{countStatus[3].open}</div>
                         </div>
                         <div className="status_closed idejo">
                             <div>Closed</div>
-                            <div>102</div>
-                            {/* <div>{countStatus[0].closed}</div> */}
+                            {/* <div>102</div> */}
+                            <div>{countStatus[3].closed}</div>
                         </div>
                     </div>
                 </div>    
@@ -201,7 +201,7 @@ const Dashboard = ({loading, countTotal, countStatus}) => {
                 <div className="facility_Stats_details">
                     <div className="figures_">
                         <span>
-                            <CountUp end={29} duration={2}/>
+                            <CountUp end={countTotal[4].count} duration={2}/>
                         </span>
                         <span>Cases</span>
                     </div>
@@ -209,13 +209,13 @@ const Dashboard = ({loading, countTotal, countStatus}) => {
                     <div className="facility_Stats_status">
                         <div className="status_open lss">
                             <div>Open</div>
-                            <div>67</div>
-                            {/* <div>{countStatus[0].open}</div> */}
+                            {/* <div>67</div> */}
+                            <div>{countStatus[4].open}</div>
                         </div>
                         <div className="status_closed lss">
                             <div>Closed</div>
-                            <div>102</div>
-                            {/* <div>{countStatus[0].closed}</div> */}
+                            {/* <div>102</div> */}
+                            <div>{countStatus[4].closed}</div>
                         </div>
                     </div>
                 </div>    
@@ -230,7 +230,7 @@ const Dashboard = ({loading, countTotal, countStatus}) => {
                 <div className="facility_Stats_details">
                     <div className="figures_">
                         <span>
-                            <CountUp end={55} duration={2}/>
+                            <CountUp end={countTotal[5].count} duration={2}/>
                         </span>
                         <span>Cases</span>
                     </div>
@@ -238,13 +238,13 @@ const Dashboard = ({loading, countTotal, countStatus}) => {
                     <div className="facility_Stats_status">
                         <div className="status_open fabac">
                             <div>Open</div>
-                            <div>67</div>
-                            {/* <div>{countStatus[0].open}</div> */}
+                            {/* <div>67</div> */}
+                            <div>{countStatus[5].open}</div>
                         </div>
                         <div className="status_closed fabac">
                             <div>Closed</div>
-                            <div>102</div>
-                            {/* <div>{countStatus[0].closed}</div> */}
+                            {/* <div>102</div> */}
+                            <div>{countStatus[5].closed}</div>
                         </div>
                     </div>
                 </div>    
@@ -259,7 +259,7 @@ const Dashboard = ({loading, countTotal, countStatus}) => {
                 <div className="facility_Stats_details">
                     <div className="figures_">
                         <span>
-                            <CountUp end={59} duration={2}/>
+                            <CountUp end={countTotal[2].count} duration={2}/>
                         </span>
                         <span>Cases</span>
                     </div>
@@ -267,13 +267,13 @@ const Dashboard = ({loading, countTotal, countStatus}) => {
                     <div className="facility_Stats_status">
                         <div className="status_open ikoyi">
                             <div>Open</div>
-                            <div>67</div>
-                            {/* <div>{countStatus[0].open}</div> */}
+                            {/* <div>67</div> */}
+                            <div>{countStatus[2].open}</div>
                         </div>
                         <div className="status_closed ikoyi">
                             <div>Closed</div>
-                            <div>102</div>
-                            {/* <div>{countStatus[0].closed}</div> */}
+                            {/* <div>102</div> */}
+                            <div>{countStatus[2].closed}</div>
                         </div>
                     </div>
                 </div>    
