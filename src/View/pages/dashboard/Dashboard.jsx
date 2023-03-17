@@ -13,10 +13,13 @@ import coverIdejo from '../../assets/images/abstract4.png'
 import coverLss from '../../assets/images/abstract4.png'
 import coverFabac from '../../assets/images/abstract6.png'
 import coverIkoyi from '../../assets/images/abstract7.png'
+import { DashboardSkeletonLoading } from '../../components/loading/Loading';
+// import axios from 'axios';
 
 const Dashboard = ({loading, count, countStatus}) => {
 
     const [greet, setGreet] = useState('');
+    // const [loading, setLoading] = useState(true);
     // const [count, setCount] = useState([]);
     // const [countStatus, setCountStatus] = useState([]);
     console.log("Count", countStatus)
@@ -39,6 +42,18 @@ const Dashboard = ({loading, count, countStatus}) => {
         handleGreet();
     }, [])
 
+    // const loadCount = async() => {
+    //     try {
+    //         await axios.get(`${PUBLIC_URL}api/incidences/countByFacilityStatus`)
+    //         .then(response => setCount(response.data))
+    //         .then(console.log("Count Data: >>>>", count))
+    //     } catch (error) {
+    //         console.log(error)
+    //     }
+    // }
+
+
+
     const currentUser = JSON.parse(localStorage.getItem('user'));
     if(currentUser? currentUser : <span></span>)
     
@@ -53,6 +68,8 @@ const Dashboard = ({loading, count, countStatus}) => {
                 Hi <span className='user'>{currentUser.details.firstname}</span> <span className="wave">👋</span> {greet}!
             </div>        
         </div>
+
+        {loading && <DashboardSkeletonLoading cards={8} />}
 
         <div className="stats">
             <div className="facility_Stats total">

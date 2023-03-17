@@ -47,3 +47,28 @@ export const IncidenceSkeletonLoading = ({cards}) => {
         </div>
     )
 }
+
+export const DashboardSkeletonLoading = ({cards}) => {
+    return (
+        <div className="dashboard-skeleton-wrapper">
+
+            <div className='dashboard-skeleton-a'>
+                <div className='dashboard-skeleton-a-element'></div>
+                <div className='dashboard-skeleton-a-figure'></div>
+                <div className='dashboard-skeleton-a-element'></div>
+                <div className='dashboard-skeleton-a-element'></div>
+            </div>
+
+            {
+                Array(cards).fill(0).map((item, index) => 
+                    <div className='dashboard-skeleton-b' key={index}>
+                        <div className='dashboard-skeleton-b-element'></div>
+                        <div className='dashboard-skeleton-b-figure'></div>
+                        <div className='dashboard-skeleton-b-element'></div>
+                        <div className='dashboard-skeleton-b-element'></div>
+                    </div>
+                )
+            }
+        </div>
+    )
+}

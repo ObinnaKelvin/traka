@@ -6,36 +6,39 @@ import './home.css';
 // import Login from "../login/Login";
 const Home = () => {
   // const {auth} = useSelector(state => state)
-  const [loading, setLoading] = useState(false);
+  
+  const PUBLIC_URL = 'https://traka.onrender.com/' // production
+  const [loading, setLoading] = useState(true);
   const [count, setCount] = useState([]);
   const [countStatus, setCountStatus] = useState([]);
 
   useEffect(() => {
-    loadCountByFacility();
+    // loadCountByFacility();
     loadCountByFacilityStatus();
   }, [])
 
-  const loadCountByFacility = async() => {
-      setLoading(true)
-      try {
-          await axios.get("http://localhost:3005/api/incidences/countByFacility")
-          .then(response => setCount(response.data))
-      } catch (error) {
+  // const loadCountByFacility = async() => {
+  //     setLoading(true)
+  //     try {
+  //         await axios.get("http://localhost:3005/api/incidences/countByFacility")
+  //         .then(response => setCount(response.data))
+  //     } catch (error) {
           
-      }
-      setLoading(false)
-  }
+  //     }
+  //     setLoading(false)
+  // }
 
   const loadCountByFacilityStatus = async() => {
       setLoading(true)
       try {
-          await axios.get("http://localhost:3005/api/incidences/countByFacilityStatus")
+          await axios.get(`${PUBLIC_URL}api/incidences/countByFacilityStatus`)
           .then(response => setCountStatus(response.data))
+          setLoading(false)
           
       } catch (error) {
           
       }
-      setLoading(false)
+      // setLoading(false)
   }
   return (
     <> 
