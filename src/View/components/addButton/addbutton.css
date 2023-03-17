@@ -1,6 +1,6 @@
 
 .add-container {
-    z-index: 3;
+    z-index: 1;
     position: fixed;
     right: 90px;
     bottom: 40px;
@@ -28,7 +28,7 @@
 
 @media screen and (max-width: 480px) {
     .add-container {
-        z-index: 3;
+        z-index: 1;
         position: fixed;
         right: 10px;
         bottom: 10px;
