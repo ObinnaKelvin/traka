@@ -16,13 +16,15 @@ import coverIkoyi from '../../assets/images/abstract7.png'
 import { DashboardSkeletonLoading } from '../../components/loading/Loading';
 // import axios from 'axios';
 
-const Dashboard = ({loading, count, countStatus}) => {
+const Dashboard = ({loading, countTotal, countStatus}) => {
 
     const [greet, setGreet] = useState('');
     // const [loading, setLoading] = useState(true);
     // const [count, setCount] = useState([]);
     // const [countStatus, setCountStatus] = useState([]);
-    console.log("Count", countStatus)
+    console.log("CountStatus", countStatus)
+    console.log("Count", countTotal)
+
     const handleGreet = () => {
         let today = new Date()
         let getCurrentHour = today.getHours() 
@@ -69,8 +71,7 @@ const Dashboard = ({loading, count, countStatus}) => {
             </div>        
         </div>
 
-        {loading && <DashboardSkeletonLoading cards={8} />}
-
+        {loading ? <DashboardSkeletonLoading cards={8} /> :
         <div className="stats">
             <div className="facility_Stats total">
                 <div className="facility_Stats_icon total">
@@ -82,7 +83,8 @@ const Dashboard = ({loading, count, countStatus}) => {
                 <div className="facility_Stats_details">
                     <div className="figures_">
                         <span>
-                            <CountUp end={143} duration={2}/>
+                            {/* <CountUp end={143} duration={2}/> */}
+                            <CountUp end={countStatus[7].count} duration={2}/>
                         </span>
                         <span>Cases</span>
                     </div>
@@ -90,13 +92,13 @@ const Dashboard = ({loading, count, countStatus}) => {
                     <div className="facility_Stats_status">
                         <div className="status_Open">
                             <div>Open</div>
-                            <div>67</div>
-                            {/* <div>{countStatus[0].open}</div> */}
+                            {/* <div>67</div> */}
+                            <div>{countStatus[6].open}</div>
                         </div>
                         <div className="status_Closed">
                             <div>Closed</div>
-                            <div>102</div>
-                            {/* <div>{countStatus[0].closed}</div> */}
+                            {/* <div>102</div> */}
+                            <div>{countStatus[6].closed}</div>
                         </div>
                     </div>
                 </div>               
@@ -112,7 +114,7 @@ const Dashboard = ({loading, count, countStatus}) => {
                 <div className="facility_Stats_details">
                     <div className="figures_">
                         <span>
-                            <CountUp end={13} duration={2}/>
+                            <CountUp end={countTotal[0].count} duration={2}/>
                         </span>
                         <span>Cases</span>
                     </div>
@@ -120,13 +122,13 @@ const Dashboard = ({loading, count, countStatus}) => {
                     <div className="facility_Stats_status">
                         <div className="status_open ikeja">
                             <div>Open</div>
-                            <div>67</div>
-                            {/* <div>{countStatus[0].open}</div> */}
+                            {/* <div>67</div> */}
+                            <div>{countStatus[0].open}</div>
                         </div>
                         <div className="status_closed ikeja">
                             <div>Closed</div>
-                            <div>102</div>
-                            {/* <div>{countStatus[0].closed}</div> */}
+                            {/* <div>102</div> */}
+                            <div>{countStatus[0].closed}</div>
                         </div>
                     </div>
                 </div>    
@@ -141,7 +143,7 @@ const Dashboard = ({loading, count, countStatus}) => {
                 <div className="facility_Stats_details">
                     <div className="figures_">
                         <span>
-                            <CountUp end={51} duration={2}/>
+                            <CountUp end={countTotal[1].count} duration={2}/>
                         </span>
                         <span>Cases</span>
                     </div>
@@ -278,6 +280,11 @@ const Dashboard = ({loading, count, countStatus}) => {
             </div>
 
         </div>
+
+
+        }
+
+        
 
         {/* <div className="stats">
             <div className="facilityStats ikejaJones">
