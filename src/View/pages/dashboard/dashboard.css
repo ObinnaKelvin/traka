@@ -554,6 +554,46 @@
     margin: 20px 10px 0px 0px;
 }
 
+@media only screen and (min-width: 320px) and (max-width: 400px){
+    .container {
+        padding: 5px;
+        /* margin-bottom: 50px; */
+        width: 100%;
+        /* border: 1px solid red; */
+    }
+
+    .greetings {
+        font-size: 18px;
+    }
+
+    .facility_Stats.total {
+        width: 100%;
+    }
+
+    .facility_Stats.others {
+        width: 100%;
+    }
+
+    .facility_Stats_icon.ikeja, .facility_Stats_icon.ikejaClinic,
+    .facility_Stats_icon.idejo, .facility_Stats_icon.lss,
+    .facility_Stats_icon.fabac, .facility_Stats_icon.ikoyi
+     {
+        margin-left: 83%;
+    }
+
+    .facility_Stats_details > .coverPhoto {
+        position: absolute;
+        /* margin: 90px 0px 0px 130px; */
+        margin: 90px 0px 0px 220px;
+        /* width: 80px;
+        height: 80px; */
+        width: 150px;
+        height: 150px;
+        opacity: 0.2;
+    }
+    
+}
+
 @media screen and (max-width: 480px) {
 
     .container {
