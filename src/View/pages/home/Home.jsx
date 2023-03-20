@@ -49,13 +49,7 @@ const Home = () => {
       !auth.loggedIn ? <Login /> : */}
 
       <div className="container">
-        { loading ? <h2>Loading Home page...</h2> :
-          <div>
-            Testing
-            {countTotal[0].count}
-          </div>
-        }
-        {/* <Dashboard loading={loading} countTotal={countTotal} countStatus={countStatus}/> */}
+        <Dashboard loading={loading} countTotal={countTotal} countStatus={countStatus}/>
       </div>    
     
         {/* } */}
