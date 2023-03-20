@@ -71,7 +71,8 @@ const Dashboard = ({loading, countTotal, countStatus}) => {
             </div>        
         </div>
 
-        {loading ? <DashboardSkeletonLoading cards={8} /> :
+        {/* {loading ? <DashboardSkeletonLoading cards={8} /> : */}
+        {loading ? <h2>Loading...</h2> :
         <div className="stats">
             <div className="facility_Stats total">
                 <div className="facility_Stats_icon total">
