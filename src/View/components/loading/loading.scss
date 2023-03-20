@@ -79,6 +79,7 @@
         flex-direction: column;
         padding: 15px;
         border-radius: 5px;
+        z-index: 0;
 
         .incidence-skeleton-title {
             width: 50%;
@@ -194,6 +195,20 @@
 }
 
 @media only screen and (min-width: 320px) and (max-width: 400px){
+
+    .dashboard-skeleton-wrapper {
+
+        .dashboard-skeleton-a {
+            width: 100%
+        }
+
+        .dashboard-skeleton-b {
+            width: 100%;
+        }
+    }
+}
+
+@media only screen and (min-width: 401px) and (max-width: 450px){
 
     .dashboard-skeleton-wrapper {
 

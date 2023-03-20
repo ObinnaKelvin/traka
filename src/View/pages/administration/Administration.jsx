@@ -9,11 +9,11 @@ const Administration = () => {
     <div className='administration-container'>
         <NavBar />
 
-        Administration
+        Administration Page
 
 
         {/* <IncidenceSkeletonLoading /> */}
-        <DashboardSkeletonLoading cards={7}/>
+        {/* <DashboardSkeletonLoading cards={7}/> */}
     </div>
   )
 }
