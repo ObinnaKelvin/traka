@@ -13,7 +13,7 @@ import coverIdejo from '../../assets/images/abstract4.png'
 import coverLss from '../../assets/images/abstract4.png'
 import coverFabac from '../../assets/images/abstract6.png'
 import coverIkoyi from '../../assets/images/abstract7.png'
-import { DashboardSkeletonLoading } from '../../components/loading/Loading';
+import { DashboardSkeletonLoading, IncidenceSkeletonLoading } from '../../components/loading/Loading';
 // import axios from 'axios';
 
 const Dashboard = ({loading, countTotal, countStatus}) => {
@@ -71,8 +71,8 @@ const Dashboard = ({loading, countTotal, countStatus}) => {
             </div>        
         </div>
 
-        {/* {loading ? <DashboardSkeletonLoading cards={8} /> : */}
-        {loading ? <h2>Loading...</h2> :
+        {/* {loading ? <DashboardSkeletonLoading cards={8} />*/}
+        {loading ? <IncidenceSkeletonLoading cards={12} /> :
         <div className="stats">
             <div className="facility_Stats total">
                 <div className="facility_Stats_icon total">
