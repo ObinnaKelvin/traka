@@ -27,7 +27,7 @@ const Home = () => {
           .then(response => setCountStatus(response.data))
           setLoading(false)
       } catch (error) {
-          
+          console.log(error)
       }
   }
 
@@ -49,7 +49,13 @@ const Home = () => {
       !auth.loggedIn ? <Login /> : */}
 
       <div className="container">
-        <Dashboard loading={loading} countTotal={countTotal} countStatus={countStatus}/>
+        { loading ? <h2>Loading...</h2> :
+          <div>
+            Testing
+            {countTotal[0].count}
+          </div>
+        }
+        {/* <Dashboard loading={loading} countTotal={countTotal} countStatus={countStatus}/> */}
       </div>    
     
         {/* } */}
