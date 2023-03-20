@@ -20,7 +20,7 @@ const Home = () => {
   const loadCountByFacility = async() => {
       // setLoading(true)
       try {
-          await axios.get("http://localhost:3005/api/incidences/countByFacility")
+          await axios.get(`${PUBLIC_URL}api/incidences/countByFacility`)
           .then(response => setCountTotal(response.data))
 
           await axios.get(`${PUBLIC_URL}api/incidences/countByFacilityStatus`)
