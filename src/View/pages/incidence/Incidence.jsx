@@ -1,4 +1,4 @@
-import { faCircleCheck, faLocationDot } from '@fortawesome/free-solid-svg-icons'
+import { faCircleCheck, faFilter, faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useState, useEffect } from 'react';
 import AddButton from '../../components/addButton/AddButton'
@@ -158,6 +158,11 @@ const Incidence = () => {
                   }
             </select>
           </span>
+        </div>
+
+        <div className='incidence-filter'>
+                  <span><FontAwesomeIcon icon={faFilter}/></span>
+                  <span>Filter</span>
         </div>
       </div>
       
