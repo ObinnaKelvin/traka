@@ -143,20 +143,24 @@ const Incidence = () => {
     <div className='incidence-container'>
       <AddButton />
       <NavBar />
-      <div className='incidence-header'>Incidences</div>
-      <div className="incidence-location">
-        <span><FontAwesomeIcon icon={faLocationDot}/></span>
-        <span>
-          <select className='incidence-select' onChange={onChangeFacility} value={facility}>
-            <option value="All Facilities">All Facilities</option>
-                {
-                  facilityData.map((data)=> (
-                    <option value={data.name.split(' ').join('')} key={data._id}>{data.name}</option>
-                  ))
-                }
-          </select>
-        </span>
+      <div className='incidence-header'>
+        Incidences
+
+        <div className="incidence-location">
+          <span><FontAwesomeIcon icon={faLocationDot}/></span>
+          <span>
+            <select className='incidence-select' onChange={onChangeFacility} value={facility}>
+              <option value="All Facilities">All Facilities</option>
+                  {
+                    facilityData.map((data)=> (
+                      <option value={data.name.split(' ').join('')} key={data._id}>{data.name}</option>
+                    ))
+                  }
+            </select>
+          </span>
+        </div>
       </div>
+      
       <div className="incidence-tabs-wrapper">
         <div className={toggleState === 1 ? "incidence-tab active-tab": "incidence-tab"} onClick={()=>toggleTab(1)}>All ({facilityIncidenceData.length})</div>
         <div className={toggleState === 2 ? "incidence-tab active-tab": "incidence-tab"}  onClick={()=>toggleTab(2)}>Open()</div>
