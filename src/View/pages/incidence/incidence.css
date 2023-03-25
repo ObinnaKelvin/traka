@@ -221,14 +221,89 @@
     display:flex;
 }
 
+@media only screen and (min-width: 320px) and (max-width: 400px){
+    
+    .incidence-location {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        align-items: center;
+        /* justify-content: right; */
+        margin: -19px 60px 30px 58%;
+        /* border: 1px solid black; */
+        max-width: max-content;
+        /* padding: 10px; */
+        position: relative;
+    }
+    
+    .incidence-location span:nth-child(1) {
+        /* color: #B2B2B2; */
+        color: white;
+        padding-top: 15px;
+        font-size: 11px;
+        position: absolute;
+        margin-left: 20px;
+    }
+    
+    .incidence-select {
+        height: 30px;
+        width: 120px;
+        padding: 2px 2px 2px 2px;
+        border: none;
+        /* border-bottom: 1px solid #e0e0e0; */
+        outline: none;  
+        appearance: none;  
+        /* background-color: #b3e5fc; */
+        background-color: #0288d1;
+        text-align: center;
+        border-radius: 20rem;
+        color: #fff;
+        font-size: 10px;
+    }
+    
+    .incidence-filter {
+        height: 25px;
+        width: 70px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 2px 2px 2px 2px;
+        font-size: 10px;
+        background-color: #0288d1;
+        border-radius: 20rem;
+        color: white;
+        margin: -60.4px 60px 30px 26%;
+        position: absolute;
+    }
 
-@media screen and (max-width: 480px) {
+    .incidence-cases {
+        width: 100%;
+    }
+    
+    .done {
+        margin-left: 282px;
+        margin-top: -6px;
+    }
+
+}
+
+@media only screen and (min-width: 401px) and (max-width: 480px) {
+/* @media screen and (max-width: 480px) { */
     .incidence-header {
         margin-top: 20px;
         font-size: 25px;
         font-weight: 300;
         /* text-align: center; */
     }
+
+    .done {
+        margin-left: 200px;
+        margin-top: -6px;
+        visibility: hidden;
+    }
+    
     .incidence-location {
         /* align-items: center; */
         /* justify-content: center; */
