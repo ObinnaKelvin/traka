@@ -80,6 +80,13 @@
     align-items: center;
     margin-bottom: 50px;
     display: none;
+    width: 95%;
+}
+
+.incidence-wrapper.active-content {
+    gap: 10px;
+    /* justify-content: space-around; */
+    width: 99%;
 }
 
 .incidence-tabs-wrapper {
@@ -134,6 +141,15 @@
     text-overflow: ellipsis;
     padding: 1px 5px;
     border-radius: 50px;
+}
+
+.incidence-detail {
+    max-height: 70px;
+    white-space:normal;
+    /* White-Space: nowrap; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* border: 1px solid red; */
 }
 
 .done {
@@ -245,6 +261,7 @@
         color: white;
         margin: -40px 60px 30px 40%;
         position: absolute;
+        cursor: pointer;
     }
 
     .incidence-cases {
@@ -261,7 +278,17 @@
 }
 
 @media screen and (min-width: 1280px) {
+
+    .incidence-header {
+        /* width: 96.7%; */
+        width: 94%;
+    }
+
     .incidence-wrapper {
         width: 98%;
+    }
+
+    .incidence-wrapper.active-content {
+        gap: 5px;
     }
 }
