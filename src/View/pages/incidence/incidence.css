@@ -1,5 +1,6 @@
 .incidence-container {
     padding: 10px;
+    background-color: #F9F9F9;
     /* width: 100%; */
     /* width: 95%; */
     /* margin-bottom: 100px; */
@@ -126,6 +127,7 @@
     gap: 10px;
     width: 270px;
     position: relative;
+    background-color: white;
 }
 
 .incidence-category {
