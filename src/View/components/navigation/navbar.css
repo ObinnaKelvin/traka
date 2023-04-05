@@ -103,7 +103,7 @@
 }
 
 .navBar-sideBar ul {
-    margin-top: 65px
+    margin-top: 65px;
 }
 
 .navBar-sideBar li {
@@ -118,11 +118,22 @@
 .navBar-sideBar span {
     margin-right: 30px;
     color: #757575;
+    padding: 5px;
 }
 
 .navBar-sideBar.open {
     left: 85%;
     transition: 500ms;
+}
+
+.navBar-sideBar-lower {
+    margin-top: 50%;
+}
+
+#active-menu {
+    color: #01579b;
+    background-color: #b3e5fc;
+    padding: 5px;
 }
 
 .overlay {

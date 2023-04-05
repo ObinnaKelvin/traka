@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { logout, reset } from '../../../Controller/Redux/authSlice'
 
 const NavBar = () => {
+  const [activeState, setActiveState] = useState(0)
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const {user} = useSelector((state) => state.auth)
@@ -19,11 +20,20 @@ const NavBar = () => {
     console.log(open)
   }
 
+  const toggleMenu = (index) => {
+    setActiveState(index)
+    localStorage.setItem('activeMenu', JSON.stringify(index))
+    console.log("Active Menu Index:", activeState)
+  }
+
   const onLogout = () => {
     dispatch(logout())
     dispatch(reset())
     navigate('/')
   }
+
+  const currentMenu = JSON.parse(localStorage.getItem('activeMenu'))
+  console.log("Current Menu", currentMenu)
 
 
   return (
@@ -44,48 +54,52 @@ const NavBar = () => {
         <div className={open ? 'overlay open': 'overlay'} onClick={toggle}></div>
         <div className={open ? 'navBar-sideBar open' : 'navBar-sideBar'}>
             <ul>
-              <li>
-                <Link className='link' to ="/dashboard">
-                  <span><FontAwesomeIcon icon={faChartLine}/></span>
-                  <span>Dashboard</span>
-                </Link>
-              </li>
-              <li>
-                <Link className='link' to ="/incidence">
-                  <span><FontAwesomeIcon icon={faBug}/></span>
-                  <span>Incidences</span>
-                </Link>
-              </li>
-              <li>
-                <Link className='link' to ="/team">
-                  <span><FontAwesomeIcon icon={faPeopleGroup}/></span>
-                  <span>Team</span>
-                </Link>
-              </li>
-              <li>
-                <Link className='link' to ="/chatbox">
-                  <span><FontAwesomeIcon icon={faComments}/></span>
-                  <span>Chatbox</span>
-                </Link>
-              </li>
-              <li>
-                <Link className='link' to ="/notifications">
-                  <span><FontAwesomeIcon icon={faBell}/></span>
-                  <span>Notifications</span>
-                </Link>
-              </li>
-              <li>
-                <Link className='link' to ="/administration">
-                  <span><FontAwesomeIcon icon={faUserGear}/></span>
-                  <span>Administration</span>
-                </Link>
-              </li>
-              <li className='logout' onClick={onLogout}>
-                <Link className='link logout'>
-                  <span><FontAwesomeIcon icon={faArrowRightFromBracket}/></span>
-                  <span>Log Out</span>
-                </Link>
-              </li>
+              <div>
+                <li>
+                  <Link className='link' to ="/dashboard" onClick={() => toggleMenu(1)}>
+                    <span id={currentMenu === 1 && "active-menu"}><FontAwesomeIcon icon={faChartLine}/></span>
+                    <span>Dashboard</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link className='link' to ="/incidence" onClick={() => toggleMenu(2)}>
+                    <span id={currentMenu === 2 && "active-menu"}><FontAwesomeIcon icon={faBug}/></span>
+                    <span>Incidences</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link className='link' to ="/team" onClick={() => toggleMenu(3)}>
+                    <span id={currentMenu === 3 && "active-menu"}><FontAwesomeIcon icon={faPeopleGroup}/></span>
+                    <span>Team</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link className='link' to ="/chatbox" onClick={() => toggleMenu(4)}>
+                    <span id={currentMenu === 4 && "active-menu"}><FontAwesomeIcon icon={faComments}/></span>
+                    <span>Chatbox</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link className='link' to ="/notifications" onClick={() => toggleMenu(5)}>
+                    <span id={currentMenu === 5 && "active-menu"}><FontAwesomeIcon icon={faBell}/></span>
+                    <span>Notifications</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link className='link' to ="/administration" onClick={() => toggleMenu(6)}>
+                    <span id={currentMenu === 6 && "active-menu"}><FontAwesomeIcon icon={faUserGear}/></span>
+                    <span>Administration</span>
+                  </Link>
+                </li>
+              </div>
+              <div className='navBar-sideBar-lower'>
+                <li className='logout' onClick={onLogout}>
+                  <Link className='link logout' onClick={() => toggleMenu(7)}>
+                    <span><FontAwesomeIcon icon={faArrowRightFromBracket}/></span>
+                    <span>Log Out</span>
+                  </Link>
+                </li>
+              </div>
             </ul>
         </div>
     </div>

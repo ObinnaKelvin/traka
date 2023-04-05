@@ -84,7 +84,7 @@ const Login = () => {
         setLoading(true);
         setTimeout(() => {
             setLoading(false); //this false doesn't work
-        }, 20000);
+        }, 30000);
         return () => {clearTimeout(); setLoading(false)}; //this false works
         // const timer = setTimeout(() => {
         //     console.log('This will run after 1 second!')
