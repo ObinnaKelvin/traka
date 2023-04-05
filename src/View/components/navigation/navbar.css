@@ -118,7 +118,20 @@
 .navBar-sideBar span {
     margin-right: 30px;
     color: #757575;
+}
+
+.navBar-sideBar .activeMenuLogo {
+    margin-right: 30px;
+    /* margin-left: -5px; */
+    color: #757575;
     padding: 5px;
+}
+
+#active-menu {
+    color: #01579b;
+    background-color: #e1f5fe;
+    padding: 5px;
+    border-radius: 9px;
 }
 
 .navBar-sideBar.open {
@@ -128,12 +141,6 @@
 
 .navBar-sideBar-lower {
     margin-top: 50%;
-}
-
-#active-menu {
-    color: #01579b;
-    background-color: #b3e5fc;
-    padding: 5px;
 }
 
 .overlay {

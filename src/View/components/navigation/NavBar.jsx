@@ -57,37 +57,37 @@ const NavBar = () => {
               <div>
                 <li>
                   <Link className='link' to ="/dashboard" onClick={() => toggleMenu(1)}>
-                    <span id={currentMenu === 1 && "active-menu"}><FontAwesomeIcon icon={faChartLine}/></span>
+                    <span className="activeMenuLogo" id={currentMenu === 1 && "active-menu"}><FontAwesomeIcon icon={faChartLine}/></span>
                     <span>Dashboard</span>
                   </Link>
                 </li>
                 <li>
                   <Link className='link' to ="/incidence" onClick={() => toggleMenu(2)}>
-                    <span id={currentMenu === 2 && "active-menu"}><FontAwesomeIcon icon={faBug}/></span>
+                    <span className="activeMenuLogo" id={currentMenu === 2 && "active-menu"}><FontAwesomeIcon icon={faBug}/></span>
                     <span>Incidences</span>
                   </Link>
                 </li>
                 <li>
                   <Link className='link' to ="/team" onClick={() => toggleMenu(3)}>
-                    <span id={currentMenu === 3 && "active-menu"}><FontAwesomeIcon icon={faPeopleGroup}/></span>
+                    <span className="activeMenuLogo" id={currentMenu === 3 && "active-menu"}><FontAwesomeIcon icon={faPeopleGroup}/></span>
                     <span>Team</span>
                   </Link>
                 </li>
                 <li>
                   <Link className='link' to ="/chatbox" onClick={() => toggleMenu(4)}>
-                    <span id={currentMenu === 4 && "active-menu"}><FontAwesomeIcon icon={faComments}/></span>
+                    <span className="activeMenuLogo" id={currentMenu === 4 && "active-menu"}><FontAwesomeIcon icon={faComments}/></span>
                     <span>Chatbox</span>
                   </Link>
                 </li>
                 <li>
                   <Link className='link' to ="/notifications" onClick={() => toggleMenu(5)}>
-                    <span id={currentMenu === 5 && "active-menu"}><FontAwesomeIcon icon={faBell}/></span>
+                    <span className="activeMenuLogo" id={currentMenu === 5 && "active-menu"}><FontAwesomeIcon icon={faBell}/></span>
                     <span>Notifications</span>
                   </Link>
                 </li>
                 <li>
                   <Link className='link' to ="/administration" onClick={() => toggleMenu(6)}>
-                    <span id={currentMenu === 6 && "active-menu"}><FontAwesomeIcon icon={faUserGear}/></span>
+                    <span className="activeMenuLogo" id={currentMenu === 6 && "active-menu"}><FontAwesomeIcon icon={faUserGear}/></span>
                     <span>Administration</span>
                   </Link>
                 </li>
