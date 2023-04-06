@@ -118,6 +118,9 @@
 .navBar-sideBar span {
     margin-right: 30px;
     color: #757575;
+    /* display: flex;
+    flex-direction: row; */
+    text-align: left;
 }
 
 .navBar-sideBar .menuLogo {
@@ -125,6 +128,7 @@
     /* margin-left: -5px; */
     color: #757575;
     padding: 7px;
+    transition: 800ms;
 }
 
 #active-menu {
@@ -132,6 +136,7 @@
     background-color: #e1f5fe;
     padding: 7px;
     border-radius: 9px;
+    transition: 800ms;
 }
 
 .navBar-sideBar.open {
@@ -140,7 +145,9 @@
 }
 
 .navBar-sideBar-lower {
-    margin-top: 50%;
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 20px;
 }
 
 .overlay {

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRightFromBracket, faBell, faBug, faChartLine, faComments, faPeopleGroup, faUserGear } from '@fortawesome/free-solid-svg-icons'
+import { faArrowRightFromBracket, faBell, faBug, faChartLine, faComments, faPeopleGroup, faUser, faUserGear } from '@fortawesome/free-solid-svg-icons'
 import './navbar.css'; 
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/images/traka_logo.gif'
@@ -57,45 +57,51 @@ const NavBar = () => {
               <div>
                 <li>
                   <Link className='link' to ="/dashboard" onClick={() => toggleMenu(1)}>
-                    <span className="menuLogo" id={currentMenu === 1 && "active-menu"}><FontAwesomeIcon icon={faChartLine}/></span>
-                    <span>Dashboard</span>
+                    <span className="menuLogo" id={currentMenu === 1 ? "active-menu" : "menuLogo"}><FontAwesomeIcon icon={faChartLine}/></span>
+                    <span id={currentMenu === 1 ? "active-menu": "menuLogo"}>Dashboard</span>
                   </Link>
                 </li>
                 <li>
                   <Link className='link' to ="/incidence" onClick={() => toggleMenu(2)}>
-                    <span className="menuLogo" id={currentMenu === 2 && "active-menu"}><FontAwesomeIcon icon={faBug}/></span>
-                    <span>Incidences</span>
+                    <span className="menuLogo" id={currentMenu === 2 ? "active-menu" : "menuLogo"}><FontAwesomeIcon icon={faBug}/></span>
+                    <span id={currentMenu === 2 ? "active-menu": "menuLogo"}>Incidences</span>
                   </Link>
                 </li>
                 <li>
                   <Link className='link' to ="/team" onClick={() => toggleMenu(3)}>
-                    <span className="menuLogo" id={currentMenu === 3 && "active-menu"}><FontAwesomeIcon icon={faPeopleGroup}/></span>
-                    <span>Team</span>
+                    <span className="menuLogo" id={currentMenu === 3 ? "active-menu" : "menuLogo"}><FontAwesomeIcon icon={faPeopleGroup}/></span>
+                    <span id={currentMenu === 3 ? "active-menu": "menuLogo"}>Team</span>
                   </Link>
                 </li>
                 <li>
                   <Link className='link' to ="/chatbox" onClick={() => toggleMenu(4)}>
-                    <span className="menuLogo" id={currentMenu === 4 && "active-menu"}><FontAwesomeIcon icon={faComments}/></span>
-                    <span>Chatbox</span>
+                    <span className="menuLogo" id={currentMenu === 4 ? "active-menu" : "menuLogo"}><FontAwesomeIcon icon={faComments}/></span>
+                    <span id={currentMenu === 4 ? "active-menu": "menuLogo"}>Chatbox</span>
                   </Link>
                 </li>
                 <li>
                   <Link className='link' to ="/notifications" onClick={() => toggleMenu(5)}>
-                    <span className="menuLogo" id={currentMenu === 5 && "active-menu"}><FontAwesomeIcon icon={faBell}/></span>
-                    <span>Notifications</span>
+                    <span className="menuLogo" id={currentMenu === 5 ? "active-menu" : "menuLogo"}><FontAwesomeIcon icon={faBell}/></span>
+                    <span id={currentMenu === 5 ? "active-menu": "menuLogo"}>Notifications</span>
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link className='link' to ="/administration" onClick={() => toggleMenu(6)}>
-                    <span className="menuLogo" id={currentMenu === 6 && "active-menu"}><FontAwesomeIcon icon={faUserGear}/></span>
-                    <span>Administration</span>
+                    <span className="menuLogo" id={currentMenu === 6 && "active-menu"}><FontAwesomeIcon icon={faUser}/></span>
+                    <span id={currentMenu === 6 ? "active-menu": "menuLogo"}>Profile</span>
+                  </Link>
+                </li> */}
+                <li>
+                  <Link className='link' to ="/administration" onClick={() => toggleMenu(7)}>
+                    <span className="menuLogo" id={currentMenu === 7 && "active-menu"}><FontAwesomeIcon icon={faUserGear}/></span>
+                    <span id={currentMenu === 7 ? "active-menu": "menuLogo"}>Administration</span>
                   </Link>
                 </li>
               </div>
               <div className='navBar-sideBar-lower'>
                 <li className='logout' onClick={onLogout}>
-                  <Link className='link logout' onClick={() => toggleMenu(7)}>
-                    <span><FontAwesomeIcon icon={faArrowRightFromBracket}/></span>
+                  <Link className='link logout' onClick={() => toggleMenu(8)}>
+                    <span className="menuLogo"><FontAwesomeIcon icon={faArrowRightFromBracket}/></span>
                     <span>Log Out</span>
                   </Link>
                 </li>
