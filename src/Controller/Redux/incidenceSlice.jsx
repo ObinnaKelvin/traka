@@ -19,6 +19,8 @@ const slice = createSlice({
     }
 })
 
+console.log("Slice: ", slice)
+
 export default slice.reducer;
 
 export const {getIncidences, createIncidences, updateIncidences, markComplete} = slice.actions

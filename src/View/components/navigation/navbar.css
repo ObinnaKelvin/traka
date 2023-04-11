@@ -128,16 +128,24 @@
     /* margin-left: -5px; */
     color: #757575;
     padding: 7px;
-    transition: 800ms;
+    transition: all 800ms ease-in-out;
 }
+
+/* .navBar-sideBar .menuLogo:hover {
+    transform: scale(1.1);
+} */
 
 #active-menu {
     color: #01579b;
     background-color: #e1f5fe;
     padding: 7px;
     border-radius: 9px;
-    transition: 800ms;
+    transition: all 800ms ease-in-out;
 }
+
+/* #active-menu:hover {
+    transform: scale(1.9);
+} */
 
 .navBar-sideBar.open {
     left: 85%;
@@ -189,12 +197,24 @@
         transition: 500ms;
         top: 18%;
     }
+
+    .navBar-sideBar-lower {
+        position: absolute;
+        bottom: 0;
+        padding-bottom: 120px;
+    }
 }
 
 @media screen and (min-width: 1400px) {
     .navBar-sideBar {
-        left: 97.7%;
+        left: 97.0%;
         transition: 500ms;
         top: 5.2%;
+    }
+
+    .navBar-sideBar-lower {
+        position: absolute;
+        bottom: 0;
+        padding-bottom: 100px;
     }
 }

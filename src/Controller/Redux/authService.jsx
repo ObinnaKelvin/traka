@@ -1,10 +1,12 @@
 import axios from "axios";
 
 //1
-const API_URL_R = "http://localhost:3005/api/auth/register"
-const API_URL_L = "http://localhost:3005/api/auth/login"
+//const API_URL_R = "http://localhost:3005/api/auth/register"
+//const API_URL_L = "http://localhost:3005/api/auth/login"
 //2
 //const API_URL = "https://traka.onrender.com/api/"
+const API_URL_R = "https://traka.onrender.com/api/auth/register"
+const API_URL_L = "https://traka.onrender.com/api/auth/login"
 
 //Register User
 const register = async (userData) => {
