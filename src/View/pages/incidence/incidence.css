@@ -101,7 +101,7 @@
     box-shadow: 0 10px 30px -8px rgb(0 0 0 / 10%);
     align-items: center;
     justify-content: center;
-    margin: 50px auto 20px auto;
+    margin: 20px auto 20px auto;
     overflow: hidden;
     /* height: 20px; */
 }
@@ -115,6 +115,7 @@
     opacity: 0.6;
     font-size: 12px;
     padding: 7px 30px 7px 30px ;
+    background-color: white;
     /* width: 200px; */
 }
 

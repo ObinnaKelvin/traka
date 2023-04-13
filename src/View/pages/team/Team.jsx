@@ -29,7 +29,7 @@ const Team = () => {
                         </div>
                         <div className='team-member-phone'>
                             <span><FontAwesomeIcon icon={faPhone}/></span>
-                            <span>+234 812 683 5580</span>
+                            <span><a href='tel:'>+234 812 683 5580</a></span>
                         </div>
                         <div className='team-member-facility'>
                             <span><FontAwesomeIcon icon={faLocationDot}/></span>
@@ -54,7 +54,7 @@ const Team = () => {
                         </div>
                         <div className='team-member-phone'>
                             <span><FontAwesomeIcon icon={faPhone}/></span>
-                            <span>+234 903 960 1114</span>
+                            <span><a href='tel:'>+234 903 960 1114</a></span>
                         </div>
                         <div className='team-member-facility'>
                             <span><FontAwesomeIcon icon={faLocationDot}/></span>
@@ -79,7 +79,7 @@ const Team = () => {
                         </div>
                         <div className='team-member-phone'>
                             <span><FontAwesomeIcon icon={faPhone}/></span>
-                            <span>+234 812 782 2787</span>
+                            <span><a href='tel:'>+234 812 782 2787</a></span>
                         </div>
                         <div className='team-member-facility'>
                             <span><FontAwesomeIcon icon={faLocationDot}/></span>
@@ -104,7 +104,7 @@ const Team = () => {
                         </div>
                         <div className='team-member-phone'>
                             <span><FontAwesomeIcon icon={faPhone}/></span>
-                            <span>+234 812 782 2787</span>
+                            <span><a href='tel:'>+234 812 782 2787</a></span>
                         </div>
                         <div className='team-member-facility'>
                             <span><FontAwesomeIcon icon={faLocationDot}/></span>
