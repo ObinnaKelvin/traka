@@ -129,7 +129,7 @@ const Team = () => {
                         </div>
                         <div className='team-member-phone'>
                             <span><FontAwesomeIcon icon={faPhone}/></span>
-                            <span>+234 810 904 0334</span>
+                            <span><a href='tel:'>+234 810 904 0334</a></span>
                         </div>
                         <div className='team-member-facility'>
                             <span><FontAwesomeIcon icon={faLocationDot}/></span>
