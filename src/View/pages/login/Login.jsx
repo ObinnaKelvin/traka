@@ -59,9 +59,9 @@ const Login = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post("http://localhost:3005/api/auth/login", {username, password}) //Local
+            //const response = await axios.post("http://localhost:3005/api/auth/login", {username, password}) //Local
             //const response = await axios.post(LOGIN_URL+"/api/auth/login", {username, password})
-            //const response = await axios.post("https://traka.onrender.com/api/auth/login", {username, password}) //Production
+            const response = await axios.post("https://traka.onrender.com/api/auth/login", {username, password}) //Production
             
             if(response.data){ 
                 setLoading(true);
