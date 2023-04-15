@@ -16,6 +16,7 @@ const Login = () => {
     const navigate = useNavigate()
     const { user, isLoading, isError, isSuccess, message } = useSelector( (state) => state.auth)
     const [loading, setLoading] = useState(false); 
+    const [guestLoading, setGuestLoading] = useState(false); 
 
 
     // const [formInput, setFormInput] = useState({
@@ -58,9 +59,9 @@ const Login = () => {
         e.preventDefault();
 
         try {
-            //const response = await axios.post("http://localhost:3005/api/auth/login", {username, password}) //Local
+            const response = await axios.post("http://localhost:3005/api/auth/login", {username, password}) //Local
             //const response = await axios.post(LOGIN_URL+"/api/auth/login", {username, password})
-            const response = await axios.post("https://traka.onrender.com/api/auth/login", {username, password}) //Production
+            //const response = await axios.post("https://traka.onrender.com/api/auth/login", {username, password}) //Production
             
             if(response.data){ 
                 setLoading(true);
@@ -86,6 +87,22 @@ const Login = () => {
             setLoading(false); //this false doesn't work
         }, 30000);
         return () => {clearTimeout(); setLoading(false)}; //this false works
+        // const timer = setTimeout(() => {
+        //     console.log('This will run after 1 second!')
+        //   }, 1000);
+        // return () => clearTimeout(timer);
+    }
+
+
+    const handleGuest = () => {
+        console.log("Guest button Clicked!")
+        setUsername("guest")
+        setPassword("guest")
+        setGuestLoading(true);
+        setTimeout(() => {
+            setGuestLoading(false); //this false doesn't work
+        }, 30000);
+        return () => {clearTimeout(); setGuestLoading(false)}; //this false works
         // const timer = setTimeout(() => {
         //     console.log('This will run after 1 second!')
         //   }, 1000);
@@ -127,6 +144,7 @@ const Login = () => {
 
                     {/* <Link className='login-link'> */}
                         <button type='submit' className='submit-button' onClick={handleClick}>Login {loading && <CircularLoading />}</button>
+                        <button id='guest-button' onClick={handleGuest}>Login as Guest {loading && <CircularLoading />}</button>
                         
                     {/* </Link> */}
                 </form>
