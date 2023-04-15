@@ -17,6 +17,7 @@ const Login = () => {
     const { user, isLoading, isError, isSuccess, message } = useSelector( (state) => state.auth)
     const [loading, setLoading] = useState(false); 
     const [guestLoading, setGuestLoading] = useState(false); 
+    const [visiblePassword, setVisiblePassword] = useState(false); 
 
 
     // const [formInput, setFormInput] = useState({
@@ -55,10 +56,17 @@ const Login = () => {
     //     .then(response => console.log(response.data))
     // }
 
+    // const delay = secs => new Promise(
+    //     resolve => setTimeout(resolve, secs)
+    // )
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
+            // console.log("before", username)
+            // await delay(3000);
+            // console.log("after", username)
             //const response = await axios.post("http://localhost:3005/api/auth/login", {username, password}) //Local
             //const response = await axios.post(LOGIN_URL+"/api/auth/login", {username, password})
             const response = await axios.post("https://traka.onrender.com/api/auth/login", {username, password}) //Production
@@ -144,7 +152,7 @@ const Login = () => {
 
                     {/* <Link className='login-link'> */}
                         <button type='submit' className='submit-button' onClick={handleClick}>Login {loading && <CircularLoading />}</button>
-                        <button id='guest-button' onClick={handleGuest}>Login as Guest {loading && <CircularLoading />}</button>
+                        <button id='guest-button' onClick={handleGuest}>Login as Guest {guestLoading && <CircularLoading />}</button>
                         
                     {/* </Link> */}
                 </form>
