@@ -23,7 +23,7 @@ const Login = () => {
     //     password:""
     // })
 
-    const [firstname, setFirstName] = useState("")
+    const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
     // useEffect(()=> {
@@ -58,9 +58,9 @@ const Login = () => {
         e.preventDefault();
 
         try {
-            // const response = await axios.post("http://localhost:3005/api/auth/login", {firstname, password}) //Local
-            //const response = await axios.post(LOGIN_URL+"/api/auth/login", {firstname, password})
-            const response = await axios.post("https://traka.onrender.com/api/auth/login", {firstname, password}) //Production
+            //const response = await axios.post("http://localhost:3005/api/auth/login", {username, password}) //Local
+            //const response = await axios.post(LOGIN_URL+"/api/auth/login", {username, password})
+            const response = await axios.post("https://traka.onrender.com/api/auth/login", {username, password}) //Production
             
             if(response.data){ 
                 setLoading(true);
@@ -115,9 +115,9 @@ const Login = () => {
                 <div className="login-logo-wrapper"><img src={logo} alt="traka logo" className='logo'/></div>
                 <form onSubmit={handleSubmit}>
                     <p>
-                        <label>First Name</label>
+                        <label>Username</label>
                         {/* <input type="text" name='firstName' className='formInput' placeholder="Enter your first name" onChange={(e)=> setFormInput(e.target.value) } value={formInput.firstName}></input> */}
-                        <input type="text" name='firstName' className='formInput' placeholder="Enter your first name" onChange={(e)=> setFirstName(e.target.value)} value={firstname}></input>
+                        <input type="text" name='username' className='formInput' placeholder="Enter your user name" onChange={(e)=> setUsername(e.target.value)} value={username}></input>
                     </p>
                     <p>
                         <label>Password</label>
