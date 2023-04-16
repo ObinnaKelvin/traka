@@ -1,13 +1,96 @@
 import { faEnvelope, faLocationDot, faPhone, faUser } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import AddButton from '../../components/addButton/AddButton'
 import NavBar from '../../components/navigation/NavBar'
 import './team.css'
 import levelOne from '../../assets/images/levelOne.png'
 import levelTwo from '../../assets/images/levelTwo.png'
+import axios from 'axios';
+import { IncidenceSkeletonLoading } from '../../components/loading/Loading';
+import { async } from '@firebase/util'
 
 const Team = () => {
+
+    const PUBLIC_URL = 'https://traka.onrender.com/' // production
+    const [members, setMembers] = useState([])
+    const [level1, setLevel1] = useState([])
+    const [level2, setLevel2] = useState([])
+    const [isLoading, setIsLoading] = useState(true);
+
+
+    const loadMembers = async() => {
+        await axios.get(`${PUBLIC_URL}api/user/`)
+        .then(response => {setMembers(response.data); setIsLoading(false)})
+        .then(console.log("Members", members))
+    }
+
+    const getLevel1 = (data) => {
+        if (data.rank === "level 1") return(
+                <div className="team-member">
+                    <div className="team-member-avatar">
+                        <span>
+                            <FontAwesomeIcon icon={faUser}/>
+                            <div className="team-member-rank"></div>
+                        </span>
+                    </div>
+                    <div className="team-member-details">
+                        <div className='team-member-name'>
+                            {`${data.firstname} ${data.lastname}`}
+                        </div>
+                        <div className='team-member-phone'>
+                            <span><FontAwesomeIcon icon={faPhone}/></span>
+                            <span><a href='tel:'>{data.phone}</a></span>
+                        </div>
+                        <div className='team-member-facility'>
+                            <span><FontAwesomeIcon icon={faLocationDot}/></span>
+                            <span>{`${data.facility}`.split(" , ")}</span>
+                        </div>
+                        <div className='team-member-email'>
+                            <span><FontAwesomeIcon icon={faEnvelope}/></span>
+                            <span>{data.email}</span>
+                        </div>
+                    </div>
+                </div>            
+        )
+        // setLevel1(filterLevel)
+        // console.log("Level one: ", filterLevel)
+    }
+
+    const getLevel2 = (data) => {
+        if (data.rank === "level 2") return(
+                <div className="team-member">
+                    <div className="team-member-avatar">
+                        <span>
+                            <FontAwesomeIcon icon={faUser}/>
+                            <div className="team-member-rank-levelTwo"></div>
+                        </span>
+                    </div>
+                    <div className="team-member-details">
+                        <div className='team-member-name'>
+                            {`${data.firstname} ${data.lastname}`}
+                        </div>
+                        <div className='team-member-phone'>
+                            <span><FontAwesomeIcon icon={faPhone}/></span>
+                            <span><a href='tel:'>{data.phone}</a></span>
+                        </div>
+                        <div className='team-member-facility'>
+                            <span><FontAwesomeIcon icon={faLocationDot}/></span>
+                            <span>{`${data.facility}`.split(" , ")}</span>
+                        </div>
+                        <div className='team-member-email'>
+                            <span><FontAwesomeIcon icon={faEnvelope}/></span>
+                            <span>{data.email}</span>
+                        </div>
+                    </div>
+                </div>            
+        )
+    }
+
+    useEffect(() => {
+        loadMembers();
+    }, [])
+
   return (
     <div className='team-container'>
         <AddButton />
@@ -16,7 +99,40 @@ const Team = () => {
         <div className="team-wrapper">
                 <div className='team-level'>Level 1 <img class="level" src={levelOne} alt='single badge'/></div>
             <div className="team-group">
-                <div className="team-member">
+                {isLoading &&<IncidenceSkeletonLoading cards={6}/>}
+                {
+                    members.map(getLevel1)
+                }
+                {/* {
+                    level1.map(member => (
+                        <div className="team-member">
+                            <div className="team-member-avatar">
+                                <span>
+                                    <FontAwesomeIcon icon={faUser}/>
+                                    <div className="team-member-rank"></div>
+                                </span>
+                            </div>
+                            <div className="team-member-details">
+                                <div className='team-member-name'>
+                                    {`${member.firstname} ${member.lastname}`}
+                                </div>
+                                <div className='team-member-phone'>
+                                    <span><FontAwesomeIcon icon={faPhone}/></span>
+                                    <span><a href='tel:'>{member.phone}</a></span>
+                                </div>
+                                <div className='team-member-facility'>
+                                    <span><FontAwesomeIcon icon={faLocationDot}/></span>
+                                    <span>{`${member.facility}`.split(" , ")}</span>
+                                </div>
+                                <div className='team-member-email'>
+                                    <span><FontAwesomeIcon icon={faEnvelope}/></span>
+                                    <span>{member.email}</span>
+                                </div>
+                            </div>
+                        </div>
+                    ))
+                } */}
+                {/* <div className="team-member">
                     <div className="team-member-avatar">
                         <span>
                             <FontAwesomeIcon icon={faUser}/>
@@ -140,7 +256,7 @@ const Team = () => {
                             <span>itsupport@lagoonhospitals.com</span>
                         </div>
                     </div>
-                </div>
+                </div> */}
                 {/* <div className="team-member">
                     <div className="team-member-avatar">
                         <span>
@@ -166,7 +282,7 @@ const Team = () => {
                         </div>
                     </div>
                 </div> */}
-                <div className="team-member">
+                {/* <div className="team-member">
                     <div className="team-member-avatar">
                         <span>
                             <FontAwesomeIcon icon={faUser}/>
@@ -215,11 +331,44 @@ const Team = () => {
                             <span>itsupport@lagoonhospitals.com</span>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
             <div className='team-level'>Level 2 <img class="level" src={levelTwo} alt='single badge'/> <img class="level" src={levelTwo} alt='single badge'/></div>
             <div className="team-group">
-                <div className="team-member">
+
+                {
+                    members.map(getLevel2)
+                }
+                {/* {
+                    level2.map(member => (
+                        <div className="team-member">
+                            <div className="team-member-avatar">
+                                <span>
+                                    <FontAwesomeIcon icon={faUser}/>
+                                    <div className="team-member-rank-levelTwo"></div>
+                                </span>
+                            </div>
+                            <div className="team-member-details">
+                                <div className='team-member-name'>
+                                    {`${member.firstname} ${member.lastname}`}
+                                </div>
+                                <div className='team-member-phone'>
+                                    <span><FontAwesomeIcon icon={faPhone}/></span>
+                                    <span><a href='tel:'>{member.phone}</a></span>
+                                </div>
+                                <div className='team-member-facility'>
+                                    <span><FontAwesomeIcon icon={faLocationDot}/></span>
+                                    <span>{`${member.facility}`.split(" , ")}</span>
+                                </div>
+                                <div className='team-member-email'>
+                                    <span><FontAwesomeIcon icon={faEnvelope}/></span>
+                                    <span>{member.email}</span>
+                                </div>
+                            </div>
+                        </div>
+                    ))
+                } */}
+                {/* <div className="team-member">
                     <div className="team-member-avatar">
                         <span>
                             <FontAwesomeIcon icon={faUser}/>
@@ -318,7 +467,7 @@ const Team = () => {
                             <span>ObinnaOkere@iwosanhealth.com</span>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
 
