@@ -190,6 +190,12 @@
         left: 25%;
         transition: 500ms;
     }
+
+    .navBar-sideBar-lower {
+        position: absolute;
+        bottom: 0;
+        padding-bottom: 120px;
+    }
 }
 
 @media (min-width: 992px) and (max-width: 1200px) {
