@@ -8,21 +8,18 @@ import levelOne from '../../assets/images/levelOne.png'
 import levelTwo from '../../assets/images/levelTwo.png'
 import axios from 'axios';
 import { IncidenceSkeletonLoading } from '../../components/loading/Loading';
-import { async } from '@firebase/util'
 
 const Team = () => {
 
     const PUBLIC_URL = 'https://traka.onrender.com/' // production
     const [members, setMembers] = useState([])
-    const [level1, setLevel1] = useState([])
-    const [level2, setLevel2] = useState([])
     const [isLoading, setIsLoading] = useState(true);
 
 
     const loadMembers = async() => {
         await axios.get(`${PUBLIC_URL}api/user/`)
         .then(response => {setMembers(response.data); setIsLoading(false)})
-        .then(console.log("Members", members))
+        // .then(console.log("Members", members))
     }
 
     const getLevel1 = (data) => {

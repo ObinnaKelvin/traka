@@ -8,6 +8,8 @@ import logo from '../../assets/images/traka_logo.gif'
 import {toast} from 'react-toastify'
 import axios from 'axios';
 import { CircularLoading } from '../../components/loading/Loading';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Login = () => {
     const LOGIN_URL = process.env.API_URL
@@ -59,6 +61,10 @@ const Login = () => {
     // const delay = secs => new Promise(
     //     resolve => setTimeout(resolve, secs)
     // )
+
+    const toggleVisibility = () => {
+        setVisiblePassword(!visiblePassword)
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -147,7 +153,10 @@ const Login = () => {
                     <p>
                         <label>Password</label>
                         {/* <input type="password" className='formInput' placeholder="Enter your password" onChange={(e)=> setFormInput(e.target.value) } value={formInput.password}></input> */}
-                        <input type="password" className='formInput' placeholder="Enter your password" onChange={(e)=> setPassword(e.target.value)} value={password}></input>
+                        <input type={visiblePassword ? "text" : "password"} className='formInput' placeholder="Enter your password" onChange={(e)=> setPassword(e.target.value)} value={password}></input>
+                        {/* <div className="visiblity_icon"> */}
+                        { visiblePassword ? <FontAwesomeIcon icon={faEye} className="visibility_icon" onClick={toggleVisibility}/> : <FontAwesomeIcon icon={faEyeSlash} className="visibility_icon" onClick={toggleVisibility}/>} 
+                        {/* </div> */}
                     </p>
 
                     {/* <Link className='login-link'> */}

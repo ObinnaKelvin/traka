@@ -112,6 +112,17 @@
     border-radius: 30px;
 }
 
+form p:nth-child(2) {
+    position: relative;
+}
+
+.visibility_icon {
+    margin: 13px 10px auto -25px;
+    position: absolute;
+    font-size: 15px;
+    cursor: pointer;
+}
+
 .submit-button {
     position: relative;
 }
