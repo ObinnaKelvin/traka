@@ -1,7 +1,7 @@
 import { faCircleCheck, faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useState, useEffect } from 'react';
-import AddButton from '../../components/addButton/AddButton'
+import { AddButton } from '../../components/addButton/AddButton'
 import NavBar from '../../components/navigation/NavBar'
 import './incidence.css';
 import axios from 'axios';

@@ -15,6 +15,7 @@ import Notifications from "./View/pages/notifications/Notifications.jsx";
 import Administration from "./View/pages/administration/Administration.jsx";
 import { LoadingScreen } from "./View/components/loading/Loading.jsx";
 import { SkeletonTheme } from "react-loading-skeleton";
+import Agent from "./View/pages/agent/Agent.jsx";
 
 function App() {
   const {auth} = useSelector(state => state)
@@ -60,6 +61,7 @@ function App() {
           <Route path='/notifications' element={<Notifications />}/>
           <Route path='/administration' element={<Administration />}/>
           <Route path='/welcome' element={<LoadingScreen />}/>
+          <Route path='/administration/agent' element={<Agent />}/>
         </Routes>
         <ToastContainer></ToastContainer>
       </Router>

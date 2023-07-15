@@ -1,7 +1,7 @@
 import { faEnvelope, faLocationDot, faPhone, faUser } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useEffect, useState } from 'react'
-import AddButton from '../../components/addButton/AddButton'
+import { AddButton } from '../../components/addButton/AddButton'
 import NavBar from '../../components/navigation/NavBar'
 import './team.css'
 import levelOne from '../../assets/images/levelOne.png'

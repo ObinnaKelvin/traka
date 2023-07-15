@@ -12,6 +12,7 @@ import category from '../../assets/images/categorization.png'
 import priority from '../../assets/images/prioritize.png'
 import email from '../../assets/images/email.png'
 import book from '../../assets/images/book.png'
+import { Link } from 'react-router-dom';
 
 const Administration = () => {
   return (
@@ -31,46 +32,64 @@ const Administration = () => {
           </div>
           <div className="administration-group">
             <div className="user-item">
-              <div><img className="user-item-icon" src={agent} alt='Agent icon' /></div>
-              <div className="user-item-caption">Agent</div>
+              <Link className='link' to ="/administration/agent">
+                <div><img className="user-item-icon" src={agent} alt='Agent icon' /></div>
+                <div className="user-item-caption">Agent</div>
+              </Link>
             </div>
             <div className="user-item">
+              <Link className='link' to ="/administration/team">
               <div><img className="user-item-icon" src={team} alt='Agent icon' /></div>
               <div className="user-item-caption">Team</div>
+              </Link>
             </div>
             <div className="user-item">
-              <div><img className="user-item-icon" src={key} alt='Agent icon' /></div>
-              <div className="user-item-caption">Privileges</div>
+              <Link className='link' to ="/administration/priviledge">
+                <div><img className="user-item-icon" src={key} alt='Agent icon' /></div>
+                <div className="user-item-caption">Privileges</div>
+              </Link>
             </div>
             <div className="user-item">
-              <div><img className="user-item-icon" src={reset} alt='Agent icon' /></div>
-              <div className="user-item-caption">Password Reset</div>
+              <Link className='link' to ="/administration/password-reset">
+                <div><img className="user-item-icon" src={reset} alt='Agent icon' /></div>
+                <div className="user-item-caption">Password Reset</div>
+              </Link>
             </div>
             <div className="user-item">
-              <div><img className="user-item-icon" src={sla} alt='Agent icon' /></div>
-              <div className="user-item-caption">Service Level Agreement</div>
+              <Link className='link' to ="/administration/sla">
+                <div><img className="user-item-icon" src={sla} alt='Agent icon' /></div>
+                <div className="user-item-caption">Service Level Agreement</div>
+              </Link>
             </div>
           </div>
           <div className="administration-group-header">
             <p>FACILITY</p>
-            <p>Control your Agents, Team, and Privileges</p>
+            <p>Control the creation of new Facilities, Departments, Categories and Priority</p>
           </div>
           <div className="administration-group">
             <div className="user-item">
-              <div><img className="user-item-icon" src={facility} alt='Agent icon' /></div>
-              <div className="user-item-caption">Facility</div>
+              <Link className='link' to ="/administration/facility">
+                <div><img className="user-item-icon" src={facility} alt='Agent icon' /></div>
+                <div className="user-item-caption">Facility</div>
+              </Link>
             </div>
             <div className="user-item">
-              <div><img className="user-item-icon" src={department} alt='Agent icon' /></div>
-              <div className="user-item-caption">Department</div>
+              <Link className='link' to ="/administration/department">
+                <div><img className="user-item-icon" src={department} alt='Agent icon' /></div>
+                <div className="user-item-caption">Department</div>
+              </Link>
             </div>
             <div className="user-item">
-              <div><img className="user-item-icon" src={category} alt='Agent icon' /></div>
-              <div className="user-item-caption">Category</div>
+              <Link className='link' to ="/administration/category">
+                <div><img className="user-item-icon" src={category} alt='Agent icon' /></div>
+                <div className="user-item-caption">Category</div>
+              </Link>
             </div>
             <div className="user-item">
-              <div><img className="user-item-icon" src={priority} alt='Agent icon' /></div>
-              <div className="user-item-caption">Priority</div>
+              <Link className='link' to ="/administration/priority">
+                <div><img className="user-item-icon" src={priority} alt='Agent icon' /></div>
+                <div className="user-item-caption">Priority</div>
+              </Link>
             </div>
           </div>
           <div className="administration-group-header">
@@ -79,8 +98,10 @@ const Administration = () => {
           </div>
           <div className="administration-group">
             <div className="user-item">
-              <div><img className="user-item-icon" src={email} alt='Agent icon' /></div>
-              <div className="user-item-caption">Email Templates</div>
+              <Link className='link' to ="/administration/email-templates">
+                <div><img className="user-item-icon" src={email} alt='Agent icon' /></div>
+                <div className="user-item-caption">Email Templates</div>
+              </Link>
             </div>
           </div>
           <div className="administration-group-header">
@@ -89,8 +110,10 @@ const Administration = () => {
           </div>
           <div className="administration-group">
             <div className="user-item">
-              <div><img className="user-item-icon" src={book} alt='Agent icon' /></div>
-              <div className="user-item-caption">Articles</div>
+              <Link className='link' to ="/administration/articles">
+                <div><img className="user-item-icon" src={book} alt='Agent icon' /></div>
+                <div className="user-item-caption">Articles</div>
+              </Link>
             </div>
           </div>
 

@@ -3,7 +3,7 @@ import './dashboard.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChartSimple, faHospital } from '@fortawesome/free-solid-svg-icons'
 import CountUp from 'react-countup';
-import AddButton from '../../components/addButton/AddButton';
+import { AddButton } from '../../components/addButton/AddButton';
 import NavBar from '../../components/navigation/NavBar';
 import { useState, useEffect } from 'react';
 import coverTotal from '../../assets/images/rectangles.png'

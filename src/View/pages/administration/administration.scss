@@ -53,6 +53,12 @@
                 box-shadow: 0px 10px 23px rgb(0 0 0 / 12%);
                 border-radius: 20px;
                 background-color: #fff;
+                cursor: pointer;
+                transition: all .2s ease-in-out;
+
+                .link {
+                    text-decoration: none;
+                }
 
                 .user-item-icon {
                     width: 50px;
@@ -64,6 +70,10 @@
                     margin-top: 25px;
                     font-size: 12px;
                 }
+            }
+
+            .user-item:hover {
+                transform: scale(1.1);
             }
         }
 
