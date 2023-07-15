@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { logout, reset } from '../../../Controller/Redux/authSlice'
 
 const NavBar = () => {
-  const [activeState, setActiveState] = useState(0)
+  const [activeState, setActiveState] = useState(1)
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const {user} = useSelector((state) => state.auth)

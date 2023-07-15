@@ -1,3 +1,71 @@
 .administration-container {
     padding: 10px;
+    background-color: #F9F9F9;
+    height: 100%;
+
+    .administration-header {
+        margin-top: 30px;
+        font-size: 25px;
+        font-weight: 300;
+        height: 70px;
+        /* border: 1px solid black; */
+        width: 93%;
+        border-radius: 10px;
+        padding: 5px 5px 5px 15px;
+        box-shadow: 0px 10px 23px rgb(0 0 0 / 3%);
+        background-color: #e3f2fd;
+        display: flex;
+        align-items: center;
+        /* position: relative; */
+    }
+
+    .administration-wrapper {
+
+        padding-top: 20px;
+
+        .administration-group-header {
+            margin: 15px 0px 0px 0px;
+
+            p:nth-child(1) {
+                opacity: 0.6;
+            }
+            p:nth-child(2) {
+                opacity: 0.6;
+                font-size: 14px;
+            }
+
+            padding: 10px;
+        }
+
+        .administration-group {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            padding: 10px;
+
+            .user-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100px;
+                height: 100px;
+                padding: 30px;
+                box-shadow: 0px 10px 23px rgb(0 0 0 / 12%);
+                border-radius: 20px;
+                background-color: #fff;
+
+                .user-item-icon {
+                    width: 50px;
+                    height: 50px;
+                }
+
+                .user-item-caption {
+                    color: #0288d1;
+                    margin-top: 25px;
+                    font-size: 12px;
+                }
+            }
+        }
+
+    }
 }
