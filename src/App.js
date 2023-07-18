@@ -16,6 +16,13 @@ import Administration from "./View/pages/administration/Administration.jsx";
 import { LoadingScreen } from "./View/components/loading/Loading.jsx";
 import { SkeletonTheme } from "react-loading-skeleton";
 import Agent from "./View/pages/agent/Agent.jsx";
+import TeamAdmin from "./View/pages/teamAdmin/TeamAdmin.jsx";
+import Privilege from "./View/pages/privilege/Privilege.jsx";
+import PasswordReset from "./View/pages/passwordReset/PasswordReset.jsx";
+import Sla from "./View/pages/sla/SlaAdmin.jsx";
+import FacilityAdmin from "./View/pages/facilityAdmin/FacilityAdmin.jsx";
+import Department from "./View/pages/department/Department.jsx";
+import Category from "./View/pages/category/Category.jsx";
 
 function App() {
   const {auth} = useSelector(state => state)
@@ -62,6 +69,13 @@ function App() {
           <Route path='/administration' element={<Administration />}/>
           <Route path='/welcome' element={<LoadingScreen />}/>
           <Route path='/administration/agent' element={<Agent />}/>
+          <Route path='/administration/team' element={<TeamAdmin />}/>
+          <Route path='/administration/privilege' element={<Privilege />}/>
+          <Route path='/administration/password-reset' element={<PasswordReset />}/>
+          <Route path='/administration/sla' element={<Sla />}/>
+          <Route path='/administration/facility' element={<FacilityAdmin />}/>
+          <Route path='/administration/department' element={<Department />}/>
+          <Route path='/administration/category' element={<Category />}/>
         </Routes>
         <ToastContainer></ToastContainer>
       </Router>

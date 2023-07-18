@@ -44,7 +44,7 @@ const Administration = () => {
               </Link>
             </div>
             <div className="user-item">
-              <Link className='link' to ="/administration/priviledge">
+              <Link className='link' to ="/administration/privilege">
                 <div><img className="user-item-icon" src={key} alt='Agent icon' /></div>
                 <div className="user-item-caption">Privileges</div>
               </Link>
@@ -63,7 +63,7 @@ const Administration = () => {
             </div>
           </div>
           <div className="administration-group-header">
-            <p>FACILITY</p>
+            <p>ORGANIZATION</p>
             <p>Control the creation of new Facilities, Departments, Categories and Priority</p>
           </div>
           <div className="administration-group">

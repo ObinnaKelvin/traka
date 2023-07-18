@@ -40,15 +40,26 @@
             gap: 20px;
             margin-right: 40px;
 
-            .crumblist {
-                width: 25px;
-                height: 25px;
+            svg {
                 cursor: pointer;
             }
+
+            .crumblist {
+                fill: #000;
+                color: #9e9e9e;
+            }
             .crumbgrid {
-                width: 25px;
-                height: 25px;
-                cursor: pointer;
+                color: #9e9e9e;
+            }
+        
+            .crumbgrid-active {
+                fill: #01579b;
+                color: #01579b;
+            }
+
+            .crumblist-active {
+                fill: #01579b;
+                color: #01579b;
             }
             
         }

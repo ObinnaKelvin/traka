@@ -5,10 +5,7 @@ import { Link } from 'react-router-dom';
 import { faEnvelope, faLocationDot, faPhone, faUser } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { CreateAgentButton } from '../../components/addButton/AddButton'
-import listActive from '../../assets/images/list-active.png'
-import listInactive from '../../assets/images/list-inactive.png'
-import gridActive from '../../assets/images/grid-active.png'
-import gridInactive from '../../assets/images/grid-inactive.png'
+import AgentTable from './AgentTable';
 
 const Agent = () => {
   return (
@@ -25,8 +22,24 @@ const Agent = () => {
                 <p>Agent</p>
             </div>
             <div className="crumb-right">
-                <img className='crumblist' src={listInactive}/>
-                <img className='crumbgrid' src={gridActive}/>
+               
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-align-left">
+                    <line className='crumblist' x1="23" x2="3" y1="6" y2="6"/>
+                    <line className='crumblist' x1="17" x2="3" y1="12" y2="12"/>
+                    <line className='crumblist' x1="10" x2="3" y1="18" y2="18"/>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-grid">
+                    <rect className='crumbgrid' width="7" height="7" x="3" y="3" rx="1"/>
+                    <rect className='crumbgrid' width="7" height="7" x="14" y="3" rx="1"/>
+                    <rect className='crumbgrid' width="7" height="7" x="14" y="14" rx="1"/>
+                    <rect className='crumbgrid' width="7" height="7" x="3" y="14" rx="1"/>
+                </svg>
+                {/* <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-grid">
+                    <rect className='crumbgrid-active' width="7" height="7" x="3" y="3" rx="1"/>
+                    <rect className='crumbgrid-active' width="7" height="7" x="14" y="3" rx="1"/>
+                    <rect className='crumbgrid-active' width="7" height="7" x="14" y="14" rx="1"/>
+                    <rect className='crumbgrid-active' width="7" height="7" x="3" y="14" rx="1"/>
+                </svg> */}
             </div>
         </div>
 
@@ -131,7 +144,10 @@ const Agent = () => {
                         </div>
                     </div>
                 </div>
+        </div>
 
+        <div className="agent-wrapper">
+            <AgentTable />
         </div>
         
     </div>
