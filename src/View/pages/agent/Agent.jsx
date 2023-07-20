@@ -6,6 +6,7 @@ import { faEnvelope, faLocationDot, faPhone, faUser } from '@fortawesome/free-so
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { CreateAgentButton } from '../../components/addButton/AddButton'
 import AgentTable from './AgentTable';
+import { AgentCard } from '../../components/card/Card';
 
 const Agent = () => {
   return (

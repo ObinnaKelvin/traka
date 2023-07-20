@@ -1,6 +1,9 @@
 import React, { useMemo } from 'react';
-import { useReactTable, getCoreRowModel, flexRender } from '@tanstack/react-table';
-import mockData from './mockData.json'
+// import { useReactTable, getCoreRowModel, flexRender } from '@tanstack/react-table';
+// import { useTable } from 'react-table'
+import './agentTable.scss';
+import mockData from './mockData.json';
+import { AgentCard } from '../../components/card/Card';
 
 function AgentTable() {
 
@@ -25,44 +28,113 @@ function AgentTable() {
 
   /** @type import('@tanstack/react-table').ColumnDef<any>*/
 
-  const columns = [
+//   const columns = [
+//     {
+//         header: 'ID',
+//         accessorkey: 'id',
+//         footer: 'ID',
+//     },
+//     {
+//         header: 'First Name',
+//         accessorkey: 'first_name',
+//         footer: 'First Name',
+//     },
+//     {
+//         header: 'Last Name',
+//         accessorkey: 'last_name',
+//         footer: 'Last Name',
+//     },
+//     {
+//         header: 'Email',
+//         accessorkey: 'email',
+//         footer: 'Email',
+//     },
+//     {
+//         header: 'Gender',
+//         accessorkey: 'gender',
+//         footer: 'Gender',
+//     },
+//     {
+//         header: 'Date of Birth',
+//         accessorkey: 'dob',
+//         footer: 'Date of Birth',
+//     }
+//   ]
+
+  const columns = useMemo(() => [
     {
         header: 'ID',
-        accessorkey: 'id',
+        accessor: 'id',
         footer: 'ID',
     },
     {
         header: 'First Name',
-        accessorkey: 'first_name',
+        accessor: 'first_name',
         footer: 'First Name',
     },
     {
         header: 'Last Name',
-        accessorkey: 'last_name',
+        accessor: 'last_name',
         footer: 'Last Name',
     },
     {
         header: 'Email',
-        accessorkey: 'email',
+        accessor: 'email',
         footer: 'Email',
     },
     {
         header: 'Gender',
-        accessorkey: 'gender',
+        accessor: 'gender',
         footer: 'Gender',
     },
     {
         header: 'Date of Birth',
-        accessorkey: 'dob',
+        accessor: 'dob',
         footer: 'Date of Birth',
     }
-  ]
+  ])
 
-  const table = useReactTable({data, columns, getCoreRowModel: getCoreRowModel()})
+//   const table = useReactTable({data, columns, getCoreRowModel: getCoreRowModel()})
+
+// const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({ columns, data });
 
   return (
-    <div>
+    <div className='table-wrapper'>
         <table>
+            <thead>
+                <tr>
+                    <th>Agent</th>
+                    <th>Gender</th>
+                    <th>Facility</th>
+                    <th>Admin</th>
+                    <th>Rank</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div><AgentCard /></div>
+                    </td>
+                    <td className='table-data'>Male</td>
+                    <td className='table-data'>Ikeja</td>
+                    <td className='table-data'>Admin</td>
+                    <td className='table-data'>Level 1</td>
+                    <td className='table-data'>
+                        <div className='active-wrapper'>
+                            <div className='active-sign'></div>
+                            <div>Active</div>
+                        </div>
+                    </td>
+                    <td className='table-data'>
+                        <div className='active-wrapper'>
+                            <div className='active-sign'></div>
+                            <div>Active</div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
             {/* <thead>
                 {table.getHeaderGroups().map(headerGroup => (
                     <tr key={headerGroup.id}>
@@ -78,7 +150,7 @@ function AgentTable() {
                 ))}
             </thead> */}
 
-            <thead>
+            {/* <thead>
             {table.getHeaderGroups().map(headerGroup => (
                 <tr key={headerGroup.id}>
                 {headerGroup.headers.map(header => (
@@ -114,7 +186,7 @@ function AgentTable() {
                     ))}
                     </tr>
                 ))}
-            </tbody>
+            </tbody> */}
             {/* <tbody>
                 {
                     table.getRowModel().rows.map(row => (

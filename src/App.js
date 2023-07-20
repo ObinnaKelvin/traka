@@ -23,6 +23,10 @@ import Sla from "./View/pages/sla/SlaAdmin.jsx";
 import FacilityAdmin from "./View/pages/facilityAdmin/FacilityAdmin.jsx";
 import Department from "./View/pages/department/Department.jsx";
 import Category from "./View/pages/category/Category.jsx";
+import Priority from "./View/pages/priority/Priority.jsx";
+import EmailTemplate from "./View/pages/emailTemplate/EmailTemplate.jsx";
+import Article from "./View/pages/article/Article.jsx";
+
 
 function App() {
   const {auth} = useSelector(state => state)
@@ -76,6 +80,9 @@ function App() {
           <Route path='/administration/facility' element={<FacilityAdmin />}/>
           <Route path='/administration/department' element={<Department />}/>
           <Route path='/administration/category' element={<Category />}/>
+          <Route path='/administration/priority' element={<Priority />}/>
+          <Route path='/administration/email-templates' element={<EmailTemplate />}/>
+          <Route path='/administration/articles' element={<Article />}/>
         </Routes>
         <ToastContainer></ToastContainer>
       </Router>
