@@ -32,6 +32,27 @@
                 }
 
             }
+
+            .action-wrapper {
+                display: flex;
+                gap: 20px;
+
+                svg {
+                    cursor: pointer;
+                }
+
+                .agentedit {
+                    // fill: #f44336;
+                    color: #01579b;
+                    opacity: 0.8;
+                }
+
+                .agentdelete {
+                    // fill: #f44336;
+                    color: #f44336;
+                    opacity: 0.9;
+                }
+            }
         }
 
         thead {
@@ -62,6 +83,6 @@
     table, th, td {
         padding: 5px 20px 10px 20px ;
         font-size: 12px;
-        border-collapse: collapse;
+        // border-collapse: collapse;
     }
 }
