@@ -26,6 +26,7 @@ import Category from "./View/pages/category/Category.jsx";
 import Priority from "./View/pages/priority/Priority.jsx";
 import EmailTemplate from "./View/pages/emailTemplate/EmailTemplate.jsx";
 import Article from "./View/pages/article/Article.jsx";
+import CreateAgent from "./View/pages/createAgent/CreateAgent.jsx";
 
 
 function App() {
@@ -83,6 +84,7 @@ function App() {
           <Route path='/administration/priority' element={<Priority />}/>
           <Route path='/administration/email-templates' element={<EmailTemplate />}/>
           <Route path='/administration/articles' element={<Article />}/>
+          <Route path='/administration/agent/create-agent' element={<CreateAgent />}/>
         </Routes>
         <ToastContainer></ToastContainer>
       </Router>

@@ -22,7 +22,7 @@ export const AddButton = () => {
 export const CreateAgentButton = () => {
   return (
     <div className='add-container'>
-        <Link className="add-link" to="/administration/create-agent">
+        <Link className="add-link" to="/administration/agent/create-agent">
           <div className="add-button">
               {/* + */}
               <FontAwesomeIcon icon={faPlus} />

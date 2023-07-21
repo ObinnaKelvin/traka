@@ -1,0 +1,30 @@
+
+
+.create-agent-breadcrumb {
+    display: flex;
+    flex-direction: row;
+    font-style: italic;
+    font-size: 13px;
+    padding-top: 10px;
+    justify-content: space-between;
+    margin: 20px;
+    gap: 10px;
+
+    .agent-link {
+        text-decoration: none;
+        color: #0288d1;
+    }
+    p:nth-child(2){
+        color: black;
+        opacity: 0.2;
+    }
+    p:nth-child(4){
+        color: black;
+        opacity: 0.2;
+    }
+    p:nth-child(5){
+        color: black;
+        opacity: 0.5;
+    }
+
+}
