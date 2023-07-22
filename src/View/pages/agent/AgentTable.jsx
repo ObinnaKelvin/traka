@@ -104,6 +104,7 @@ function AgentTable() {
             <thead>
                 <tr>
                     <th>Agent</th>
+                    <th>Username</th>
                     <th>Gender</th>
                     <th>Facility</th>
                     <th>Admin</th>
@@ -117,6 +118,7 @@ function AgentTable() {
                     <td>
                         <div><AgentCard /></div>
                     </td>
+                    <td className='table-data'>mbassey</td>
                     <td className='table-data'>Male</td>
                     <td className='table-data'>Ikeja</td>
                     <td className='table-data'>Admin</td>
@@ -148,6 +150,7 @@ function AgentTable() {
                     <td>
                         <div><AgentCard /></div>
                     </td>
+                    <td className='table-data'>mbassey</td>
                     <td className='table-data'>Male</td>
                     <td className='table-data'>Ikeja</td>
                     <td className='table-data'>Admin</td>
@@ -179,6 +182,7 @@ function AgentTable() {
                     <td>
                         <div><AgentCard /></div>
                     </td>
+                    <td className='table-data'>mbassey</td>
                     <td className='table-data'>Male</td>
                     <td className='table-data'>Ikeja</td>
                     <td className='table-data'>Admin</td>
@@ -210,6 +214,7 @@ function AgentTable() {
                     <td>
                         <div><AgentCard /></div>
                     </td>
+                    <td className='table-data'>mbassey</td>
                     <td className='table-data'>Male</td>
                     <td className='table-data'>Ikeja</td>
                     <td className='table-data'>Admin</td>
@@ -241,6 +246,7 @@ function AgentTable() {
                     <td>
                         <div><AgentCard /></div>
                     </td>
+                    <td className='table-data'>mbassey</td>
                     <td className='table-data'>Male</td>
                     <td className='table-data'>Ikeja</td>
                     <td className='table-data'>Admin</td>

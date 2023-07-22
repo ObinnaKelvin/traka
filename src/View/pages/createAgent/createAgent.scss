@@ -88,7 +88,7 @@
 
             .agent-info {
                 background-color: white;
-                height: 100px;
+                height: 200px;
                 width: 250px;
                 margin-top: 20px;
                 border-radius: 20px;
@@ -109,10 +109,97 @@
                 border: 1px solid yellow;
 
                 form {
-                    
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                    padding-top: 20px;
+
                     div {
                         display: flex;
                         flex-direction: column;
+                        position: relative;
+
+                        label {
+                            
+                            // margin: 14px 0px 0px 40px;
+                            top: 15px;
+                            left: 40px;
+                            position: absolute;
+                            transition: .3s ease-in-out;
+                            color: #c5c5c5;
+                        }
+
+                        .formInput {
+                            width: 70%;
+                            padding: 15px 0px 15px 20px;
+                            border-radius: 2em;
+                            border: 1px solid #e0e0e0;
+                            transition: 0.5s;
+
+                        }
+
+                        // .formInput:focus + label {
+                        //     color: #01579b;
+                        //     // margin: -20px 0px 0px 20px;
+                        //     top: -20px;
+                        //     font-size: 12px;
+                        //     transition: 0.5s;
+                        // }
+                        
+                        .formInput:focus + label {
+                            color: #01579b;
+                            // margin: -20px 0px 0px 20px;
+                            top: -20px;
+                            font-size: 12px;
+                            transition: 0.5s;
+                            pointer-events: none;
+                        }
+
+                        .formInput:not(:placeholder-shown) + label {
+                                color: #01579b;
+                                top: -20px;
+                                left: 40px;
+                                font-size: 12px;
+                                transition: 0.5s;
+
+                        }
+                        // .formInput:valid + label {
+                        //     color: #01579b;
+                        //     // margin: -20px 0px 0px 20px;
+                        //     top: -20px;
+                        //     font-size: 12px;
+                        //     transition: 0.5s;
+                        //     pointer-events: none;
+                        // }
+                        // .formInput:invalid + label {
+                        //     color: #01579b;
+                        //     // margin: -20px 0px 0px 20px;
+                        //     top: 20px;
+                        //     left: 40px;
+                        //     font-size: 12px;
+                        //     transition: 0.5s;
+                        //     pointer-events: none;
+                        // }
+
+                        // .formInput:not(:placeholder-shown) + label {
+                        //     margin: -20px 0px 0px 20px;
+                        //     color: #01579b;
+                        // }
+
+                        // .formInput input:focus + .control-label {
+                        //     // top: -50px;
+                        //     margin-top: 50px;
+                        //     font-size: 12px;
+                        //     pointer-events: none;
+                        //     color: red;
+                        // }
+
+                        // .formInput:focus-within + label {
+                        //     top: -5px;
+                        //     font-size: 12px;
+                        //     color: #003333;
+                        //     font-weight: bold;
+                        // }
                     }
                 }
             }
