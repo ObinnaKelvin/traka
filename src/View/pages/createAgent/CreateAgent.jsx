@@ -4,7 +4,7 @@ import NavBar from '../../components/navigation/NavBar';
 import { Link } from 'react-router-dom';
 import { CreateAgentCrumb } from '../../components/breadcrumb/Breadcrumb';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCamera, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faCamera, faEnvelope, faLocationDot, faPhone, faUser } from '@fortawesome/free-solid-svg-icons'
 
 function CreateAgent() {
     const [firstName, setFirstName] = useState('')
@@ -38,7 +38,21 @@ function CreateAgent() {
                     <FontAwesomeIcon icon={faCamera}/>
                 </div>
                 <div className="agent-info">
-    
+                    <div className='agent-detail'>
+                        {firstName} {lastName}
+                    </div>
+                    <div className='agent-detail'>
+                        <span><FontAwesomeIcon icon={faPhone}/></span>
+                        <span><a href='tel:'>{phone}</a></span>
+                    </div>
+                    <div className='agent-detail'>
+                        <span><FontAwesomeIcon icon={faLocationDot}/></span>
+                        <span>{facility}</span>
+                    </div>
+                    <div className='agent-detail break'>
+                        <span><FontAwesomeIcon icon={faEnvelope}/></span>
+                        <span>{email}</span>
+                    </div>
                 </div>
             </div>
             <div className="creatAgent-right">
@@ -57,11 +71,14 @@ function CreateAgent() {
                             <label>Username</label>
                         </div>
                         <div>
+                            <span><em>{username}</em> is available</span>
+                        </div>
+                        <div>
                             <input className = 'formInput' type="text" name='' value={email} onChange={(e)=> setEmail(e.target.value)} placeholder=" "></input>
                             <label>Email</label>
                         </div>
                         <div>
-                            <input className = 'formInput' type="text" name='' value={phone} onChange={(e)=> setPhone(e.target.value)} placeholder=" "></input>
+                            <input className = 'formInput' type="telephone" name='' value={phone} onChange={(e)=> setPhone(e.target.value)} placeholder=" "></input>
                             <label>Phone number</label>
                         </div>
                     </form>
@@ -69,7 +86,11 @@ function CreateAgent() {
                 <div className="form-info">
                     <form action="">
                         <div>
-                            <input className = 'formInput' type="text" name='' value={gender} onChange={(e)=> setGender(e.target.value)} placeholder=" "></input>
+                            <select className = 'formSelect' onChange={(e)=> setGender(e.target.value)} value={gender}>
+                                <option value="" disabled selected>Choose a gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
                             <label>Gender</label>
                         </div>
                         <div>
@@ -88,6 +109,7 @@ function CreateAgent() {
                             <input className = 'formInput' type="text" name='' value={status} onChange={(e)=> setStatus(e.target.value)} placeholder=" "></input>
                             <label>Status</label>
                         </div>
+                        <button>Create</button>
                     </form>
                 </div>
             </div>
