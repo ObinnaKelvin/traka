@@ -17,6 +17,40 @@ function CreateAgent() {
     const [admin, setAdmin] = useState('')
     const [rank, setRank] = useState('')
     const [status, setStatus] = useState('')
+    const [facilityList, setFacilityList] = useState([
+        {
+            name: "Ikeja"
+        },
+        {
+            name: "Ikeja Clinic"
+        },
+        {
+            name: "Idejo"
+        },
+        {
+            name: "LSS"
+        },
+        {
+            name: "FABAC"
+        },
+        {
+            name: "Ikoyi"
+        }
+    ])
+    const [facilityChecked, setFacilityChecked] = useState([])
+
+    //Add/Remove checked item from list
+    const handleFacilityChecked = (event) => {
+        let updatedList = [...facilityChecked];
+        if(event.target.checked) {
+            updatedList = [...facilityChecked, event.target.value];
+        }
+        else {
+            updatedList.splice(facilityChecked.indexOf(event.target.value), 1)
+        }
+
+        setFacilityChecked(updatedList);
+    }
     
   return (
     <div className='createAgent-container'>
@@ -94,8 +128,35 @@ function CreateAgent() {
                             <label>Gender</label>
                         </div>
                         <div>
-                            <input className = 'formInput' type="text" name='' value={facility} onChange={(e)=> setFacility(e.target.value)} placeholder=" "></input>
-                            <label>Facility</label>
+                            {/* <input className = 'formInput' type="text" name='' value={facility} onChange={(e)=> setFacility(e.target.value)} placeholder=" "></input> */}
+                                <div className='facilityWrapper'>
+                                    <div className='facilityItem'>
+                                        <input type='checkbox' onChange={handleFacilityChecked}></input>
+                                        <span>Ikeja</span>
+                                    </div>
+                                    <div className='facilityItem'>
+                                        <input type='checkbox' onChange={handleFacilityChecked}></input>
+                                        <span>Ikeja Clinic</span>
+                                    </div>
+                                    <div className='facilityItem'>
+                                        <input type='checkbox' onChange={handleFacilityChecked}></input>
+                                        <span>Idejo</span>
+                                    </div>
+                                    <div className='facilityItem'>
+                                        <input type='checkbox' onChange={handleFacilityChecked}></input>
+                                        <span>LSS</span>
+                                    </div>
+                                    <div className='facilityItem'>
+                                        <input type='checkbox' onChange={handleFacilityChecked}></input>
+                                        <span>Ikoyi</span>
+                                    </div>
+                                    <div className='facilityItem'>
+                                        <input type='checkbox' onChange={handleFacilityChecked}></input>
+                                        <span>Ligali</span>
+                                    </div>
+
+                                </div>
+                            {/* <label>Facility</label> */}
                         </div>
                         <div>
                             <input className = 'formInput' type="text" name='' value={admin} onChange={(e)=> setAdmin(e.target.value)} placeholder=" "></input>

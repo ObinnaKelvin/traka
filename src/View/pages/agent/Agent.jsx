@@ -34,12 +34,12 @@ const Agent = () => {
                 {
                     list ? 
                     <>
-                        <svg onClick={toggleList} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-align-left">
+                        <svg onClick={toggleList} xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-align-left">
                             <line className='crumblist-active' x1="23" x2="3" y1="6" y2="6"/>
                             <line className='crumblist-active' x1="17" x2="3" y1="12" y2="12"/>
                             <line className='crumblist-active' x1="10" x2="3" y1="18" y2="18"/>
                         </svg>
-                        <svg onClick={toggleList} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-grid">
+                        <svg onClick={toggleList} xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-grid">
                             <rect className='crumbgrid' width="7" height="7" x="3" y="3" rx="1"/>
                             <rect className='crumbgrid' width="7" height="7" x="14" y="3" rx="1"/>
                             <rect className='crumbgrid' width="7" height="7" x="14" y="14" rx="1"/>
@@ -47,12 +47,12 @@ const Agent = () => {
                         </svg>
                     </> : 
                     <>
-                        <svg onClick={toggleList} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-align-left">
+                        <svg onClick={toggleList} xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-align-left">
                             <line className='crumblist' x1="23" x2="3" y1="6" y2="6"/>
                             <line className='crumblist' x1="17" x2="3" y1="12" y2="12"/>
                             <line className='crumblist' x1="10" x2="3" y1="18" y2="18"/>
                         </svg>
-                        <svg onClick={toggleList} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-grid">
+                        <svg onClick={toggleList} xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-grid">
                             <rect className='crumbgrid-active' width="7" height="7" x="3" y="3" rx="1"/>
                             <rect className='crumbgrid-active' width="7" height="7" x="14" y="3" rx="1"/>
                             <rect className='crumbgrid-active' width="7" height="7" x="14" y="14" rx="1"/>
