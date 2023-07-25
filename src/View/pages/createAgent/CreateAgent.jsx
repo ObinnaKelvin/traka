@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import { CreateAgentCrumb } from '../../components/breadcrumb/Breadcrumb';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCamera, faEnvelope, faLocationDot, faPhone, faUser } from '@fortawesome/free-solid-svg-icons'
+import hospital from '../../assets/images/hospital.png';
+import checkedMark from '../../assets/images/checked.png';
 
 function CreateAgent() {
     const [firstName, setFirstName] = useState('')
@@ -128,30 +130,37 @@ function CreateAgent() {
                             <label>Gender</label>
                         </div>
                         <div>
+                            <p>Choose Facility</p>
                             {/* <input className = 'formInput' type="text" name='' value={facility} onChange={(e)=> setFacility(e.target.value)} placeholder=" "></input> */}
                                 <div className='facilityWrapper'>
                                     <div className='facilityItem'>
-                                        <input type='checkbox' onChange={handleFacilityChecked}></input>
+                                        <input value={facilityList[0]} type='checkbox' onChange={handleFacilityChecked}></input>
                                         <span>Ikeja</span>
+                                        <img src={hospital} alt='Hospital icon' />
                                     </div>
                                     <div className='facilityItem'>
                                         <input type='checkbox' onChange={handleFacilityChecked}></input>
+                                        <img src={hospital} alt='Hospital icon' />
                                         <span>Ikeja Clinic</span>
                                     </div>
                                     <div className='facilityItem'>
                                         <input type='checkbox' onChange={handleFacilityChecked}></input>
+                                        <img src={hospital} alt='Hospital icon' />
                                         <span>Idejo</span>
                                     </div>
                                     <div className='facilityItem'>
                                         <input type='checkbox' onChange={handleFacilityChecked}></input>
+                                        <img src={hospital} alt='Hospital icon' />
                                         <span>LSS</span>
                                     </div>
                                     <div className='facilityItem'>
                                         <input type='checkbox' onChange={handleFacilityChecked}></input>
+                                        <img src={hospital} alt='Hospital icon' />
                                         <span>Ikoyi</span>
                                     </div>
                                     <div className='facilityItem'>
                                         <input type='checkbox' onChange={handleFacilityChecked}></input>
+                                        <img src={hospital} alt='Hospital icon' />
                                         <span>Ligali</span>
                                     </div>
 
