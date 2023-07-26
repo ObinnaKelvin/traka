@@ -19,26 +19,27 @@ function CreateAgent() {
     const [admin, setAdmin] = useState('')
     const [rank, setRank] = useState('')
     const [status, setStatus] = useState('')
-    const [facilityList, setFacilityList] = useState([
-        {
-            name: "Ikeja"
-        },
-        {
-            name: "Ikeja Clinic"
-        },
-        {
-            name: "Idejo"
-        },
-        {
-            name: "LSS"
-        },
-        {
-            name: "FABAC"
-        },
-        {
-            name: "Ikoyi"
-        }
-    ])
+    const [facilityList, setFacilityList] = useState([]);
+    // const [facilityList, setFacilityList] = useState([
+    //     {
+    //         name: "Ikeja"
+    //     },
+    //     {
+    //         name: "Ikeja Clinic"
+    //     },
+    //     {
+    //         name: "Idejo"
+    //     },
+    //     {
+    //         name: "LSS"
+    //     },
+    //     {
+    //         name: "FABAC"
+    //     },
+    //     {
+    //         name: "Ikoyi"
+    //     }
+    // ])
     const [facilityChecked, setFacilityChecked] = useState([])
 
     //Add/Remove checked item from list
@@ -52,6 +53,7 @@ function CreateAgent() {
         }
 
         setFacilityChecked(updatedList);
+        console.log(updatedList)
     }
     
   return (
@@ -134,32 +136,38 @@ function CreateAgent() {
                             {/* <input className = 'formInput' type="text" name='' value={facility} onChange={(e)=> setFacility(e.target.value)} placeholder=" "></input> */}
                                 <div className='facilityWrapper'>
                                     <div className='facilityItem'>
-                                        <input value={facilityList[0]} type='checkbox' onChange={handleFacilityChecked}></input>
+                                        <div className="checkbox-holder"></div>
+                                        <input value="Ikeja" type='checkbox' onChange={handleFacilityChecked}></input>
                                         <span>Ikeja</span>
                                         <img src={hospital} alt='Hospital icon' />
                                     </div>
                                     <div className='facilityItem'>
-                                        <input type='checkbox' onChange={handleFacilityChecked}></input>
+                                        <div className="checkbox-holder"></div>
+                                        <input value="Ikeja Clinic" type='checkbox' onChange={handleFacilityChecked}></input>
                                         <span>Ikeja Clinic</span>
                                         <img src={hospital} alt='Hospital icon' />
                                     </div>
                                     <div className='facilityItem'>
-                                        <input type='checkbox' onChange={handleFacilityChecked}></input>
+                                        <div className="checkbox-holder"></div>
+                                        <input value="Idejo" type='checkbox' onChange={handleFacilityChecked}></input>
                                         <span>Idejo</span>
                                         <img src={hospital} alt='Hospital icon' />
                                     </div>
                                     <div className='facilityItem'>
-                                        <input type='checkbox' onChange={handleFacilityChecked}></input>
+                                        <div className="checkbox-holder"></div>
+                                        <input value="LSS" type='checkbox' onChange={handleFacilityChecked}></input>
                                         <span>LSS</span>
                                         <img src={hospital} alt='Hospital icon' />
                                     </div>
                                     <div className='facilityItem'>
-                                        <input type='checkbox' onChange={handleFacilityChecked}></input>
+                                        <div className="checkbox-holder"></div>
+                                        <input value="Ikoyi" type='checkbox' onChange={handleFacilityChecked}></input>
                                         <span>Ikoyi</span>
                                         <img src={hospital} alt='Hospital icon' />
                                     </div>
                                     <div className='facilityItem'>
-                                        <input type='checkbox' onChange={handleFacilityChecked}></input>
+                                        <div className="checkbox-holder"></div>
+                                        <input value="Ligali" type='checkbox' onChange={handleFacilityChecked}></input>
                                         <span>Ligali</span>
                                         <img src={hospital} alt='Hospital icon' />
                                     </div>
@@ -172,11 +180,22 @@ function CreateAgent() {
                             <label>Admin</label>
                         </div>
                         <div>
-                            <input className = 'formInput' type="text" name='' value={rank} onChange={(e)=> setRank(e.target.value)} placeholder=" "></input>
+                            {/* <input className = 'formInput' type="text" name='' value={rank} onChange={(e)=> setRank(e.target.value)} placeholder=" "></input> */}
+                            <select className = 'formSelect' onChange={(e)=> setRank(e.target.value)} value={rank}>
+                                <option value="" disabled selected>Assign a Rank</option>
+                                <option value="Agent">Agent</option>
+                                <option value="Admin">Admin</option>
+                                <option value="Team Lead">Team Lead</option>
+                            </select>
                             <label>Rank</label>
                         </div>
                         <div>
-                            <input className = 'formInput' type="text" name='' value={status} onChange={(e)=> setStatus(e.target.value)} placeholder=" "></input>
+                            {/* <input className = 'formInput' type="text" name='' value={status} onChange={(e)=> setStatus(e.target.value)} placeholder=" "></input> */}
+                            <select className = 'formSelect' onChange={(e)=> setStatus(e.target.value)} value={status}>
+                                {/* <option value="" disabled selected>Assign a Rank</option> */}
+                                <option value="Active">Active</option>
+                                <option value="Inactive">Inactive</option>
+                            </select>
                             <label>Status</label>
                         </div>
                         <button>Create</button>
