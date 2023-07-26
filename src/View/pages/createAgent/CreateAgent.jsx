@@ -140,28 +140,28 @@ function CreateAgent() {
                                     </div>
                                     <div className='facilityItem'>
                                         <input type='checkbox' onChange={handleFacilityChecked}></input>
-                                        <img src={hospital} alt='Hospital icon' />
                                         <span>Ikeja Clinic</span>
+                                        <img src={hospital} alt='Hospital icon' />
                                     </div>
                                     <div className='facilityItem'>
                                         <input type='checkbox' onChange={handleFacilityChecked}></input>
-                                        <img src={hospital} alt='Hospital icon' />
                                         <span>Idejo</span>
+                                        <img src={hospital} alt='Hospital icon' />
                                     </div>
                                     <div className='facilityItem'>
                                         <input type='checkbox' onChange={handleFacilityChecked}></input>
-                                        <img src={hospital} alt='Hospital icon' />
                                         <span>LSS</span>
+                                        <img src={hospital} alt='Hospital icon' />
                                     </div>
                                     <div className='facilityItem'>
                                         <input type='checkbox' onChange={handleFacilityChecked}></input>
-                                        <img src={hospital} alt='Hospital icon' />
                                         <span>Ikoyi</span>
+                                        <img src={hospital} alt='Hospital icon' />
                                     </div>
                                     <div className='facilityItem'>
                                         <input type='checkbox' onChange={handleFacilityChecked}></input>
-                                        <img src={hospital} alt='Hospital icon' />
                                         <span>Ligali</span>
+                                        <img src={hospital} alt='Hospital icon' />
                                     </div>
 
                                 </div>
