@@ -4,4 +4,54 @@
     background-color: #F9F9F9;
     height: max-content;
     width: 97%;
+
+    .slaAdmin-wrapper {
+
+        .slaAdmin-funtion-wrapper {
+            display: flex;
+            justify-content: center;
+            width: 97%;
+            margin-bottom: 20px;
+            color: #01579b;
+            // border: 1px solid black;
+
+            .slaAdmin-category {
+                // border: 1px solid #0288d1;
+                cursor: pointer;
+                height: 50px;
+                width: 200px;
+                border-radius: 2em;
+                margin-right: 10px;
+                background-color: #e1f5fe;
+                font-size: 14px;
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                justify-content: center;
+
+                span:nth-child(2) {
+                    margin-top: 5px;
+                }
+            }
+
+            .slaAdmin-service {
+                // border: 1px solid #0288d1;
+                cursor: pointer;
+                height: 50px;
+                width: 200px;
+                border-radius: 2em;
+                margin-left: 10px;
+                background-color: #e1f5fe;
+                font-size: 14px;
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                justify-content: center;
+
+                span:nth-child(2) {
+                    margin-top: 5px;
+                }
+            }
+        }
+    }
 }

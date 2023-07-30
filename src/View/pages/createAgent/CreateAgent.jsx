@@ -85,7 +85,7 @@ function CreateAgent() {
                     </div>
                     <div className='agent-detail'>
                         <span><FontAwesomeIcon icon={faLocationDot}/></span>
-                        <span>{facility}</span>
+                        <span>{facilityChecked.join(', ')}</span>
                     </div>
                     <div className='agent-detail break'>
                         <span><FontAwesomeIcon icon={faEnvelope}/></span>

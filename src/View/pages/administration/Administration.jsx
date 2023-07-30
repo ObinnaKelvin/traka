@@ -5,6 +5,7 @@ import agent from '../../assets/images/helpdesk.png'
 import key from '../../assets/images/key.png'
 import team from '../../assets/images/team.png'
 import reset from '../../assets/images/reset.png'
+import change from '../../assets/images/change.png'
 import sla from '../../assets/images/sla.png'
 import facility from '../../assets/images/facility.png'
 import department from '../../assets/images/hierarchy.png'
@@ -59,6 +60,12 @@ const Administration = () => {
               <Link className='link' to ="/administration/sla">
                 <div><img className="user-item-icon" src={sla} alt='Agent icon' /></div>
                 <div className="user-item-caption">Service Level Agreement</div>
+              </Link>
+            </div>
+            <div className="user-item">
+              <Link className='link' to ="/administration/sla">
+                <div><img className="user-item-icon" src={change} alt='Agent icon' /></div>
+                <div className="user-item-caption">Password Change</div>
               </Link>
             </div>
           </div>
