@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { CreateAgentButton } from '../../components/addButton/AddButton'
 import AgentTable from './AgentTable';
 import { AgentCard } from '../../components/card/Card';
+import { Search } from 'lucide-react';
 
 const Agent = () => {
 
@@ -79,6 +80,11 @@ const Agent = () => {
                     <rect className='crumbgrid-active' width="7" height="7" x="3" y="14" rx="1"/>
                 </svg> */}
             </div>
+        </div>
+
+        <div className="agent-search">
+            <input type='text' placeholder='Search Agent'/>
+            <Search color='#c5c5c5' className='searchIcon'/>
         </div>
         
         {  list ? 

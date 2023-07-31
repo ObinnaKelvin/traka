@@ -65,6 +65,31 @@
         }
     }
 
+    .agent-search {
+        // border: 1px solid red;
+        width: 300px;
+        height: 40px;
+        margin: 0px auto 20px auto;
+        border-radius: 2em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+
+        input {
+            width: 100%;
+            height: 100%;
+            border-radius: 2em;
+            padding: 5px 20px;
+            border: none;
+        }
+
+        .searchIcon {
+            position: absolute;
+            margin-right: -230px;
+        }
+    }
+
     .agent-wrapper {
 
         display: flex;
