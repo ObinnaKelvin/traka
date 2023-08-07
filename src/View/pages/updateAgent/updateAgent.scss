@@ -1,15 +1,15 @@
 
-.createAgent-container {
+.updateAgent-container {
     padding: 10px;
     background-color: #F9F9F9;
     height: 100%;
     width: 97%;
 
-    .createAgent-breadcrumb-wrapper {
+    .updateAgent-breadcrumb-wrapper {
         width: max-content;
     }
 
-    .createAgent-wrapper {
+    .updateAgent-wrapper {
         display: flex;
         flex-direction: row;
         gap: 20px;
@@ -19,7 +19,7 @@
         width: 97%;
         padding-bottom: 20px;
 
-        .createAgent-left {
+        .updateAgent-left {
             width: 30%;
             // border: 1px solid black;
             display: flex;
@@ -118,7 +118,7 @@
             }
         }
 
-        .createAgent-right {
+        .updateAgent-right {
             width: 70%;
             // border: 1px solid yellow;
             display: flex;

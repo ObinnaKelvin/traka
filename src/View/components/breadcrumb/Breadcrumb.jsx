@@ -19,6 +19,22 @@ export const CreateAgentCrumb = () => {
     )
 }
 
+export const UpdateAgentCrumb = () => {
+    return (
+        <div className="create-agent-breadcrumb">
+                <Link className='agent-link' to={'/administration'}>
+                    <p>Administration</p>
+                </Link>
+                <p>/</p>
+                <Link className='agent-link' to={'/administration/agent'}>
+                    <p>Agent</p>
+                </Link>
+                <p>/</p>
+                <p>Update Agent</p>
+        </div>
+    )
+}
+
 export const SLACrumb = () => {
     return (
         <div className="sla-breadcrumb">

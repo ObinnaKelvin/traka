@@ -13,6 +13,7 @@ import category from '../../assets/images/categorization.png'
 import priority from '../../assets/images/prioritize.png'
 import email from '../../assets/images/email.png'
 import book from '../../assets/images/book.png'
+import notify from '../../assets/images/notification.png'
 import { Link } from 'react-router-dom';
 
 const Administration = () => {
@@ -108,6 +109,12 @@ const Administration = () => {
               <Link className='link' to ="/administration/email-templates">
                 <div><img className="user-item-icon" src={email} alt='Agent icon' /></div>
                 <div className="user-item-caption">Email Templates</div>
+              </Link>
+            </div>
+            <div className="user-item">
+              <Link className='link' to ="/administration/email-templates">
+                <div><img className="user-item-icon" src={notify} alt='Agent icon' /></div>
+                <div className="user-item-caption">Push Notifications</div>
               </Link>
             </div>
           </div>

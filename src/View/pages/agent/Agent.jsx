@@ -95,31 +95,33 @@ const Agent = () => {
             
             :
             <div className="agent-wrapper">
-                    <div className="agent-member">
-                        <div className="agent-member-avatar">
-                            <span>
-                                <FontAwesomeIcon icon={faUser}/>
-                                <div className="agent-member-rank"></div>
-                            </span>
+                    <Link className='agent-link' to={"/administration/agent/:agentId"}>
+                        <div className="agent-member">
+                            <div className="agent-member-avatar">
+                                <span>
+                                    <FontAwesomeIcon icon={faUser}/>
+                                    <div className="agent-member-rank"></div>
+                                </span>
+                            </div>
+                            <div className="agent-member-details">
+                                <div className='agent-member-name'>
+                                    Mary Bassey
+                                </div>
+                                <div className='agent-member-phone'>
+                                    <span><FontAwesomeIcon icon={faPhone}/></span>
+                                    <span><a href='tel:'>+234 812 782 2787</a></span>
+                                </div>
+                                <div className='agent-member-facility'>
+                                    <span><FontAwesomeIcon icon={faLocationDot}/></span>
+                                    <span>Victoria Island - Idejo</span>
+                                </div>
+                                <div className='agent-member-email'>
+                                    <span><FontAwesomeIcon icon={faEnvelope}/></span>
+                                    <span>itsupport@lagoonhospitals.com</span>
+                                </div>
+                            </div>
                         </div>
-                        <div className="agent-member-details">
-                            <div className='agent-member-name'>
-                                Mary Bassey
-                            </div>
-                            <div className='agent-member-phone'>
-                                <span><FontAwesomeIcon icon={faPhone}/></span>
-                                <span><a href='tel:'>+234 812 782 2787</a></span>
-                            </div>
-                            <div className='agent-member-facility'>
-                                <span><FontAwesomeIcon icon={faLocationDot}/></span>
-                                <span>Victoria Island - Idejo</span>
-                            </div>
-                            <div className='agent-member-email'>
-                                <span><FontAwesomeIcon icon={faEnvelope}/></span>
-                                <span>itsupport@lagoonhospitals.com</span>
-                            </div>
-                        </div>
-                    </div>
+                    </Link>
                     <div className="agent-member">
                         <div className="agent-member-avatar">
                             <span>

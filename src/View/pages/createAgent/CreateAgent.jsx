@@ -66,7 +66,7 @@ function CreateAgent() {
 
         <div className="createAgent-wrapper">
 
-            <div className="creatAgent-left">
+            <div className="createAgent-left">
                 <div className="agent-photo">
                     <div className="agent-icon-frame">
                         <FontAwesomeIcon className='agent-icon' icon={faUser}/>
@@ -93,7 +93,7 @@ function CreateAgent() {
                     </div>
                 </div>
             </div>
-            <div className="creatAgent-right">
+            <div className="createAgent-right">
                 <div className="form-info">
                     <form action="">
                         <div>
@@ -119,10 +119,6 @@ function CreateAgent() {
                             <input className = 'formInput' type="telephone" name='' value={phone} onChange={(e)=> setPhone(e.target.value)} placeholder=" "></input>
                             <label>Phone number</label>
                         </div>
-                    </form>
-                </div>
-                <div className="form-info">
-                    <form action="">
                         <div>
                             <select className = 'formSelect' onChange={(e)=> setGender(e.target.value)} value={gender}>
                                 <option value="" disabled selected>Choose a gender</option>
@@ -131,6 +127,10 @@ function CreateAgent() {
                             </select>
                             <label>Gender</label>
                         </div>
+                    </form>
+                </div>
+                <div className="form-info">
+                    <form action="">
                         <div>
                             <p>Choose Facility</p>
                             {/* <input className = 'formInput' type="text" name='' value={facility} onChange={(e)=> setFacility(e.target.value)} placeholder=" "></input> */}
@@ -175,10 +175,10 @@ function CreateAgent() {
                                 </div>
                             {/* <label>Facility</label> */}
                         </div>
-                        <div>
+                        {/* <div>
                             <input className = 'formInput' type="text" name='' value={admin} onChange={(e)=> setAdmin(e.target.value)} placeholder=" "></input>
                             <label>Admin</label>
-                        </div>
+                        </div> */}
                         <div>
                             {/* <input className = 'formInput' type="text" name='' value={rank} onChange={(e)=> setRank(e.target.value)} placeholder=" "></input> */}
                             <select className = 'formSelect' onChange={(e)=> setRank(e.target.value)} value={rank}>
