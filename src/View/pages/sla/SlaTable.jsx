@@ -1,18 +1,41 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import './slaTable.scss';
+import { Link } from 'react-router-dom';
+import { Tag } from 'lucide-react';
 
 function SlaTable() {
+
+    const [showEdit, setShowEdit] = useState(false);
+
+    const handleEdit = (categoryId) => {
+
+    }
 
     // const data = useMemo(() => mockData, [])
     // console.log(data)
   return (
     <div className='sla-table-wrapper'>
+
+        <div className="editPanelWrapper">
+            <div className="editPanelOverlay"></div>
+            <div className="editPanelContainer">
+                <div className="editCategory">
+                    <div className="categoryLabel">
+                        <span>Category</span>
+                        <span><Tag size={13}/></span>
+                    </div>
+                </div>
+                <div className="editServices"></div>
+                <button>Update</button>
+            </div>
+        </div>
         <table>
             <thead>
                 <tr>
                     <th>Category</th>
                     <th>Services Associated</th>
                     <th>SLA</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -21,6 +44,17 @@ function SlaTable() {
                         <td className='table-data' rowSpan={8}>Request ICT Working Tool</td>
                         <td className='table-data'>Request for Laptop</td>
                         <td className='table-data'>4 weeks</td>
+                        <td className='table-data' rowSpan={8}>
+                            <div className='action-wrapper'>
+                                <div className='action-edit' onClick={handleEdit}>
+                                    {/* <Link to={"/administration/agent/:agentId"}> */}
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pen">
+                                            <path className='agentedit' d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
+                                        </svg>
+                                    {/* </Link> */}
+                                </div>
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         {/* <td className='table-data'></td> */}
