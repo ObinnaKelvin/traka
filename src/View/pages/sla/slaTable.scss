@@ -29,7 +29,7 @@
         }
 
         .editPanelContainer {
-            width: 200px;
+            width: 500px;
             height: 200px;
             padding: 10px;
             z-index: 2;
@@ -37,10 +37,12 @@
             background-color: #fff;
             display: flex;
             flex-direction: column;
+            gap: 10px;
 
             .editCategory {
                 display: flex;
                 flex-direction: row;
+                height: max-content;
 
                 .categoryLabel {
                     display: flex;
@@ -49,7 +51,75 @@
                     align-items: center;
                     justify-content: center;
                     gap: 5px;
+                    padding: 5px;
+                    // border-radius: 2em;
+                    border: 1px solid #01579b;
+                    background-color: #01579b;
+                    color: #fff;
+                    // background-color: #e1f5fe;
+
                 }
+
+                .categoryText {
+                    input {
+                        height: 30px;
+                        width: 100%;
+                        padding: 0px 5px;
+                    }
+                }
+            }
+
+            .editServices {
+                display: flex;
+                flex-direction: row;
+
+                .serviceLabel{
+                    display: flex;
+                    flex-direction: row;
+                    font-size: 13px;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 5px;
+                    padding: 5px;
+                    // border-radius: 2em;
+                    border: 1px solid #01579b;
+                    background-color: #01579b;
+                    color: #fff;
+                }
+
+                .serviceSearchText {
+                    input {
+                        height: 30px;
+                        width: 100%;
+                        padding: 0px 5px;
+                    }
+                }
+            }
+
+            .servicePool {
+
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 5px;
+
+                .servicePool-item {
+                    padding: 5px 10px;
+                    border-radius: 2em;
+                    border: 2px solid #e1f5fe;
+                    color: #01579b;
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
+                    font-size: 13px;
+                    width: max-content;
+
+                    span {
+                       padding-top: 3px;
+                       cursor: pointer;
+                    }
+                }
+                
             }
         }
     }

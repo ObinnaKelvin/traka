@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import './slaTable.scss';
 import { Link } from 'react-router-dom';
-import { Tag } from 'lucide-react';
+import { Tag, X } from 'lucide-react';
 
 function SlaTable() {
 
@@ -22,10 +22,40 @@ function SlaTable() {
                 <div className="editCategory">
                     <div className="categoryLabel">
                         <span>Category</span>
-                        <span><Tag size={13}/></span>
+                        <span><Tag size={12}/></span>
+                    </div>
+                    <div className="categoryText">
+                        <input  type='text'/>
                     </div>
                 </div>
-                <div className="editServices"></div>
+                <div className="editServices">
+                    <div className="serviceLabel">
+                        <span>Services</span>
+                        {/* <span><Tag size={12}/></span> */}
+                    </div>
+                    <div className="serviceSearchText">
+                        <input  type='text'/>
+                    </div>
+                    {/* <div className="serviceItems">
+                        <div className="s-item"> Request for Laptop 
+                            <span><X size={13}/></span>
+                        </div>
+                    </div> */}
+                </div>
+                <div className="servicePool">
+                        <div className="servicePool-item"> Request for Laptop 
+                            <span><X size={13}/></span>
+                        </div>
+                        <div className="servicePool-item"> Request for Desktop 
+                            <span><X size={13}/></span>
+                        </div>
+                        <div className="servicePool-item"> Request for Printer 
+                            <span><X size={13}/></span>
+                        </div>
+                        <div className="servicePool-item"> Request for UPS 
+                            <span><X size={13}/></span>
+                        </div>
+                </div>
                 <button>Update</button>
             </div>
         </div>
