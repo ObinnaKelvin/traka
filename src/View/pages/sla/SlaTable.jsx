@@ -1,13 +1,16 @@
 import React, { useMemo, useState } from 'react';
 import './slaTable.scss';
 import { Link } from 'react-router-dom';
-import { Tag, X } from 'lucide-react';
+import { BadgeAlert, Tag, Unplug, X } from 'lucide-react';
 
 function SlaTable() {
 
     const [showEdit, setShowEdit] = useState(false);
 
+    const [editCategory, setEditCategory] = useState('')
+
     const handleEdit = (categoryId) => {
+        setShowEdit(!showEdit)
 
     }
 
@@ -16,31 +19,28 @@ function SlaTable() {
   return (
     <div className='sla-table-wrapper'>
 
-        <div className="editPanelWrapper">
-            <div className="editPanelOverlay"></div>
+        <div className={`editPanelWrapper ${showEdit ? "active" : "inactive"}`}>
+            <div className="editPanelOverlay" onClick={() => setShowEdit(!showEdit)}></div>
             <div className="editPanelContainer">
                 <div className="editCategory">
                     <div className="categoryLabel">
                         <span>Category</span>
-                        <span><Tag size={12}/></span>
+                        <span><Tag size={13}/></span>
                     </div>
                     <div className="categoryText">
-                        <input  type='text'/>
+                        <select className = 'formSelect' onChange={(e)=> setEditCategory(e.target.value)} value={editCategory}>
+                            <option value="Request ICT Working Tools">Request ICT Working Tools</option>
+                            <option value="Core Business Application Services">Core Business Application Services</option>
+                            <option value="Messaging & Collaboration">Messaging & Collaboration</option>
+                            <option value="Domain Administration (AD)">Domain Administration (AD)</option>
+                        </select>
                     </div>
                 </div>
                 <div className="editServices">
                     <div className="serviceLabel">
                         <span>Services</span>
-                        {/* <span><Tag size={12}/></span> */}
+                        <span><Unplug size={17}/></span>
                     </div>
-                    <div className="serviceSearchText">
-                        <input  type='text'/>
-                    </div>
-                    {/* <div className="serviceItems">
-                        <div className="s-item"> Request for Laptop 
-                            <span><X size={13}/></span>
-                        </div>
-                    </div> */}
                 </div>
                 <div className="servicePool">
                         <div className="servicePool-item"> Request for Laptop 
@@ -55,8 +55,42 @@ function SlaTable() {
                         <div className="servicePool-item"> Request for UPS 
                             <span><X size={13}/></span>
                         </div>
+                        <div className="servicePool-item"> Request for Collection Processor User Creation
+                            <span><X size={13}/></span>
+                        </div>
+                        <div className="servicePool-item"> Email box Creation 
+                            <span><X size={13}/></span>
+                        </div>
                 </div>
-                <button>Update</button>
+
+
+                <div className="uncategorized-label-wrapper">
+                    <div className="uncategorizedLabel">
+                        <span>Uncategorized</span>
+                        <span><BadgeAlert size={17}/></span>
+                    </div>
+                </div>
+                <div className="uncategorized">
+                        <div className="uncategorized-item"> Request for Laptop 
+                            <span><X size={13}/></span>
+                        </div>
+                        <div className="uncategorized-item"> Request for Desktop 
+                            <span><X size={13}/></span>
+                        </div>
+                        <div className="uncategorized-item"> Request for Printer 
+                            <span><X size={13}/></span>
+                        </div>
+                        <div className="uncategorized-item"> Request for UPS 
+                            <span><X size={13}/></span>
+                        </div>
+                        <div className="uncategorized-item"> Request for Collection Processor User Creation
+                            <span><X size={13}/></span>
+                        </div>
+                        <div className="uncategorized-item"> Email box Creation 
+                            <span><X size={13}/></span>
+                        </div>
+                </div>
+                <button>Save</button>
             </div>
         </div>
         <table>
@@ -77,11 +111,9 @@ function SlaTable() {
                         <td className='table-data' rowSpan={8}>
                             <div className='action-wrapper'>
                                 <div className='action-edit' onClick={handleEdit}>
-                                    {/* <Link to={"/administration/agent/:agentId"}> */}
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pen">
                                             <path className='agentedit' d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
                                         </svg>
-                                    {/* </Link> */}
                                 </div>
                             </div>
                         </td>
@@ -127,6 +159,15 @@ function SlaTable() {
                         <td className='table-data' rowSpan={7}>Core Business Application Services \ eClinic \ EMR</td>
                         <td className='table-data'>Request for new Enpower/IBS user </td>
                         <td className='table-data'>24Hrs</td>
+                        <td className='table-data' rowSpan={7}>
+                            <div className='action-wrapper'>
+                                <div className='action-edit' onClick={handleEdit}>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pen">
+                                            <path className='agentedit' d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
+                                        </svg>
+                                </div>
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         {/* <td className='table-data'></td> */}
@@ -164,6 +205,15 @@ function SlaTable() {
                         <td className='table-data' rowSpan={4}>Messaging & Collaboration</td>
                         <td className='table-data'>Email box Creation</td>
                         <td className='table-data'>24Hrs</td>
+                        <td className='table-data' rowSpan={4}>
+                            <div className='action-wrapper'>
+                                <div className='action-edit' onClick={handleEdit}>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pen">
+                                            <path className='agentedit' d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
+                                        </svg>
+                                </div>
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         {/* <td className='table-data'></td> */}
@@ -186,6 +236,15 @@ function SlaTable() {
                         <td className='table-data' rowSpan={3}>Domain Administration (AD)</td>
                         <td className='table-data'>Request for Domain User Creation</td>
                         <td className='table-data'>24Hrs</td>
+                        <td className='table-data' rowSpan={3}>
+                            <div className='action-wrapper'>
+                                <div className='action-edit' onClick={handleEdit}>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pen">
+                                            <path className='agentedit' d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
+                                        </svg>
+                                </div>
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         {/* <td className='table-data'></td> */}
