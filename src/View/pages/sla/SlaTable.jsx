@@ -156,8 +156,8 @@ function SlaTable() {
                 </>
                 <>
                     <tr>
-                        <td className='table-data' rowSpan={7}>Core Business Application Services \ eClinic \ EMR</td>
-                        <td className='table-data'>Request for new Enpower/IBS user </td>
+                        <td className='table-data' rowSpan={7}>Core Business Application Services</td>
+                        <td className='table-data'>Request for New User Creation </td>
                         <td className='table-data'>24Hrs</td>
                         <td className='table-data' rowSpan={7}>
                             <div className='action-wrapper'>
@@ -171,7 +171,7 @@ function SlaTable() {
                     </tr>
                     <tr>
                         {/* <td className='table-data'></td> */}
-                        <td className='table-data'>Request for priviledge change (IBS/Enpower)</td>
+                        <td className='table-data'>Request for priviledge change</td>
                         <td className='table-data'>24Hrs</td>
                     </tr>
                     <tr>
@@ -191,12 +191,12 @@ function SlaTable() {
                     </tr>
                     <tr>
                         {/* <td className='table-data'></td> */}
-                        <td className='table-data'>Request for Collection Processor User Creation</td>
+                        <td className='table-data'>Request for User Creation</td>
                         <td className='table-data'>24Hrs</td>
                     </tr>
                     <tr>
                         {/* <td className='table-data'></td> */}
-                        <td className='table-data'>Request for priviledge change (Collection Processor)</td>
+                        <td className='table-data'>Request for Priviledge change</td>
                         <td className='table-data'>24Hrs</td>
                     </tr>
                 </>

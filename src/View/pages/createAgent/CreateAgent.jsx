@@ -18,6 +18,7 @@ function CreateAgent() {
     const [facility, setFacility] = useState('')
     const [admin, setAdmin] = useState('')
     const [rank, setRank] = useState('')
+    const [role, setRole] = useState('')
     const [status, setStatus] = useState('')
     const [facilityList, setFacilityList] = useState([]);
     // const [facilityList, setFacilityList] = useState([
@@ -180,7 +181,6 @@ function CreateAgent() {
                             <label>Admin</label>
                         </div> */}
                         <div>
-                            {/* <input className = 'formInput' type="text" name='' value={rank} onChange={(e)=> setRank(e.target.value)} placeholder=" "></input> */}
                             <select className = 'formSelect' onChange={(e)=> setRank(e.target.value)} value={rank}>
                                 <option value="" disabled selected>Assign a Rank</option>
                                 <option value="Agent">Agent</option>
@@ -188,6 +188,14 @@ function CreateAgent() {
                                 <option value="Team Lead">Team Lead</option>
                             </select>
                             <label>Rank</label>
+                        </div>
+                        <div>
+                            <select className = 'formSelect' onChange={(e)=> setRole(e.target.value)} value={role}>
+                                <option value="" disabled selected>Assign a Role</option>
+                                <option value="Agent">Application Support</option>
+                                <option value="Admin">Infrastructure Support</option>
+                            </select>
+                            <label>Role</label>
                         </div>
                         <div>
                             {/* <input className = 'formInput' type="text" name='' value={status} onChange={(e)=> setStatus(e.target.value)} placeholder=" "></input> */}

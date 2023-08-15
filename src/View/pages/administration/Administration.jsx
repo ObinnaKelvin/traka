@@ -10,7 +10,9 @@ import sla from '../../assets/images/sla.png'
 import facility from '../../assets/images/facility.png'
 import department from '../../assets/images/hierarchy.png'
 import category from '../../assets/images/categorization.png'
+import service from '../../assets/images/service.png'
 import priority from '../../assets/images/prioritize.png'
+import role from '../../assets/images/role.png'
 import email from '../../assets/images/email.png'
 import book from '../../assets/images/book.png'
 import notify from '../../assets/images/notification.png'
@@ -94,9 +96,21 @@ const Administration = () => {
               </Link>
             </div>
             <div className="user-item">
+              <Link className='link' to ="/administration/service">
+                <div><img className="user-item-icon" src={service} alt='Agent icon' /></div>
+                <div className="user-item-caption">Service</div>
+              </Link>
+            </div>
+            <div className="user-item">
               <Link className='link' to ="/administration/priority">
                 <div><img className="user-item-icon" src={priority} alt='Agent icon' /></div>
                 <div className="user-item-caption">Priority</div>
+              </Link>
+            </div>
+            <div className="user-item">
+              <Link className='link' to ="/administration/role">
+                <div><img className="user-item-icon" src={role} alt='Agent icon' /></div>
+                <div className="user-item-caption">Role</div>
               </Link>
             </div>
           </div>

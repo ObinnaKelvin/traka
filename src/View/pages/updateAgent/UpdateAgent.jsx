@@ -16,6 +16,7 @@ function UpdateAgent() {
     const [facility, setFacility] = useState('')
     const [admin, setAdmin] = useState('')
     const [rank, setRank] = useState('')
+    const [role, setRole] = useState('')
     const [status, setStatus] = useState('')
     const [facilityList, setFacilityList] = useState([]);
     const [facilityChecked, setFacilityChecked] = useState([])
@@ -168,6 +169,14 @@ function UpdateAgent() {
                             <option value="Team Lead">Team Lead</option>
                         </select>
                         <label>Rank</label>
+                    </div>
+                    <div>
+                        <select className = 'formSelect' onChange={(e)=> setRole(e.target.value)} value={role}>
+                            <option value="" disabled selected>Assign a Role</option>
+                            <option value="Agent">Application Support</option>
+                            <option value="Admin">Infrastructure Support</option>
+                        </select>
+                        <label>Role</label>
                     </div>
                     <div>
                         {/* <input className = 'formInput' type="text" name='' value={status} onChange={(e)=> setStatus(e.target.value)} placeholder=" "></input> */}

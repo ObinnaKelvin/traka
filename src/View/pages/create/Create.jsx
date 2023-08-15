@@ -282,10 +282,16 @@ const Create = ({createdStatus}) => {
                 <label>Reported by</label>
                 <input className = 'formInput' type="text" name='' value={reportedBy} disabled></input>
               </p>
-              {/* <p>
-                <label>Responsibility</label>
-                <input type="text" name='' value={issue} onChange={(e)=> setIssue(e.target.value)}></input>
-              </p> */}
+              <p>   {/*Just Added*/}
+                <label>Assigned to</label>
+                  <select className = 'formSelect' onChange={(e)=>setStatus(e.target.value)} value={status}>
+                  {
+                    statusData.map((data) => (
+                      <option value={data.name}>{data.name}</option>
+                    ))
+                  }
+                  </select>
+              </p>
               <p>
                 <label>Status</label>
                   <select className = 'formSelect' onChange={(e)=>setStatus(e.target.value)} value={status}>
@@ -313,6 +319,38 @@ const Create = ({createdStatus}) => {
                 }
               </p>
 
+            </section>
+
+            <section>  {/*Just Added*/}
+              <p>
+                <label>SLA Category</label>
+                  <select className = 'formSelect' onChange={(e)=>setPriority(e.target.value)} value={priority}>
+                    <option>--Select One--</option>
+                    {
+                      priorityData.map((data) => (
+                        <option value={data.name}>{data.name}</option>
+                      ))
+                    }
+                  </select>
+              </p>
+              <p>
+                <label>SLA Service</label>
+                  <select className = 'formSelect' onChange={(e)=>setPriority(e.target.value)} value={priority}>
+                    <option>--Select One--</option>
+                    {
+                      priorityData.map((data) => (
+                        <option value={data.name}>{data.name}</option>
+                      ))
+                    }
+                  </select>
+              </p>
+              <p>
+                <label>SLA Due Date</label>
+                <input className = 'formInput' type="text" name='' value={`${format(new Date(), "dd/MM/yyyy HH:mm:ss")}` }  onChange={(e)=> setClosedDate(e.target.value)} disabled></input>
+              </p>
+            </section>
+            <section>  {/*Just Added*/}
+              
             </section>
             
             <section>

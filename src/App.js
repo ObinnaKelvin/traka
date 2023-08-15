@@ -28,6 +28,8 @@ import EmailTemplate from "./View/pages/emailTemplate/EmailTemplate.jsx";
 import Article from "./View/pages/article/Article.jsx";
 import CreateAgent from "./View/pages/createAgent/CreateAgent.jsx";
 import UpdateAgent from "./View/pages/updateAgent/UpdateAgent.jsx";
+import Role from "./View/pages/role/Role.jsx";
+import Service from "./View/pages/service/Service.jsx";
 
 
 function App() {
@@ -83,6 +85,8 @@ function App() {
           <Route path='/administration/department' element={<Department />}/>
           <Route path='/administration/category' element={<Category />}/>
           <Route path='/administration/priority' element={<Priority />}/>
+          <Route path='/administration/role' element={<Role />}/>
+          <Route path='/administration/service' element={<Service />}/>
           <Route path='/administration/email-templates' element={<EmailTemplate />}/>
           <Route path='/administration/articles' element={<Article />}/>
           <Route path='/administration/agent/create-agent' element={<CreateAgent />}/>
